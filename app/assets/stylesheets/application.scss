@@ -18,10 +18,12 @@
 // base
 $border-radius-base: 0px;
 // navbar
+$navbar-height: 70px;
 $navbar-default-color: #222;
 $navbar-default-bg: #fff;
 $navbar-default-border: transparent;
 $navbar-margin-bottom: 10px;
+//$nav-link-padding: 5px 30px 15px 15px;
 //$navbar-default-link-hover-color
 //$navbar-default-link-color
 //$navbar-default-link-active-color
@@ -39,19 +41,6 @@ body {
 }
 
 .navbar {
-	background-color: #eee;
-}
-
-.headline-links {
-	display: inline-block;
-}
-
-.logo {
-	font-size: 2.5em;
-	.wenshan {
-		color: #3e2;
-	}
-	.meishi {
-		color: #f22;
-	}
+	//background-color: #eee;
+	font-size: 1.5em;
 }
