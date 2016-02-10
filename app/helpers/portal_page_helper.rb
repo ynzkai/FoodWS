@@ -1,0 +1,2 @@
+module PortalPageHelper
+end

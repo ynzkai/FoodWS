@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * require_tree .
+ * require_self
+ */
+
+// bootstrap variables
+// base
+$border-radius-base: 0px;
+// navbar
+$navbar-default-color: #222;
+$navbar-default-bg: #fff;
+$navbar-default-border: transparent;
+$navbar-margin-bottom: 10px;
+//$navbar-default-link-hover-color
+//$navbar-default-link-color
+//$navbar-default-link-active-color
+//$navbar-default-link-active-bg
+//$navbar-default-toggle-hover-bg
+//$navbar-default-toggle-icon-bar-bg
+//$navbar-default-toggle-border-color
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	font-family: 'Microsoft YaHei';
+}
+
+.navbar {
+	background-color: #eee;
+}
+
+.headline-links {
+	display: inline-block;
+}
+
+.logo {
+	font-size: 2.5em;
+	.wenshan {
+		color: #3e2;
+	}
+	.meishi {
+		color: #f22;
+	}
+}
