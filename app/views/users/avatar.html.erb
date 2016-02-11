@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+	  <%= image_tag current_user.avatar.url(:medium), alt: "avatar" %>
+        
+      <%= simple_form_for current_user, url: avatar_path, method: :patch do |f| %>
+        <%= f.input :avatar, as: :file %>
+
+        <div class="form-actions">
+          <%= f.button :submit, "上传头像" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+    </div>
+  </div>
+</div>

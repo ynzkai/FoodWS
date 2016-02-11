@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  root 'portal_page#home'
+
+  devise_for :users
+
   resources :comments
   resources :posts
   resources :topics
   resources :comments
-  root 'portal_page#home'
 
-  devise_for :users
+  resources :users, only: [:index, :show]
+  get "avatar" => "users#avatar"
+  patch "avatar" => "users#update"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
