@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user! # test
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  # handle cancancan raised exception
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   protected
 
   def configure_permitted_parameters

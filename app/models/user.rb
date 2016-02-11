@@ -6,13 +6,17 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: {maximum: 10};
 
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
+  # user roles
   ROLES = ["guest", "common_user", "merchant", "bbs_admin", "admin", "supper_admin"]
 
   ROLES.each do |role|
     define_method("#{role}?") { role == ROLES[self.role] }
   end
 
-  has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  # paperclip settings
+  has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#" }, default_url: "/images/:style/avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 end

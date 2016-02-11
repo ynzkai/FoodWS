@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @topics = Topic.all
     @posts = Post.all
   end
 

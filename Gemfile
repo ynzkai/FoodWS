@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'simditor'
+gem "paperclip", "~> 4.3"
 
 gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.20'
