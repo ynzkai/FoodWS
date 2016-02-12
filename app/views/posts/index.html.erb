@@ -1,52 +1,42 @@
-<p id="notice"><%= notice %></p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="row">
-	    <div class="col-md-12">
-		  <ul class="nav nav-pills">
-		    <li role="presentation" class="active"><a href="#">全部话题</a></li>
-		    <% @topics.each do |topic| %>
-			  <li role="presentation"><a href="#"><%= topic.name %></a></li>
-		    <% end %>
-		  </ul>
-		</div>
-
-		<div class="col-md-12">
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Topic</th>
-                <th>User</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-          
-            <tbody>
-              <% @posts.each do |post| %>
-                <tr>
-                  <td><%= post.title %></td>
-                  <td><%= post.topic.name %></td>
-                  <td><%= post.user.username %></td>
-                  <td><%= post.created_at.to_s %></td>
-                  <td><%= link_to 'Show', post %></td>
-                  <td><%= link_to 'Edit', edit_post_path(post) %></td>
-                  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          
-          <br>
-          <%= link_to 'New Post', new_post_path %>
-		</div>
-      </div>
-	</div>
-
-	<div class="col-md-4">
-	  <!-- any thin in right sidebar -->
-	</div>
+<% content_for :sidebar do %>
+  <div class="panel panel-default">
+    <div class="panel-heading">发布帖子</div>
+    <div class="panel-body">
+      <%= link_to '发布帖子', new_post_path, class: "btn btn-danger" %>
+    </div>
   </div>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#">全部话题</a></li>
+    <% @topics.each do |topic| %>
+      <li role="presentation"><a href="#"><%= topic.name %></a></li>
+    <% end %>
+  </ul>
 </div>
+
+<ul class="list-group">
+  <% @posts.each do |post| %>
+    <li class="list-group-item">
+      <div class="media">
+        <div class="media-left">
+		  <%= link_to user_path(current_user) do %>
+            <%= image_tag post.user.avatar.url(:thumb), class: "avatar" %>
+		  <% end %>
+        </div>
+        <div class="media-body">
+		  <h4 class="media-heading"><%= link_to post.title, post %></h4>
+		  <span class="label label-default"><%= post.topic.name %></span>
+          <%= post.user.username %>
+		  <span>发表于<time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
+          <%= link_to('Edit', edit_post_path(post)) if can :update %>
+          <%= link_to('Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }) if can :update %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

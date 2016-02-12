@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require timeago/jquery.timeago
 //= require bootstrap-sprockets
+//= require simditor
 //= require turbolinks
 //= require_tree .
+
+jQuery(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});

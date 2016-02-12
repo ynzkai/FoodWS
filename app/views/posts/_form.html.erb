@@ -2,12 +2,31 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.association :topic %>
+    <%= f.association :topic, label: "话题" %>
+    <%= f.input :title, label: "标题" %>
+    <%= f.input :content, label: "内容" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, (@post.new_record? ? "发布" : "编辑")%>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var editor = new Simditor({
+    textarea: $('#post_content'),
+    toolbar: [ 'title','bold','italic','underline','strikethrough','color','|',
+             'ol','ul','blockquote','code','table','link','image','hr','|',
+             'indent','outdent' ],
+    pasteImage: true,
+    defaultImage: '<%= image_path "upload-loading.png" %>',
+    upload: {
+              url: 'images',
+              params: null,
+              fileKey: 'upload_file',
+              connectionCount: 3,
+              leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+            }
+    });
+</script>
+

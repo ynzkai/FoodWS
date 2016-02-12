@@ -35,6 +35,9 @@ $navbar-margin-bottom: 10px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "simditor";
+
+@import "posts";
 
 body {
 	font-family: 'Microsoft YaHei';

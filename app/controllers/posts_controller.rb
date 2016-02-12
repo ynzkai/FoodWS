@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   # because cancancan already autoload @post, so comment the following line
   # before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  layout "post_layout"
+
   # cancancan
   load_and_authorize_resource
 
@@ -11,6 +13,7 @@ class PostsController < ApplicationController
   def index
     @topics = Topic.all
     @posts = Post.all
+
   end
 
   # GET /posts/1
