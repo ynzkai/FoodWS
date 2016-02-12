@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :pictures, as: :imageable
 
   # user roles
   ROLES = ["guest", "common_user", "merchant", "bbs_admin", "admin", "supper_admin"]

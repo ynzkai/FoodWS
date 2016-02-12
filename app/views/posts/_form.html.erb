@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.association :topic, label: "话题" %>
     <%= f.input :title, label: "标题" %>
-    <%= f.input :content, label: "内容" %>
+    <%= f.input :content, label: "内容", autofocus: true %>
   </div>
 
   <div class="form-actions">
@@ -21,11 +21,11 @@
     pasteImage: true,
     defaultImage: '<%= image_path "upload-loading.png" %>',
     upload: {
-              url: 'images',
+              url: 'pictures',
               params: null,
-              fileKey: 'upload_file',
+              fileKey: 'image_file',
               connectionCount: 3,
-              leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+              leaveConfirm: '图片已上传,确定要离开吗?'
             }
     });
 </script>
