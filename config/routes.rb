@@ -3,17 +3,21 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :comments
-  resources :posts
-  resources :topics
-  resources :comments
+  resources :topics do
+    resources :posts
+  end
+
+  resources :posts do
+    resources :comments
+  end
 
   resources :users, only: [:index, :show]
   get "avatar" => "users#avatar"
   patch "avatar" => "users#update"
 
-  post "posts/pictures" => "posts#pictures"
-  post "posts/:id/pictures" => "posts#pictures"
+  post "posts/post_pictures" => "posts#pictures"
+  post "posts/:id/post_pictures" => "posts#pictures"
+  post "post_pictures" => "posts#pictures"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

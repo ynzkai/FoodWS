@@ -1,24 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @post.title %>
+    <%= @post.topic.name %>
+    <%= @post.user.username %>
+    <span>发表于<time class="timeago" datetime="<%= @post.created_at.to_formatted_s(:iso8601) %>"></time></span>
+  </div>
+  <div class="panel-body">
+    <%= raw @post.content %>
+    <%= link_to('Edit', edit_post_path(@post)) if can? :update, @post %> |
+  </div>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= raw @post.content %>
-</p>
+<ul class="list-group">
+  <% @post.comments.each do |comment| %>
+    <li class="list-group-item">
+      <div class="media">
+        <div class="media-left">
+          <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "media-object"), user_path(comment.user) %>
+        </div>
+        <div class="media-body">
+		  <p>
+		  <span><%= comment.user.username %></span>
+		  <span>回复于<time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
+		  </p>
+          <p class="media-heading"><%= comment.content %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
 
-<p>
-  <strong>Topic:</strong>
-  <%= @post.topic %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if user_signed_in? %>
+  <%= render partial: "comments/form", locals: {post: @post} %>
+<% elsif %>
+  <%= link_to '登录', new_user_session_path %>
+<% end %>

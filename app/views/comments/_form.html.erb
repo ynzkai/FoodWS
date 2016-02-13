@@ -1,10 +1,9 @@
-<%= simple_form_for(@comment) do |f| %>
+<%= simple_form_for([post, post.comments.build]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :content %>
-    <%= f.association :user %>
-    <%= f.association :post %>
+    <%= f.input :post_id, as: :hidden, wrapper: false, value: post.id %>
   </div>
 
   <div class="form-actions">
