@@ -2,11 +2,23 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :content %>
+    <%= f.input :content, label: "回复内容", autofocus: true %>
     <%= f.input :post_id, as: :hidden, wrapper: false, value: post.id %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'data-no-turbolink' => true %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var editor = new Simditor({
+    textarea: $('#comment_content'),
+    toolbar: [ 'title','bold','italic','underline','strikethrough','color','|',
+             'ol','ul','blockquote','code','table','link' ],
+    pasteImage: false,
+    defaultImage: '<%= image_path "upload-loading.png" %>',
+    upload: null
+    });
+</script>
+

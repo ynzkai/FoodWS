@@ -9,17 +9,17 @@
 <% end %>
 
 
-<p id="notice"><%= notice %></p>
-<div class="page-header">
-  <ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="#">全部话题</a></li>
-    <% @topics.each do |topic| %>
-      <li role="presentation"><a href="#"><%= topic.name %></a></li>
-    <% end %>
-  </ul>
-</div>
-
 <ul class="list-group">
+  <li class="list-group-item active">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#">全部话题</a></li>
+      <% @topics.each do |topic| %>
+        <li role="presentation"><a href="#"><%= topic.name %></a></li>
+      <% end %>
+    </ul>
+  </li>
+
+
   <% @posts.each do |post| %>
     <li class="list-group-item">
       <div class="media">
@@ -29,13 +29,24 @@
 		  <% end %>
         </div>
         <div class="media-body">
-		  <h4 class="media-heading"><%= link_to post.title, post %></h4>
-		  <span class="label label-default"><%= post.topic.name %></span>
-          <%= post.user.username %>
-		  <span>发表于<time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
-          <%= link_to('Edit', edit_post_path(post)) if can? :update, post %>
-          <%= link_to('Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }) if can? :update, post %>
+		  <p class="media-heading post-list-head"><%= link_to post.title, post %></p>
+		  <p class="post-list-info">
+		    <span class="topic"><%= post.topic.name %></span>
+             • <%= post.user.username %>
+		     • <span>发表于 <time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
+			 <% unless post.comments.last.nil? %> <!-- 这里有性能问题 -->
+			 • <%= post.comments.last.user.username %>
+		     • <span>回复于 <time class="timeago" datetime="<%= post.comments.last.created_at.to_formatted_s(:iso8601) %>"></time></span>
+			 <% end %>
+             • <%= link_to('Edit', edit_post_path(post)) if can? :update, post %>
+             <%= link_to('Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }) if can? :update, post %>
+		  </p>
         </div>
+		<div class="media-right">
+		  <div class="replys-box">
+		    <p>回复</p><p class="number"><%= post.comments.size %></p>
+		  </div>
+		</div>
       </div>
     </li>
   <% end %>

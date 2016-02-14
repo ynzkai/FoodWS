@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
+
+<% content_for :sidebar do %>
+  <div class="panel panel-default">
+    <div class="panel-heading">发布帖子</div>
+    <div class="panel-body">
+      <%= link_to '发布帖子', new_post_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+<% end %>
+
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -18,14 +27,14 @@
     <li class="list-group-item">
       <div class="media">
         <div class="media-left">
-          <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "media-object"), user_path(comment.user) %>
+          <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
         </div>
         <div class="media-body">
 		  <p>
 		  <span><%= comment.user.username %></span>
 		  <span>回复于<time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
 		  </p>
-          <p class="media-heading"><%= comment.content %></p>
+          <p class="media-heading"><%= raw comment.content %></p>
         </div>
       </div>
     </li>
