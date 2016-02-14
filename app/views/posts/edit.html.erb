@@ -1,6 +1,12 @@
-<h1>Editing Post</h1>
+<% content_for :pathlink do %>
+  <ol class="breadcrumb">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">社区</a></li>
+    <li><a href="#">话题</a></li>
+    <li class="active">编辑帖子</li>
+  </ol>
+<% end %>
+
+<%= render 'sidebar' %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>

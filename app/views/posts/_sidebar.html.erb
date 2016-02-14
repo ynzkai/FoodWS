@@ -1,0 +1,23 @@
+<% content_for :sidebar do %>
+  <ul class="list-group">
+    <li class="list-group-item active">发布帖子</li>
+    <li class="list-group-item">
+      <%= link_to '发布帖子', new_post_path, class: "btn btn-danger" %>
+	</li>
+  </ul>
+
+  <ul class="list-group">
+    <li class="list-group-item active">社区信息</li>
+    <li class="list-group-item">社区人数: <span><%= User.count %> 人</span></li>
+    <li class="list-group-item">帖子数: <span><%= Post.count %> 帖</span></li>
+    <li class="list-group-item">回帖数: <span><%= Comment.count %> 条</span></li>
+  </ul>
+
+  <ul class="list-group">
+    <li class="list-group-item active">友情链接</li>
+	<li class="list-group-item"><a href="#">文山美食</a></li>
+	<li class="list-group-item"><a href="#">文山美食</a></li>
+	<li class="list-group-item"><a href="#">文山美食</a></li>
+  </ul>
+<% end %>
+

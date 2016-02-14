@@ -1,9 +1,11 @@
-<h1>New Post</h1>
+<% content_for :pathlink do %>
+  <ol class="breadcrumb">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">社区</a></li>
+    <li class="active">发布帖子</li>
+  </ol>
+<% end %>
+
+<%= render 'sidebar' %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', posts_path %>
-
-<% content_for :sidebar do %>
-  this is sidebar
-<% end %>

@@ -19,10 +19,11 @@
 $border-radius-base: 0px;
 //$border-radius-large: 0px;
 //$border-radius-small: 0px;
-$grid-gutter-width: 30px;
-$brand-primary: darken(#f28bca, 6.5%); //link color
 $gray-base: #000;
+$text-color: #333;
 $gray-lighter: lighten($gray-base, 75.5%); 
+$grid-gutter-width: 30px;
+$brand-primary: darken(#f28bca, 2.5%); //link color
 // navbar
 $navbar-height: 50px;
 $navbar-default-color: #222;
@@ -47,11 +48,13 @@ $container-large-desktop: (1000px + $grid-gutter-width);
 //$container-md
 $panel-default-heading-bg: lighten($brand-primary, 25%);
 $panel-default-border: lighten($brand-primary, 20%);
-$list-group-active-bg: $panel-default-heading-bg;
 $list-group-border: $panel-default-border;
+$list-group-active-bg: $panel-default-heading-bg;
 $list-group-active-border: $list-group-border;
-//$list-group-active-text-color: #0f0;
-
+$list-group-active-color: $gray-lighter;
+$list-group-active-text-color: $gray-lighter;
+$breadcrumb-bg: transparent;
+$breadcrumb-active-color: $gray-lighter;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -106,6 +109,10 @@ body {
 	}
 }
 
+.new_comment .simditor {
+	height: 200px !important;
+}
+
 .post {
 	padding: 30px 0;
 	.panel-body {
@@ -114,10 +121,15 @@ body {
 		}
 	}
 	.post-list-head {
-		font-size: $font-size-large;
-		margin-bottom: 10px;
+		font-size: $font-size-base;
+		margin: 0;
+		padding-bottom: 10px;
+		a {
+			color: $text-color;
+		}
 	}
 	.post-list-info {
+		margin: 0;
 		font-size: $font-size-small;
 		color: $gray-lighter;
 		.topic {
@@ -144,9 +156,9 @@ body {
 			padding: 0;
 			&.number {
 				height: 30px;
-				color: $gray-light;
-				font-size: 1.5em;
-				line-height: 1.5em;
+				color: $gray-lighter;
+				font-size: 1.2em;
+				line-height: 1.2em;
 			}
 		}
 	}

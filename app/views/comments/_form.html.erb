@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :content, label: "回复内容", autofocus: true %>
+    <%= f.input :content, label: "回复内容", autofocus: true, required: false %>
     <%= f.input :post_id, as: :hidden, wrapper: false, value: post.id %>
   </div>
 

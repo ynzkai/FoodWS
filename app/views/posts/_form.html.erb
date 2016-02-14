@@ -1,10 +1,16 @@
 <%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
+  <%#= f.error_notification %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">请选择一个话题,输入帖子标题</div>
+  <div class="panel-body">
+    <%= f.association :topic, label: false %>
+    <%= f.input :title, placeholder: "输入标题", label: false %>
+  </div>
+</div>
 
   <div class="form-inputs">
-    <%= f.association :topic, label: "话题" %>
-    <%= f.input :title, label: "标题" %>
-    <%= f.input :content, label: "内容", autofocus: true %>
+    <%= f.input :content, label: false, autofocus: true %>
   </div>
 
   <div class="form-actions">
@@ -16,8 +22,7 @@
   var editor = new Simditor({
     textarea: $('#post_content'),
     toolbar: [ 'title','bold','italic','underline','strikethrough','color','|',
-             'ol','ul','blockquote','code','table','link','image','hr','|',
-             'indent','outdent' ],
+             'ol','ul','blockquote','code','table','link','image','hr' ],
     pasteImage: true,
     defaultImage: '<%= image_path "upload-loading.png" %>',
     upload: {
