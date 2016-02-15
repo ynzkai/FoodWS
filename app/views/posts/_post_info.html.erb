@@ -1,0 +1,11 @@
+<span class="topic"><%= post.topic.name %></span>
+ • <%= post.user.username %>
+ • <span>发表于 <time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
+ <% unless post.comments.last.nil? %> <!-- 这里有性能问题 -->
+ • <%= post.comments.last.user.username %>
+ • <span>回复于 <time class="timeago" datetime="<%= post.comments.last.created_at.to_formatted_s(:iso8601) %>"></time></span>
+ • <% end %>
+ <span>浏览 <%= post.display_count %>次</span>
+ • <%= link_to('编辑', edit_post_path(post)) if can? :update, post %>
+ <%= link_to('删除', post, method: :delete, data: { confirm: '你确定要删除?' }) if can? :destroy, post %>
+

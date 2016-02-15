@@ -12,9 +12,13 @@
 <ul class="list-group">
   <li class="list-group-item active">
     <ul class="nav nav-pills">
-      <li role="presentation" class="active"><a href="#">全部话题</a></li>
+	  <li role="presentation" class="<%= "active" if @active_topic.nil? %>" >
+		<%= link_to "全部话题", posts_path %>
+	  </li>
       <% @topics.each do |topic| %>
-        <li role="presentation"><a href="#"><%= topic.name %></a></li>
+		<li role="presentation" class="<%= "active" if ! @active_topic.nil? and @active_topic.id == topic.id %>">
+		<%= link_to topic.name, "/topic/#{topic.id}/posts" %>
+		</li>
       <% end %>
     </ul>
   </li>
@@ -33,15 +37,7 @@
 			<%= link_to post.title, post, 'data-no-turbolink' => true %>
 		  </p>
 		  <p class="post-list-info">
-		    <span class="topic"><%= post.topic.name %></span>
-             • <%= post.user.username %>
-		     • <span>发表于 <time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
-			 <% unless post.comments.last.nil? %> <!-- 这里有性能问题 -->
-			 • <%= post.comments.last.user.username %>
-		     • <span>回复于 <time class="timeago" datetime="<%= post.comments.last.created_at.to_formatted_s(:iso8601) %>"></time></span>
-			 <% end %>
-             • <%= link_to('编辑', edit_post_path(post)) if can? :update, post %>
-             <%= link_to('删除', post, method: :delete, data: { confirm: '你确定要删除?' }) if can? :destroy, post %>
+		    <%= render partial: 'post_info', locals: {post: post} %>
 		  </p>
         </div>
 		<div class="media-right">

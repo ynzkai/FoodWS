@@ -12,13 +12,20 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @topics = Topic.all
-    @posts = Post.all
 
+    if params[:topic_id].nil?
+      @posts = Post.all
+    elsif
+      @active_topic = Topic.find(params[:topic_id])
+      @posts = @active_topic.posts
+    end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post.display_count += 1
+    @post.save
   end
 
   # GET /posts/new

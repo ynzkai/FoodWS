@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  get "topic/:topic_id/posts" => "posts#index"
 
   resources :users, only: [:index, :show]
   get "avatar" => "users#avatar"
