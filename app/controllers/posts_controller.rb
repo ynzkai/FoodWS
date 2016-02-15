@@ -29,6 +29,16 @@ class PostsController < ApplicationController
     @post.display_count += 1
     @post.save
     @comments = Comment.where(post_id: @post.id).paginate(:page => params[:page])
+
+    # calculate reply number
+    page = params[:page].to_i
+    page = (page <= 0) ? 0 : (page - 1)
+    @floor = page * Comment.per_page
+
+    respond_to do |format|
+      format.html { render :show }
+      format.js
+    end
   end
 
   # GET /posts/new

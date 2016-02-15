@@ -25,7 +25,6 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     current_user.comments.create comment_params
-
     redirect_to post_url(comment_params[:post_id]), notice: 'Comment was successfully created.'
   end
 

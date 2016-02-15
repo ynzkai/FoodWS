@@ -30,32 +30,15 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">共有 <%= @comments.count %> 条回复</div>
-  <ul class="list-group">
-    <% @comments.each do |comment| %>
-      <li class="list-group-item">
-        <div class="media">
-          <div class="media-left">
-            <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
-          </div>
-          <div class="media-body">
-  		  <p class="comment-show-title">
-  		    <span><%= comment.user.username %></span>
-  		    <span> 回复于 <time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
-  		  </p>
-            <p class="media-heading"><%= raw comment.content %></p>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<%= will_paginate @comments, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
-
+<%= render "comments/comments" %>
 
 <% if user_signed_in? %>
   <%= render partial: "comments/form", locals: {post: @post} %>
 <% elsif %>
   <%= link_to '登录', new_user_session_path %>
 <% end %>
+
+<!-- translate time to words -->
+<script type="text/javascript">
+  jQuery("time.timeago").timeago();
+</script>

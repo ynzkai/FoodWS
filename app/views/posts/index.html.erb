@@ -51,3 +51,8 @@
   </ul>
 </div>
 <%= will_paginate @posts, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
+
+<!-- translate time to words -->
+<script type="text/javascript">
+  jQuery("time.timeago").timeago();
+</script>

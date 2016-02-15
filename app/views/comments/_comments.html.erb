@@ -1,0 +1,27 @@
+<div id="comments">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">共有 <%= @comments.count %> 条回复</div>
+    <ul class="list-group" id="comments">
+	  <% if @comments.count == 0 %>
+	    <li class="list-group-item text-center">快来抢沙发啊~</li>
+	  <% end %>
+  	  <%= render @comments %>
+    </ul>
+  </div>
+  
+  <%= will_paginate @comments, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
+  <!-- ajax page link, have some problem -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+  	  $(".pagination a").click(function() {
+	    $.get($(this).attr("href"), null, function(response, status, xhr) { }, "jsonp");
+  	    return false;
+  	  });
+    });
+
+    jQuery("time.timeago").timeago();
+  </script>
+  
+
+</div>
