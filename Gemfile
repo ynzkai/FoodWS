@@ -1,8 +1,10 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'

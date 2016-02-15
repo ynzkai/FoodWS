@@ -1,16 +1,16 @@
 
 <% content_for :pathlink do %>
   <ol class="breadcrumb">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">社区</a></li>
+	<li><%= link_to "首页", root_path %></li>
+    <li><%= link_to "社区", posts_path %></li>
     <li class="active">全部话题</li>
   </ol>
 <% end %>
 
 <%= render 'sidebar' %>
 
-<ul class="list-group">
-  <li class="list-group-item active">
+<div class="panel panel-default">
+  <div class="panel-heading">
     <ul class="nav nav-pills">
 	  <li role="presentation" class="<%= "active" if @active_topic.nil? %>" >
 		<%= link_to "全部话题", posts_path %>
@@ -21,31 +21,33 @@
 		</li>
       <% end %>
     </ul>
-  </li>
+  </div>
 
-
-  <% @posts.each do |post| %>
-    <li class="list-group-item">
-      <div class="media">
-        <div class="media-left">
-		  <%= link_to user_path(post.user) do %>
-            <%= image_tag post.user.avatar.url(:thumb), class: "avatar" %>
-		  <% end %>
+  <ul class="list-group">
+    <% @posts.each do |post| %>
+      <li class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+  		  <%= link_to user_path(post.user) do %>
+              <%= image_tag post.user.avatar.url(:thumb), class: "avatar" %>
+  		  <% end %>
+          </div>
+          <div class="media-body">
+  		  <p class="media-heading post-list-head">
+  			<%= link_to post.title, post, 'data-no-turbolink' => true %>
+  		  </p>
+  		  <p class="post-list-info">
+  		    <%= render partial: 'post_info', locals: {post: post} %>
+  		  </p>
+          </div>
+  		<div class="media-right">
+  		  <div class="replys-box">
+  		    <p>回复</p><p class="number"><%= post.comments.size %></p>
+  		  </div>
+  		</div>
         </div>
-        <div class="media-body">
-		  <p class="media-heading post-list-head">
-			<%= link_to post.title, post, 'data-no-turbolink' => true %>
-		  </p>
-		  <p class="post-list-info">
-		    <%= render partial: 'post_info', locals: {post: post} %>
-		  </p>
-        </div>
-		<div class="media-right">
-		  <div class="replys-box">
-		    <p>回复</p><p class="number"><%= post.comments.size %></p>
-		  </div>
-		</div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<%= will_paginate @posts, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>

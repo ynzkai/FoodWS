@@ -14,10 +14,12 @@ class PostsController < ApplicationController
     @topics = Topic.all
 
     if params[:topic_id].nil?
-      @posts = Post.all
+      @posts = Post.paginate(:page => params[:page])
     elsif
       @active_topic = Topic.find(params[:topic_id])
-      @posts = @active_topic.posts
+      # @posts = @active_topic.posts
+      @posts = Post.where(topic_id: @active_topic.id).paginate(:page => params[:page])
+
     end
   end
 
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
   def show
     @post.display_count += 1
     @post.save
+    @comments = Comment.where(post_id: @post.id).paginate(:page => params[:page])
   end
 
   # GET /posts/new

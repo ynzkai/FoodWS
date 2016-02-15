@@ -2,10 +2,10 @@
   <%#= f.error_notification %>
 
 <div class="panel panel-default">
-  <div class="panel-heading">请选择一个话题,输入帖子标题</div>
+  <div class="panel-heading">请选择一个话题，并输入帖子标题.</div>
   <div class="panel-body">
     <%= f.association :topic, label: false %>
-    <%= f.input :title, placeholder: "输入标题", label: false %>
+    <%= f.input :title, placeholder: "标题", label: false %>
   </div>
 </div>
 
@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, (@post.new_record? ? "发布" : "编辑")%>
+    <%= f.button :submit, (@post.new_record? ? "发 布" : "编 辑")%>
   </div>
 <% end %>
 

@@ -48,6 +48,7 @@ $container-large-desktop: (1000px + $grid-gutter-width);
 //$container-md
 $panel-default-heading-bg: lighten($brand-primary, 25%);
 $panel-default-border: lighten($brand-primary, 20%);
+$panel-default-text: $gray-lighter;
 $list-group-border: $panel-default-border;
 $list-group-active-bg: $panel-default-heading-bg;
 $list-group-active-border: $list-group-border;
@@ -55,6 +56,10 @@ $list-group-active-color: $gray-lighter;
 $list-group-active-text-color: $gray-lighter;
 $breadcrumb-bg: transparent;
 $breadcrumb-active-color: $gray-lighter;
+$pagination-active-bg: $panel-default-border;
+$pagination-hover-bg: $pagination-active-bg;
+$pagination-active-color: $brand-primary;
+$pagination-active-border: #ddd;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

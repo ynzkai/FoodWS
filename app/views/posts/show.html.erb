@@ -1,9 +1,9 @@
 <% content_for :pathlink do %>
   <ol class="breadcrumb">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">社区</a></li>
-	<li><a href="#">全部话题</a></li>
-    <li class="active">显示帖子</li>
+	<li><%= link_to "首页", root_path %></li>
+    <li><%= link_to "社区", posts_path %></li>
+    <li><%= link_to @post.topic.name, "/topic/#{@post.topic.id}/posts" %></li>
+    <li class="active">浏览帖子</li>
   </ol>
 <% end %>
 
@@ -30,24 +30,29 @@
   </div>
 </div>
 
-<ul class="list-group">
-  <% @post.comments.each do |comment| %>
-    <li class="list-group-item">
-      <div class="media">
-        <div class="media-left">
-          <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
+<div class="panel panel-default">
+  <div class="panel-heading">共有 <%= @comments.count %> 条回复</div>
+  <ul class="list-group">
+    <% @comments.each do |comment| %>
+      <li class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+            <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
+          </div>
+          <div class="media-body">
+  		  <p class="comment-show-title">
+  		    <span><%= comment.user.username %></span>
+  		    <span> 回复于 <time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
+  		  </p>
+            <p class="media-heading"><%= raw comment.content %></p>
+          </div>
         </div>
-        <div class="media-body">
-		  <p class="comment-show-title">
-		    <span><%= comment.user.username %></span>
-		    <span> 回复于 <time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
-		  </p>
-          <p class="media-heading"><%= raw comment.content %></p>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<%= will_paginate @comments, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
+
 
 <% if user_signed_in? %>
   <%= render partial: "comments/form", locals: {post: @post} %>

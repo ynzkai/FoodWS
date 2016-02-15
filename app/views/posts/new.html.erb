@@ -1,7 +1,7 @@
 <% content_for :pathlink do %>
   <ol class="breadcrumb">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">社区</a></li>
+	<li><%= link_to "首页", root_path %></li>
+    <li><%= link_to "社区", posts_path %></li>
     <li class="active">发布帖子</li>
   </ol>
 <% end %>
