@@ -1,6 +1,7 @@
 class Ability
   include CanCan::Ability
 
+
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     
@@ -9,10 +10,16 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
 
     # all role methods are defined User model
+    # ["guest", "common_user", "merchant", "bbs_admin", "admin", "supper_admin"]
     if user.supper_admin?
       can :manage, :all
     elsif user.bbs_admin?
       can :crud, [Post, Comment]
+    elsif user.common_user?
+      can :read, :all
+      can [:create, :pictures], [Post, Comment]
+      can [:update, :destroy], Post, :user_id => user.id 
+      can [:update, :destroy], Comment, :user_id => user.id 
     else
       can :read, :all
     end

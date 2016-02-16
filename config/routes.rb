@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments
+    resources :comments, shallow: true
   end
   get "topic/:topic_id/posts" => "posts#index"
 

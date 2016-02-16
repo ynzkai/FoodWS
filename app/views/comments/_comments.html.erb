@@ -11,7 +11,7 @@
   </div>
   
   <%= will_paginate @comments, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
-  <!-- ajax page link, have some problem -->
+  <!-- ajax page link -->
   <script type="text/javascript">
     $(document).ready(function() {
   	  $(".pagination a").click(function() {

@@ -80,9 +80,16 @@ body {
 	background-color: #f8f8f8;
 }
 
+.headline {
+	height: 20px;
+	background-color: $navbar-default-bg;
+	a, p {
+		padding-right: 15px;
+	}
+}
+
 .navbar {
 	font-size: 1.2em;
-	margin-top: 20px;
 	margin-bottom: 0px;
 	.login {
 		font-size: 0.833em;
@@ -107,7 +114,7 @@ body {
 	}
 	.uploading, .loading {
 		max-width: 100% !important;
-		max-height: 20px !important;
+		height: auto;
 	}
 	.simditor-toolbar {
 		border-color: lighten($brand-primary, 20%) !important;

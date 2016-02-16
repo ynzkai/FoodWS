@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  # because cancancan already autoload @post, so comment the following line
+  # before_action :set_comment, only: [:show, :edit, :update, :destroy]
+
+  # cancancan
+  load_and_authorize_resource
+
 
   # GET /comments
   # GET /comments.json
@@ -47,7 +52,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -8,9 +8,15 @@
       <span><%= comment.user.username %></span>
       <span> 回复于 <time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
   	 • <span><%= @floor += 1 %>楼</span>
+	 <% if can? :destroy, comment %>
+	   <span class="pull-right">
+		 <%= link_to comment_path(comment), method: :delete do %>
+		   <span class="glyphicon glyphicon-trash"></span>
+		 <% end %>
+	   </span>
+	 <% end %>
     </p>
       <p class="media-heading"><%= raw comment.content %></p>
     </div>
   </div>
 </li>
-
