@@ -28,8 +28,12 @@
       <li class="list-group-item">
         <div class="media">
           <div class="media-left">
-  		  <%= link_to user_path(post.user) do %>
+		  <% unless post.user.nil? %>
+  		    <%= link_to user_path(post.user) do %>
               <%= image_tag post.user.avatar.url(:thumb), class: "avatar" %>
+  		    <% end %>
+		  <% else %>
+            <%= image_tag "/images/thumb/avatar.png", class: "avatar" %>
   		  <% end %>
           </div>
           <div class="media-body">

@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: {maximum: 10}, uniqueness: true;
 
-  has_many :posts
-  has_many :comments
-  has_many :pictures, as: :imageable
+  has_many :posts, dependent: :nullify
+  has_many :comments, dependent: :nullify
+  has_many :pictures, as: :imageable, dependent: :destroy
 
   # user roles
   ROLES = ["guest", "common_user", "merchant", "bbs_admin", "admin", "supper_admin"]

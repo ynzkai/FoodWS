@@ -23,7 +23,7 @@ $gray-base: #000;
 $text-color: #333;
 $gray-lighter: lighten($gray-base, 75.5%); 
 $grid-gutter-width: 30px;
-$brand-primary: darken(#f28bca, 5.5%); //link color
+$brand-primary: darken(#ff8bba, 5.5%); //link color
 $link-color: $brand-primary;
 // navbar
 $navbar-height: 50px;
@@ -50,12 +50,12 @@ $dropdown-link-color: $brand-primary;
 //$navbar-default-toggle-border-color
 $container-large-desktop: (1000px + $grid-gutter-width);
 //$container-md
-$panel-default-heading-bg: #f0f0f0;
+$panel-default-heading-bg: #e8e8e8;
 $panel-default-border: $panel-default-heading-bg;
 $panel-default-text: #999;//lighten($panel-default-heading-bg, 20%);
 $list-group-border: $panel-default-border;
 $list-group-active-bg: $panel-default-heading-bg;
-$list-group-active-border: $list-group-border;
+$list-group-active-border: darken($list-group-border, 8%);
 $list-group-active-color: $gray-lighter;
 $list-group-active-text-color: $gray-lighter;
 $breadcrumb-bg: transparent;

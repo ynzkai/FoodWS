@@ -1,8 +1,8 @@
-<span class="topic"><%= post.topic.name %></span>
- • <%= post.user.username %>
+<span class="topic"><%= post.topic ? post.topic.name : "未知" %></span>
+ • <%= post.user ? post.user.username : "用户已注销" %>
  • <span>发表于 <time class="timeago" datetime="<%= post.created_at.to_formatted_s(:iso8601) %>"></time></span>
  <% unless post.comments.last.nil? %> <!-- 这里有性能问题 -->
- • <%= post.comments.last.user.username %>
+ • <%= post.comments.last.user ? post.comments.last.user.username : "用户已注销" %>
  • <span>回复于 <time class="timeago" datetime="<%= post.comments.last.created_at.to_formatted_s(:iso8601) %>"></time></span>
  • <% end %>
  <span>浏览 <%= post.display_count %>次</span>

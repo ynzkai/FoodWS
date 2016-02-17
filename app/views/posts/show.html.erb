@@ -35,7 +35,7 @@
 <% if user_signed_in? %>
   <%= render partial: "comments/form", locals: {post: @post} %>
 <% elsif %>
-  <%= link_to '登录', new_user_session_path %>
+  <p class="text-center">登录后可以参与回复. <%= link_to '登录', new_user_session_path %></p>
 <% end %>
 
 <!-- translate time to words -->
