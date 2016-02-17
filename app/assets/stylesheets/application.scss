@@ -28,7 +28,7 @@ $link-color: $brand-primary;
 // navbar
 $navbar-height: 50px;
 $navbar-default-color: #222;
-$navbar-default-bg: #fff;
+$navbar-default-bg: rgba(255,255,255,.9);
 $navbar-default-border: transparent;
 $navbar-margin-bottom: 10px;
 //$nav-link-padding: 5px 30px 15px 15px;
@@ -88,7 +88,18 @@ $pagination-active-border: #ddd;
 
 body {
 	font-family: 'Microsoft YaHei';
-	background-color: #fff;
+	background: image-url("back.jpeg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	padding-top: 70px;
+}
+
+.fixed-top {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 999;
 }
 
 .headline {
@@ -105,11 +116,11 @@ body {
 	.login {
 		font-size: 0.833em;
 	}
-	border-bottom: 1px solid #f2f2f2;
+	border-bottom: 1px solid darken($navbar-default-bg, 8%);
 }
 
 .panel {
-	@include box-shadow(0, 6px, 4px, -4px, #ccc); 
+	@include box-shadow(0, 5px, 3px, -3px, #999); 
 }
 
 .logo {
@@ -123,8 +134,8 @@ body {
 
 .simditor {
 	overflow: hidden;
-	border-color: $panel-default-heading-bg !important;
-	@include box-shadow(0, 6px, 4px, -4px, #ccc); 
+	border-color: $panel-default-border !important;
+	@include box-shadow(0, 5px, 3px, -3px, #999); 
 	img {
 		max-width: 100% !important;
 	}
@@ -133,7 +144,7 @@ body {
 		height: auto;
 	}
 	.simditor-toolbar {
-		border-color: $panel-default-heading-bg !important;
+		border-color: $panel-default-border !important;
 	}
 }
 
