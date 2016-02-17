@@ -1,11 +1,15 @@
 <li class="list-group-item">
   <div class="media">
     <div class="media-left">
-      <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
+	  <% unless comment.user.nil? %>
+        <%= link_to image_tag(comment.user.avatar.url(:thumb), alt: "头像", class: "avatar media-object"), user_path(comment.user) %>
+	  <% else %>
+         <%= image_tag "thumb/avatar.png", class: "avatar" %>
+  	  <% end %>
     </div>
     <div class="media-body">
     <p class="comment-show-title">
-      <span><%= comment.user.username %></span>
+      <span><%= comment.user ? comment.user.username : "用户已注销" %></span>
       <span> 回复于 <time class="timeago" datetime="<%= comment.created_at.to_formatted_s(:iso8601) %>"></time></span>
   	 • <span><%= @floor += 1 %>楼</span>
 	 <% if can? :destroy, comment %>

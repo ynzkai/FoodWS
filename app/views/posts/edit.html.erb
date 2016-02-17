@@ -2,7 +2,9 @@
   <ol class="breadcrumb">
 	<li><%= link_to "首页", root_path %></li>
     <li><%= link_to "社区", posts_path %></li>
-    <li><%= link_to @post.topic.name, "/topic/#{@post.topic.id}/posts" %></li>
+	<% unless @post.topic.nil? %>
+      <li><%= link_to @post.topic.name, "/topic/#{@post.topic.id}/posts" %></li>
+	<% end %>
     <li class="active">编辑帖子</li>
   </ol>
 <% end %>
