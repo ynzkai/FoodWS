@@ -20,10 +20,10 @@ class Ability
       can [:create, :pictures], [Post, Comment]
 
       can [:update, :destroy], Post do |post|
-        !post.user_id.nil? and post.user_id = user.id
+        !post.user_id.nil? and post.user_id == user.id
       end
       can [:update, :destroy], Comment do |post|
-        !post.user_id.nil? and post.user_id = user.id
+        !post.user_id.nil? and post.user_id == user.id
       end
 
     else
