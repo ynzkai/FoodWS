@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
 
   # will_paginate
-  self.per_page = 3
+  self.per_page = 30
 end

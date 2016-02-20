@@ -1,0 +1,11 @@
+category: has_many shops, has_many foods
+
+area: has_many shops, has_many foods, has_many addresses
+
+address: belongs_to shop, belongs_to food, belongs_to area, has_one address
+
+shop: has_many foods, belongs_to area, has_many pictures, has_one address
+
+food: belongs_to shop, belongs_to area, has_many pictures
+
+
