@@ -88,10 +88,13 @@ $pagination-active-border: #ddd;
 
 body {
 	font-family: 'Microsoft YaHei';
+	padding-top: 70px;
+}
+
+.backpic {
 	background: image-url("back.jpeg");
 	background-size: 100%;
 	background-repeat: no-repeat;
-	padding-top: 70px;
 }
 
 .fixed-top {

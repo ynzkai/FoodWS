@@ -3,7 +3,7 @@ class CreateShops < ActiveRecord::Migration
     create_table :shops do |t|
       t.string :name
       t.text :description
-      t.integer :state
+      t.integer :state, default: 0
       t.references :area, index: true, foreign_key: true
       t.references :category, index: true, foreign_key: true
 

@@ -7,6 +7,10 @@ class ShopsController < ApplicationController
     @shops = Shop.all
   end
 
+  def owner_shops
+    @shops = current_user.shops
+  end
+
   # GET /shops/1
   # GET /shops/1.json
   def show
@@ -24,11 +28,12 @@ class ShopsController < ApplicationController
   # POST /shops
   # POST /shops.json
   def create
-    @shop = Shop.new(shop_params)
+    # @shop = Shop.new(shop_params)
+    @shop = current_user.shops.new(shop_params)
 
     respond_to do |format|
       if @shop.save
-        format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
+        format.html { redirect_to owner_shops_url, notice: 'Shop was successfully created.' }
         format.json { render :show, status: :created, location: @shop }
       else
         format.html { render :new }
@@ -69,6 +74,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id)
+      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id, :telephone, :contact, :user_id)
     end
 end

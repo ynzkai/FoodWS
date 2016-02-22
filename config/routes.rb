@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :foods
-  resources :shops
   root 'portal_page#home'
 
   devise_for :users
@@ -21,6 +19,15 @@ Rails.application.routes.draw do
   post "posts/post_pictures" => "posts#pictures"
   post "posts/:id/post_pictures" => "posts#pictures"
   post "post_pictures" => "posts#pictures"
+
+  resources :shops do
+    resources :foods, shallow: true
+  end
+
+  get "foods" => "foods#index"
+
+  get "owner_shops" => "shops#owner_shops"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

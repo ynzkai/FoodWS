@@ -2,11 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :state %>
-    <%= f.association :area %>
-    <%= f.association :category %>
+    <%= f.association :area, label: "选择市县" %>
+    <%= f.association :category, label: "选择店铺类型" %>
+    <%= f.input :name, label: "店铺名称" %>
+    <%= f.input :description, label: "店铺说明" %>
+    <%= f.input :telephone, label: "联系电话" %>
+    <%= f.input :contact, label: "其他联系方式（如 QQ、微信等）" %>
   </div>
 
   <div class="form-actions">
