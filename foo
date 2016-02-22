@@ -1,4 +1,4 @@
-category: has_many shops, has_many foods
+category: has_many shops
 
 area: has_many shops, has_many foods, has_many addresses
 

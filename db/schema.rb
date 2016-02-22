@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215020731) do
+ActiveRecord::Schema.define(version: 20160222054534) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.integer  "addressable_id",   limit: 4
+    t.string   "addressable_type", limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.integer  "kind",       limit: 4,   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -23,6 +44,17 @@ ActiveRecord::Schema.define(version: 20160215020731) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "foods", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "state",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "shop_id",     limit: 4
+  end
+
+  add_index "foods", ["shop_id"], name: "index_foods_on_shop_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "imageable_id",       limit: 4
@@ -48,6 +80,19 @@ ActiveRecord::Schema.define(version: 20160215020731) do
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "shops", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "state",       limit: 4
+    t.integer  "area_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "shops", ["area_id"], name: "index_shops_on_area_id", using: :btree
+  add_index "shops", ["category_id"], name: "index_shops_on_category_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -81,6 +126,9 @@ ActiveRecord::Schema.define(version: 20160215020731) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "foods", "shops"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
+  add_foreign_key "shops", "areas"
+  add_foreign_key "shops", "categories"
 end

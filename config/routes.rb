@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :foods
+  resources :shops
   root 'portal_page#home'
 
   devise_for :users
