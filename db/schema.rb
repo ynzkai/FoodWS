@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222092654) do
+ActiveRecord::Schema.define(version: 20160222093015) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -48,13 +48,15 @@ ActiveRecord::Schema.define(version: 20160222092654) do
   create_table "foods", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4,     default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "state",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "shop_id",     limit: 4
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "foods", ["shop_id"], name: "index_foods_on_shop_id", using: :btree
+  add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "imageable_id",       limit: 4
@@ -84,11 +86,11 @@ ActiveRecord::Schema.define(version: 20160222092654) do
   create_table "shops", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4,     default: 0
+    t.integer  "state",       limit: 4
     t.integer  "area_id",     limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "telephone",   limit: 255
     t.string   "contact",     limit: 255
     t.integer  "user_id",     limit: 4
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 20160222092654) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "foods", "shops"
+  add_foreign_key "foods", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "shops", "areas"

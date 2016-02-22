@@ -22,11 +22,17 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :foods, shallow: true
+    member do
+      get "uppics" => "shops#uppics"
+      post "uppics" => "shops#upload_picture"
+    end
+    collection do
+      get "owner" => "shops#owner"
+    end
   end
 
-  get "foods" => "foods#index"
 
-  get "owner_shops" => "shops#owner_shops"
+  get "foods" => "foods#index"
 
 
 

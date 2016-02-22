@@ -1,0 +1,14 @@
+<h1>upload pictures</h1>
+
+<%= simple_form_for(@shop, url: uppics_shop_path(@shop), html: {id: :upload_shop_pics, "data-type" => :json}, method: :post, remote: true, :authenticity_token => true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :image, as: :file, label: "选择上传图片" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "上传" %>
+  </div>
+<% end %>
+

@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:upload_picture, :uppics, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /shops
   # GET /shops.json
@@ -7,7 +8,7 @@ class ShopsController < ApplicationController
     @shops = Shop.all
   end
 
-  def owner_shops
+  def owner
     @shops = current_user.shops
   end
 
@@ -29,11 +30,13 @@ class ShopsController < ApplicationController
   # POST /shops.json
   def create
     # @shop = Shop.new(shop_params)
-    @shop = current_user.shops.new(shop_params)
+    ps = shop_params
+    ps[:state] = 0
+    @shop = current_user.shops.new(ps)
 
     respond_to do |format|
       if @shop.save
-        format.html { redirect_to owner_shops_url, notice: 'Shop was successfully created.' }
+        format.html { redirect_to uppics_shop_url(@shop), notice: 'Shop was successfully created.' }
         format.json { render :show, status: :created, location: @shop }
       else
         format.html { render :new }
@@ -63,6 +66,19 @@ class ShopsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to shops_url, notice: 'Shop was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /shops/1/uppics
+  def uppics
+  end
+  # POST /shops/1/upload_picture
+  def upload_picture
+    picture = @shop.pictures.create image: params[:shop][:image]
+    if picture
+      render json: {pic_path: picture.image.url(:small)}, status: 200
+    else
+      render json: { }, status: 400
     end
   end
 
