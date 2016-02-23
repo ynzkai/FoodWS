@@ -1,6 +1,9 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:upload_picture, :uppics, :show, :edit, :update, :destroy]
+  before_action :set_face, only: [:uppics]
   before_action :authenticate_user!, except: [:index, :show]
+
+  layout "shops_layout"
 
   # GET /shops
   # GET /shops.json
@@ -74,11 +77,14 @@ class ShopsController < ApplicationController
   end
   # POST /shops/1/upload_picture
   def upload_picture
-    picture = @shop.pictures.create image: params[:shop][:image]
-    if picture
-      render json: {pic_path: picture.image.url(:small)}, status: 200
+    @picture = @shop.pictures.create image: params[:shop][:image]
+
+    if @picture
+      render "upload_picture"
+      # render json: {pic_path: @picture.image.url(:small), message: "upload success"}
     else
-      render json: { }, status: 400
+      render js: "alert(upload failed)"
+      # render json: {message: "upload fail"}
     end
   end
 
@@ -88,8 +94,15 @@ class ShopsController < ApplicationController
       @shop = Shop.find(params[:id])
     end
 
+    def set_face
+      if @shop.face.nil?
+        @shop.face = @shop.pictures.first
+        @shop.save
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id, :telephone, :contact, :user_id)
+      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id, :telephone, :contact, :user_id, :face_id)
     end
 end

@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :set_picture, only: [:destroy]
+
   def create
     # picture = current_user.pictures.build image: params[:image_file]
     # if picture.save
@@ -17,5 +19,13 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture.destroy
+    render json: {message: "成功删除图片"}
+  end
+
+  protected
+
+  def set_picture
+    @picture = Picture.find params[:id]
   end
 end

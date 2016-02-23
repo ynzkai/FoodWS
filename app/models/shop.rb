@@ -7,4 +7,5 @@ class Shop < ActiveRecord::Base
   has_many :foods, dependent: :nullify
   has_one :address, as: :addressable
   has_many :pictures, as: :imageable, dependent: :destroy
+  belongs_to :face, class_name: "Picture", foreign_key: :face_id, dependent: :destroy
 end

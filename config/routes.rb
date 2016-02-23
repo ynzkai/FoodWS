@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   get "foods" => "foods#index"
 
+  resources :pictures, only: [:destroy]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

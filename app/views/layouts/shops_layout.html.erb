@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foodws</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'shared/headbar' %>
+
+<div class="container shops">
+  <div class="row">
+	<div class="col-sm-12">
+	  <%= yield %>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+

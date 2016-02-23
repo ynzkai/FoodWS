@@ -1,0 +1,12 @@
+<div class="col-md-3 image">
+  <div class="thumbnail">
+	<% if face_id == pic.id %>
+	  <span class="face-flag">封面</span>
+	<% end %>
+	<%= image_tag pic.image.url(:small) %>
+  </div>
+  <div class="caption">
+    <a href="#" class="btn btn-primary" role="button">设为封面</a>
+	<a href="/pictures/<%= pic.id %>" class="btn btn-default del-pic" data-remote role="button">删除</a>
+  </div>
+</div>
