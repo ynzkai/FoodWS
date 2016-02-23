@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     member do
       get "uppics" => "shops#uppics"
       post "uppics" => "shops#upload_picture"
+      post "face" => "shops#face"
     end
     collection do
       get "owner" => "shops#owner"

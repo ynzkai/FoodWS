@@ -22,7 +22,8 @@ $(document).ready(function() {
     });
   });
 
-  $("a.del-pic").on("click", function(e) {
+  //delete picture
+  $(".shops").on("click", "a.del-pic", function(e) {
     event.preventDefault();
 	var _this = $(this);
 	$.ajax({
@@ -34,6 +35,26 @@ $(document).ready(function() {
 	  },
 	  error: function(xhr, status, err) {
 		alert('删除图片失败');
+	  }
+	});
+	return false;
+  });
+
+  //set face picture
+  $(".shops").on("click", "a.set-face", function(e) {
+    event.preventDefault();
+	var _this = $(this);
+	$.ajax({
+	  url: $(this).prop('href'),
+	  type: 'POST',
+	  dataType: 'json',
+	  data: {"picture_id": $(this).data("picid")},
+	  success: function(data, status, xhr) {
+		$(".face-flag").remove();
+		_this.parent().parent().children(".thumbnail").before($('<span class="face-flag">封面</span>'));
+	  },
+	  error: function(xhr, status, err) {
+		alert(status + ' 出现错误\n' + err);
 	  }
 	});
 	return false;

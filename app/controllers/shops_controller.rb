@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:upload_picture, :uppics, :show, :edit, :update, :destroy]
-  before_action :set_face, only: [:uppics]
+  before_action :set_shop, only: [:face, :upload_picture, :uppics, :show, :edit, :update, :destroy]
+  before_action :set_face, only: [:uppics, :upload_picture]
   before_action :authenticate_user!, except: [:index, :show]
 
   layout "shops_layout"
@@ -8,7 +8,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    @shops = Shop.where "state != 0"
   end
 
   def owner
@@ -33,9 +33,8 @@ class ShopsController < ApplicationController
   # POST /shops.json
   def create
     # @shop = Shop.new(shop_params)
-    ps = shop_params
-    ps[:state] = 0
-    @shop = current_user.shops.new(ps)
+    # state 0 means shop is invaliable
+    @shop = current_user.shops.new(shop_params.merge state: 0)
 
     respond_to do |format|
       if @shop.save
@@ -80,11 +79,21 @@ class ShopsController < ApplicationController
     @picture = @shop.pictures.create image: params[:shop][:image]
 
     if @picture
+      # state 1 means shop is avaliable now
+      @shop.update_attributes state: 1
       render "upload_picture"
       # render json: {pic_path: @picture.image.url(:small), message: "upload success"}
     else
       render js: "alert(upload failed)"
       # render json: {message: "upload fail"}
+    end
+  end
+
+  # POST /shops/1/face
+  def face
+    @shop.face_id = params[:picture_id]
+    if @shop.save
+      render json: {message: "设置成功"}
     end
   end
 
