@@ -23,7 +23,6 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
-    @shop.build_address
   end
 
   # GET /shops/1/edit
@@ -33,7 +32,6 @@ class ShopsController < ApplicationController
   # POST /shops
   # POST /shops.json
   def create
-    # @shop = Shop.new(shop_params)
     # state 0 means shop is invaliable
     @shop = current_user.shops.new(shop_params.merge state: 0)
 
@@ -113,6 +111,7 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id, :telephone, :contact, :user_id, :face_id)
+      params.require(:shop).permit(:name, :description, :state, :area_id, :category_id,
+                                   :telephone, :contact, :user_id, :face_id, :address_attributes => [:name])
     end
 end

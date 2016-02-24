@@ -6,7 +6,7 @@
     <%= f.association :category, label: "选择店铺类型" %>
     <%= f.input :name, label: "店铺名称" %>
 
-	<%= f.simple_fields_for @shop.address, :address_attributes do |fd| %>
+	<%= f.simple_fields_for :address_attributes, @shop.build_address do |fd| %>
 	  <%= fd.input :name, label: "地址" %>
 	<% end %>
 
