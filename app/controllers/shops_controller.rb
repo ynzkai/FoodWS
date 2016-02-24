@@ -23,6 +23,7 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
+    @shop.build_address
   end
 
   # GET /shops/1/edit

@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223061820) do
+ActiveRecord::Schema.define(version: 20160224085732) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.integer  "addressable_id",   limit: 4
-    t.string   "addressable_type", limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "name",       limit: 255
+    t.integer  "shop_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "areas", force: :cascade do |t|
@@ -48,9 +47,9 @@ ActiveRecord::Schema.define(version: 20160223061820) do
   create_table "foods", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "state",       limit: 4,     default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "shop_id",     limit: 4
     t.integer  "user_id",     limit: 4
   end
@@ -86,11 +85,11 @@ ActiveRecord::Schema.define(version: 20160223061820) do
   create_table "shops", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
+    t.integer  "state",       limit: 4,     default: 0
     t.integer  "area_id",     limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "telephone",   limit: 255
     t.string   "contact",     limit: 255
     t.integer  "user_id",     limit: 4

@@ -28,6 +28,11 @@
 
         <ul class="nav navbar-nav navbar-right login">
 		  <% if user_signed_in? %>
+			<li>
+		      <% if current_user.shops.any? %>
+				<%= link_to '我的店铺', owner_shops_path %>
+			  <% end %>
+			</li>
 		    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 

@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Shops</h1>
-
 <div class="row">
-  <%= render @shops %>
+  <p id="notice"><%= notice %></p>
+  
+  <h1>Listing Shops</h1>
+  
+  <div class="col-sm-12">
+    <%= render @shops %>
+  </div>
+  
+  <%= link_to 'New Shop', new_shop_path %>
 </div>
-
-<%= link_to 'New Shop', new_shop_path %>
