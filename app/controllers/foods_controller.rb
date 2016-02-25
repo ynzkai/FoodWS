@@ -24,7 +24,7 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params)
+    @food = Food.new(food_params.merge state: 0)
 
     respond_to do |format|
       if @food.save
