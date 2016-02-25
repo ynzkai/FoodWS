@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
 
-  get "foods" => "foods#index"
+  get "foods" => "foods#index_all"
 
   resources :pictures, only: [:destroy]
 

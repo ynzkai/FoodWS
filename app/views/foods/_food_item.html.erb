@@ -1,0 +1,15 @@
+<div class="food-item">
+<div class="media">
+  <div class="media-left">
+    <%= image_tag food.picture.image.url(:small) %>
+  </div>
+  <div class="media-body">
+    <%= food.name %>
+    <%= food.description %>
+    <%= food.state %>
+    <%= link_to '显示', food %>
+    <%= link_to '编辑', edit_food_path(food) %>
+    <%= link_to '删除', food, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+
+</div>

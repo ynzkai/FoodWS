@@ -1,9 +1,14 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:index, :new]
 
   # GET /foods
   # GET /foods.json
   def index
+    @foods = @shop.foods
+  end
+
+  def index_all
     @foods = Food.all
   end
 
@@ -24,7 +29,7 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params.merge state: 0)
+    @food = Food.new(food_params.merge shop_id: params[:shop_id], state: 0)
 
     respond_to do |format|
       if @food.save
@@ -67,8 +72,12 @@ class FoodsController < ApplicationController
       @food = Food.find(params[:id])
     end
 
+    def set_shop
+      @shop = Shop.find params[:shop_id]
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:name, :description, :state)
+      params.require(:food).permit(:shop_id, :name, :description, :state, :unit, :price, picture_attributes: [:image])
     end
 end
