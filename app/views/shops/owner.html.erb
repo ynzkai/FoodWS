@@ -2,37 +2,16 @@
 
 <h1>Owner Shops</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>图片</th>
-      <th>名称</th>
-      <th>描述</th>
-      <th>状态</th>
-      <th>区县</th>
-      <th>分类地址</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @shops.each do |shop| %>
-      <tr>
-	    <td><%= image_tag shop.face.image.url(:small) %></td>
-        <td><%= shop.name %></td>
-        <td><%= truncate shop.description, length: 50 %></td>
-        <td><%= shop.state %></td>
-        <td><%= shop.area.name %></td>
-        <td><%= shop.category.name %></td>
-        <td><%= link_to 'Show', shop %></td>
-        <td><%= link_to '上传图片', uppics_shop_path(shop) %></td>
-        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @shops.each do |shop| %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to 'Show', shop, class: "btn btn-primary btn-sm" %>
+	  <%= link_to '上传图片', uppics_shop_path(shop), class: "btn btn-primary btn-sm", "data-no-turbolink" => true %>
+      <%= link_to 'Edit', edit_shop_path(shop), class: "btn btn-primary btn-sm" %>
+      <%= link_to 'Destroy', shop, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
 
-<br>
-
-<%= link_to 'New Shop', new_shop_path %>
+  <%= render partial: "shop_detail", locals: {shop: shop} %>
+<% end %>

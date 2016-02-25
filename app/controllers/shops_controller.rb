@@ -1,6 +1,5 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:face, :upload_picture, :uppics, :show, :edit, :update, :destroy]
-  before_action :set_face, only: [:uppics, :upload_picture]
   before_action :authenticate_user!, except: [:index, :show]
 
   layout "shops_layout"
@@ -23,6 +22,7 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
+    @shop.build_address
   end
 
   # GET /shops/1/edit
@@ -78,6 +78,10 @@ class ShopsController < ApplicationController
     @picture = @shop.pictures.create image: params[:shop][:image]
 
     if @picture
+      if @shop.face.nil?
+        @shop.face = @shop.pictures.first
+        @shop.save
+      end
       # state 1 means shop is avaliable now
       @shop.update_attributes state: 1
       render "upload_picture"
@@ -100,13 +104,6 @@ class ShopsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shop
       @shop = Shop.find(params[:id])
-    end
-
-    def set_face
-      if @shop.face.nil?
-        @shop.face = @shop.pictures.first
-        @shop.save
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

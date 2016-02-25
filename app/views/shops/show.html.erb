@@ -1,29 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @shop.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @shop.description %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @shop.state %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @shop.area %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @shop.category %>
-</p>
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<%= render partial: "shop_detail", locals: {shop: @shop} %>
