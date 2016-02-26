@@ -3,7 +3,7 @@ class Shop < ActiveRecord::Base
             :category_id, presence: true
 
   belongs_to :area
-  belongs_to :category
+  belongs_to :category, -> { where kind: Category::CATEGORY_KIND[:shop] }
   has_many :foods, dependent: :nullify
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy

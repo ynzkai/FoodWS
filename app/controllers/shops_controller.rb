@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
+    @categories = Category.shop_categories
     @shops = Shop.where "state != 0"
   end
 

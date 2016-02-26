@@ -1,16 +1,21 @@
-<div class=" col-md-3 shop">
-  <div class="thumbnail">
-	<%= link_to shop_path(shop) do %>
-	  <%= image_tag shop.face.image.url(:small) %>
-	<% end %>
-  </div>
-  <div class="caption">
-  <p>
-    <span><%= shop.category.name %></span>
-    <span><%= shop.name %></span>
-    <span><%= shop.area.name %></span>
-  </p>
-  <p><%= shop.address.name %></p>
-  <p><%= truncate shop.description, length: 30 %></p>
+<div class=" col-md-3">
+  <div class="shop">
+    <div class="face">
+  	<%= link_to shop_path(shop) do %>
+  	  <%= image_tag shop.face.image.url(:small) %>
+  	<% end %>
+    </div>
+    <div class="info">
+      <p class="name"><%= shop.name %></p>
+      <p class="address">地址: <%= shop.address.name %></p>
+      <p class="descripion"><%= truncate shop.description, length: 35 %></p>
+    </div>
+    <div class="foot-info">
+  	  <p>
+  	  <span class="glyphicon glyphicon-heart"></span>10 喜欢
+  	  <span class="glyphicon glyphicon-star"></span>20 收藏
+  	  <span class="glyphicon glyphicon-comment"></span>33 评论
+  	  </p>
+    </div>
   </div>
 </div>

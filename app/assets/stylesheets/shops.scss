@@ -2,6 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.face-flag {
-	position: absolute;
+.shops {
+	.shop {
+		background-color: #f2f2f2;
+		.face {
+			img {
+				width: 100%;
+			}
+		}
+		.info {
+			padding: 10px;
+			.name {
+				color: #a65900;
+				font-weight: bold;
+			}
+		}
+		.foot-info {
+			text-align: center;
+			font-size: .8em;
+			padding: 10px 0 5px;
+			color: #c2c2c2;
+			span {
+				margin-right: 10px;
+			}
+		}
+
+	}
+
+	.shop-categories {
+		margin: 20px auto 30px auto;
+		list-style: none;
+		display: block;
+		.shop-category {
+			display: inline;
+			margin: 10px auto;
+			.shop-count {
+				padding-left: 3px;
+				font-size: .8em;
+			}
+			a {
+				display: inline-block;
+				width: 100px;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	.face-flag {
+		position: absolute;
+	}
 }

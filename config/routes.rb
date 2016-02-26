@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "category/:category_id/shops" => "shops#index", as: :category_shops
+
 
   get "foods" => "foods#index_all"
 

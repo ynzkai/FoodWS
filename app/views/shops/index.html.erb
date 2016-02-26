@@ -1,7 +1,16 @@
 <div class="row">
-  <p id="notice"><%= notice %></p>
-  
-  <h1>Listing Shops</h1>
+  <div class="col-md-12">
+    <ul class="shop-categories">
+      <% @categories.each do |c| %>
+		<li class="shop-category">
+		  <%= link_to category_shops_path(c) do %>
+			<%= c.name %>
+		    <span class="shop-count"><%= c.shops.count if c.shops.count != 0 %></span>
+		  <% end %>
+		</li>
+      <% end %>
+    </ul>
+  </div>
   
   <div class="col-sm-12">
     <%= render @shops %>
