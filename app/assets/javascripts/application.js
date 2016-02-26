@@ -16,6 +16,7 @@
 //= require jquery.form
 //= require bootstrap-sprockets
 //= require simditor
+//= require owl.carousel
 //= require turbolinks
 //= require_tree .
 
