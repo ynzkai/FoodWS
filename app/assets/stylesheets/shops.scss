@@ -4,7 +4,7 @@
 
 .shops {
 	.shop {
-		@include box-shadow(0, 0, 10px, 0, #999); 
+		@include box-shadow(0, 0, 10px, 0, #ccc); 
 		background-color: #f2f2f2;
 		.face {
 			img {
@@ -17,7 +17,7 @@
 		.info {
 			padding: 10px;
 			.name {
-				color: #a65900;
+				color: $brand-secondary;
 				font-weight: bold;
 			}
 		}
@@ -34,10 +34,9 @@
 	}
 
 	.shop-detail {
-		.picture {
-			max-width: 500px;
-		}
-		
+		background-color: #ccc;
+
+		// start owl here
 		.owl-carousel {
 			position: relative;
 			margin: 0;
@@ -66,12 +65,12 @@
 							display: block;
 							width: 30px;
 							height: 30px;
-							background-color: #ccc;
-							opacity: .8;
+							background-color: #999;
+							opacity: .5;
 							@include border-radius(999px);
 						}
 						&.active span {
-							background-color: #333;
+							background-color: #777;
 						}
 					}
 				}
@@ -84,9 +83,9 @@
 						width: 30px;
 						height: 50px;
 						line-height: 50px;
-						background-color: #ccc;
+						background-color: #333;
 						color: #fff;
-						opacity: .8;
+						opacity: .5;
 						display: none;
 					}
 					.owl-prev {
@@ -101,12 +100,33 @@
 					display: block;
 				}
 			}
+		}// end owl here
+
+		.shop-pictures {
+			max-width: 500px;
 		}
+		
+		.shop-info {
+			li {
+				padding: 5px 0;
+			}
+			.shop-name {
+				font-size: 1.1em;
+				color: $brand-secondary;
+			}
+
+			margin: 0;
+			padding: 15px;
+			list-style: none;
+			border: 1px solid $gray-lighter;
+			@include border-radius(5px);
+		}
+		
 
 	}
 
-	.shop-headar {
-		heigt: 70px;
+	.shop-headbar {
+		padding: 20px 0;
 	}
 
 	.shop-categories {
