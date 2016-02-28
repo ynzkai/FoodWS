@@ -2,10 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :unit %>
-    <%= f.input :price %>
-    <%= f.input :description %>
+    <%= f.input :name, label: "名称" %>
+	<%= f.input :unit, label: "单位(如:盘、个、份等)" %>
+    <%= f.input :price, label: "价格" %>
+    <%= f.input :description, label: "美食介绍" %>
 
 	<%= f.simple_fields_for :picture_attributes, @food.picture do |fd| %>
       <%= fd.input :image, as: :file, label: "选择上传图片" %>

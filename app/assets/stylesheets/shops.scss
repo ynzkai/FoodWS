@@ -34,7 +34,9 @@
 	}
 
 	.shop-detail {
-		background-color: #ccc;
+		background-color: #eee;
+		@include border-radius(3px);
+		@include box-shadow(0, 0, 3px, 0, #ccc); 
 
 		// start owl here
 		.owl-carousel {
@@ -63,14 +65,14 @@
 						float: left;
 						span {
 							display: block;
-							width: 30px;
-							height: 30px;
-							background-color: #999;
+							width: 10px;
+							height: 10px;
+							background-color: #fff;
 							opacity: .5;
 							@include border-radius(999px);
 						}
 						&.active span {
-							background-color: #777;
+							background-color: #999;
 						}
 					}
 				}
@@ -78,15 +80,15 @@
 				.owl-buttons {
 					position: absolute;
 					width: 100%;
-					top: 225px; // 设置button按钮的垂直坐标
+					top: 20px;//225px; // 设置button按钮的垂直坐标
 					.owl-prev, .owl-next {
 						width: 30px;
 						height: 50px;
 						line-height: 50px;
-						background-color: #333;
+						background-color: #ccc;
 						color: #fff;
-						opacity: .5;
-						display: none;
+						opacity: .8;
+						display: block;// none
 					}
 					.owl-prev {
 						float: left;
@@ -109,17 +111,37 @@
 		.shop-info {
 			li {
 				padding: 5px 0;
+				border-bottom: 1px solid $gray-lighter;
+				
+			}
+			.shop-info-item {
+				.item-name {
+					color: lighten($text-color, 30%);
+					display: block;
+					width: 70px;
+					float: left;
+					.description {
+						line-height: 1.5em;
+					}
+				}
 			}
 			.shop-name {
 				font-size: 1.1em;
 				color: $brand-secondary;
 			}
+			.buttons {
+				span {
+					font-size: 1.2em;
+					color: #e35;
+					margin: 0 10px;
+				}
+			}
 
 			margin: 0;
 			padding: 15px;
 			list-style: none;
-			border: 1px solid $gray-lighter;
-			@include border-radius(5px);
+			//border: 1px solid $gray-lighter;
+			//@include border-radius(5px);
 		}
 		
 
@@ -130,10 +152,24 @@
 	}
 
 	.shop-categories {
-		margin: 20px 0 30px 0;
-		padding: 0 $grid-gutter-width/2;
+		background-color: #f8f8f8;
+		margin: 30px auto 40px;
+		padding: 20px $grid-gutter-width/2;
+		@include border-radius(3px);
 		list-style: none;
 		display: block;
+		position: relative;
+		.category-label {
+			position: absolute;
+			display: block;
+			top: -15px;
+			left: 10px;
+			padding: 5px 10px;
+			text-align: center;
+			background-color: lighten($brand-secondary, 30%);
+			color: #fff;
+			@include border-radius(5px);
+		}
 		.shop-category {
 			display: inline;
 			margin: 10px auto;

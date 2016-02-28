@@ -1,22 +1,62 @@
 <div class="row">
-  <div class="shop-detail">
-    <div class="col-md-6">
-	  <div class="shop-pictures owl-carousel owl-shop-pic">
-	    <% shop.pictures.each do |pic| %>
-	      <%= image_tag pic.image.url(:medium) %>
-	    <% end %>
+  <div class="col-md-9">
+
+	<div class="shop-detail">
+	  <div class="row">
+        <div class="col-md-7">
+	      <div class="shop-pictures owl-carousel owl-shop-pic">
+	        <% shop.pictures.each do |pic| %>
+	          <%= image_tag pic.image.url(:medium) %>
+	        <% end %>
+	      </div>
+	    </div>
+	    <div class="col-md-5">
+          <ul class="shop-info">
+	        <li class="shop-name"><%= shop.name %></li>
+			<li class="shop-info-item"><span class="item-name">市县:</span><%= shop.area.name %></li>
+	        <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= shop.category.name %></li>
+	        <li class="shop-info-item"><span class="item-name">地址:</span><%= shop.address.name %></li>
+	        <li class="shop-info-item"><span class="item-name">联系电话:</span><%= shop.telephone %></li>
+	        <li class="shop-info-item"><span class="item-name">其他:</span><%= shop.contact %></li>
+
+	        <li class="buttons">
+  	          <span class="glyphicon glyphicon-heart" title="喜欢"></span>30
+  	          <span class="glyphicon glyphicon-star" title="收藏"></span>20
+            </li>
+
+	        <li class="shop-info-item"><span class="item-name description">本店介绍:</span><%= shop.description %></li>
+	      </ul>
+	    </div>
 	  </div>
-	</div>
-	<div class="col-md-4">
-      <ul class="shop-info">
-	    <li class="shop-name"><%= shop.name %></li>
-	    <li class="shop-info-item">市县: <%= shop.area.name %></li>
-	    <li class="shop-info-item">店铺类型: <%= shop.category.name %></li>
-	    <li class="shop-info-item">地址: <%= shop.address.name %></li>
-	    <li class="shop-info-item">联系电话: <%= shop.telephone %></li>
-	    <li class="shop-info-item">其他: <%= shop.contact %></li>
-	    <li class="shop-info-item">本店介绍: <%= shop.description %></li>
-	  </ul>
-	</div>
+    </div>
+
   </div>
+
+  <div class="col-md-3">
+  </div>
+
 </div>
+
+
+<script type="text/javascript">
+  //shop pictures slider
+  $(".owl-shop-pic").owlCarousel({
+      navigation: true, // Show next and prev buttons
+      slideSpeed: 300,
+      paginationSpeed: 400,
+	  goToFirstSpeed: 2000,
+      autoPlay: false,
+      //stopOnHover: true,
+      navigationText: ['<span class="glyphicon glyphicon-chevron-left"></span>', '<span class="glyphicon glyphicon-chevron-right"></span>'],
+	  //autoHeight: true,
+	  transitionStyle: "fade",
+  
+      singleItem: true
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+  });
+</script>

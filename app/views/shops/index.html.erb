@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="shop-categories">
+	  <li class="category-label">分类</li>
       <% @categories.each do |c| %>
 		<li class="shop-category">
-		  <%= link_to category_shops_path(c) do %>
-			<%= c.name %>
-		    <span class="shop-count"><%= c.shops.count if c.shops.count != 0 %></span>
-		  <% end %>
+		  <%= link_to c.name, category_shops_path(c) %>
 		</li>
       <% end %>
     </ul>
   </div>
+</div>
   
+<div class="row">
   <div class="col-sm-12">
     <%= render @shops %>
   </div>
