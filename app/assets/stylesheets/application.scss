@@ -23,7 +23,7 @@ $gray-base: #000;
 $text-color: #333;
 $gray-lighter: lighten($gray-base, 75.5%); 
 $grid-gutter-width: 30px;
-$brand-primary: #333;//darken(#ff8bba, 10.5%); //link color
+$brand-primary: #36ab55;//darken(#ff8bba, 10.5%); //link color
 $link-color: $brand-primary;
 // navbar
 $navbar-height: 50px;
@@ -89,6 +89,7 @@ $brand-secondary: #a65900;
 
 @import "posts";
 @import "shops";
+@import "foods";
 
 body {
 	font-family: 'Microsoft YaHei';

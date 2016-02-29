@@ -2,6 +2,8 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
   before_action :set_shop, only: [:index, :new]
 
+  layout "foods_layout"
+
   # GET /foods
   # GET /foods.json
   def index

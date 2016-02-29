@@ -1,6 +1,21 @@
-<div class="food">
-  <p><%= image_tag food.picture.image.url(:small) %></p>
-  <p><%= food.name %></p>
-  <p><%= "#{food.price}元/#{food.unit}" %></p>
-  <p><%= food.description %></p>
+<div class=" col-md-3">
+  <div class="food">
+    <div class="picture">
+  	<%= link_to food_path(food) do %>
+  	  <%= image_tag food.picture.image.url(:small) %>
+  	<% end %>
+    </div>
+    <div class="info">
+      <p class="name"><%= food.name %></p>
+	  <p class="price"><%= "#{food.price}元/#{food.unit}" %></p>
+      <p class="descripion"><%= truncate food.description, length: 35 %></p>
+    </div>
+    <div class="foot-info">
+  	  <p>
+  	  <span class="glyphicon glyphicon-heart"></span>10 喜欢
+  	  <span class="glyphicon glyphicon-star"></span>20 收藏
+  	  <span class="glyphicon glyphicon-comment"></span>33 评论
+  	  </p>
+    </div>
+  </div>
 </div>

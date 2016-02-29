@@ -1,3 +1,39 @@
 // Place all the styles related to the foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.foods {
+	.food {
+		@include box-shadow(0, 0, 10px, 0, #ccc); 
+		background-color: #f2f2f2;
+		.picture {
+			img {
+				width: 100%;
+				&:hover {
+					opacity: .8;
+				}
+			}
+		}
+		.info {
+			padding: 10px;
+			.name {
+				color: $brand-secondary;
+				font-weight: bold;
+			}
+			.description {
+				height: 3em;
+				overflow: hidden;
+			}
+		}
+		.foot-info {
+			text-align: center;
+			font-size: .8em;
+			padding: 10px 0 5px;
+			color: #c2c2c2;
+			span {
+				margin: 0 5px;
+			}
+		}
+
+	}
+}
