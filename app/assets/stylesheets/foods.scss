@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .foods {
+	.area-title {
+		color: $brand-primary;
+		margin: 20px 0;
+		font-size: 1.2em;
+	}
+	.col-md-3, .col-md-4,
+	.col-sm-3, .col-sm-4,
+	.col-xs-3, .col-xs-4
+	{
+		margin-bottom: $grid-gutter-width/2;
+	}
 	.food {
 		@include box-shadow(0, 0, 10px, 0, #ccc); 
 		background-color: #f2f2f2;
@@ -33,6 +44,30 @@
 			span {
 				margin: 0 5px;
 			}
+		}
+
+	}
+
+	.food-strip {
+		margin: 0 -$grid-gutter-width/2;
+		padding: 30px 0;
+		.picture {
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.info {
+			.name {
+				color: $brand-secondary;
+			}
+			.foot-info {
+				color: #ccc;
+				span {
+					margin-right: 10px;
+				}
+			}
+
 		}
 
 	}

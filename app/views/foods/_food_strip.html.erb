@@ -1,0 +1,25 @@
+<div class="col-md-6">
+  <div class="food-strip">
+    <div class="row">
+  
+  	<div class="col-md-3 picture">
+    	  <%= link_to food_path(food) do %>
+    	    <%= image_tag food.picture.image.url(:small) %>
+    	  <% end %>
+  	</div>
+  
+  	<div class="col-md-9 info">
+        <p class="name"><%= food.name %></p>
+        <p class="description"><%= truncate food.description, length: 35 %></p>
+  	  <p class="price"><%= "#{food.price}元/#{food.unit}" %></p>
+  
+        <div class="foot-info">
+    	    <span class="glyphicon glyphicon-heart"></span>10 喜欢
+    	    <span class="glyphicon glyphicon-star"></span>20 收藏
+    	    <span class="glyphicon glyphicon-comment"></span>33 评论
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>

@@ -4,7 +4,11 @@
 	  <li class="category-label">分类</li>
       <% @categories.each do |c| %>
 		<li class="shop-category">
+		<% if not @category.nil? and c.id == @category.id %>
+		  <strong><%= link_to c.name, category_shops_path(c), class: "active" %></strong>
+	    <% else %>
 		  <%= link_to c.name, category_shops_path(c) %>
+		<% end %>
 		</li>
       <% end %>
     </ul>

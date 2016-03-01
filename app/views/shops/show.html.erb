@@ -1,9 +1,10 @@
-<div class="row">
-  <div class="col-md-12">
-    <p class="shop-headbar"><%= link_to '返回', :back %></p>
-  </div>
-</div>
+<%= render "shared/goback" %>
 
 <%= render partial: "shop_detail", locals: {shop: @shop} %>
 
-<%= render @shop.foods %>
+<div class="foods">
+  <div class="area-title">本店美食共<%= @shop.foods.count %>道</div>
+  <% @shop.foods.each do |food| %>
+    <%= render partial: "foods/food_strip", locals: {food: food} %>
+  <% end %>
+</div>

@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .shops {
+	.col-md-3, .col-md-4,
+	.col-sm-3, .col-sm-4,
+	.col-xs-3, .col-xs-4
+	{
+		margin-bottom: $grid-gutter-width/2;
+	}
 	.shop {
 		@include box-shadow(0, 0, 10px, 0, #ccc); 
 		background-color: #f2f2f2;
@@ -34,7 +40,7 @@
 	}
 
 	.shop-detail {
-		background-color: #eee;
+		background-color: #f2f2f2;
 		@include border-radius(3px);
 		@include box-shadow(0, 0, 3px, 0, #ccc); 
 
@@ -132,7 +138,7 @@
 			.buttons {
 				span {
 					font-size: 1.2em;
-					color: #e35;
+					color: #f34;
 					margin: 0 10px;
 				}
 			}
@@ -145,10 +151,6 @@
 		}
 		
 
-	}
-
-	.shop-headbar {
-		padding: 20px 0;
 	}
 
 	.shop-categories {
@@ -185,9 +187,16 @@
 				}
 			}
 		}
+		.active {
+			color: lighten($brand-secondary, 30%);
+		}
 	}
 
 	.face-flag {
 		position: absolute;
+	}
+
+	.owner-shop {
+		margin-top: 30px;
 	}
 }

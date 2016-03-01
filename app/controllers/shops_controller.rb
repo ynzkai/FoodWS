@@ -8,7 +8,12 @@ class ShopsController < ApplicationController
   # GET /shops.json
   def index
     @categories = Category.shop_categories
-    @shops = Shop.where "state != 0"
+    if params[:category_id].nil?
+      @shops = Shop.where "state != 0"
+    else
+      @category = Category.find params[:category_id]
+      @shops = @category.shops
+    end
   end
 
   def owner

@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Foods</h1>
-
 <%= link_to '添加美食', new_shop_food_path(@shop), class: "btn btn-primary btn-sm" %>
 
 <%= render partial: "food_item", collection: @foods, as: :food %>

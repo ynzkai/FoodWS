@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/goback" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
+<div class="row">
+  <div class="col-md-6 food-show">
+	<div class="food-picture">
+	  <%= image_tag @food.picture.image.url(:large) %>
+	</div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @food.description %>
-</p>
+  <div class="col-md-3">
+    <ul class="food-info">
+	  <li class="food-name"><%= @food.name %></li>
+	  <li class="food-info-item"><span class="item-name">所属店铺:</span><%= @food.shop.category.name %></li>
+	  <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
+	  <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
+	  <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>
 
-<p>
-  <strong>State:</strong>
-  <%= @food.state %>
-</p>
+	  <li class="buttons">
+  	    <span class="glyphicon glyphicon-heart" title="喜欢"></span>30
+  	    <span class="glyphicon glyphicon-star" title="收藏"></span>20
+      </li>
 
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+	  <li class="shop-info-item"><span class="item-name description">美食介绍:</span><%= @food.description %></li>
+	</ul>
+  </div>
+
+  <div class="col-md-3 food-comments">
+	comments here...
+  </div>
+</div>
+
+
