@@ -8,6 +8,7 @@ class Shop < ActiveRecord::Base
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
   belongs_to :face, class_name: "Picture", foreign_key: :face_id, dependent: :destroy
+  has_many :remarks, as: :remarkable, dependent: :destroy
 
   accepts_nested_attributes_for :address
 end

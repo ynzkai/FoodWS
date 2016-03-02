@@ -1,0 +1,22 @@
+// Place all the styles related to the remarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.food-remarks {
+	height: 100%;
+	overflow: hidden;
+	.remark {
+		margin: 2px 0;
+		padding: 3px 0;
+		.head-info {
+			font-size: .8em;
+			color: #ccc;
+		}
+		.content {
+			background-color: #f9f9f9;
+			padding: 3px;
+			@include border-radius(3px);
+		}
+	}
+
+}

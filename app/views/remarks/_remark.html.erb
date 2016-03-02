@@ -1,0 +1,10 @@
+<div class="remark">
+  <div class="head-info">
+	<%= remark.user.username %>评论于
+	<time class="timeago" datetime="<%= remark.created_at.to_formatted_s(:iso8601) %>"></time></span>
+  </div>
+
+  <div class="content">
+	<%= remark.content %>
+  </div>
+</div>

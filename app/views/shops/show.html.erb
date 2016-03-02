@@ -1,10 +1,26 @@
 <%= render "shared/goback" %>
 
-<%= render partial: "shop_detail", locals: {shop: @shop} %>
+<div class="row">
 
-<div class="foods">
-  <div class="area-title">本店美食共<%= @shop.foods.count %>道</div>
-  <% @shop.foods.each do |food| %>
-    <%= render partial: "foods/food_strip", locals: {food: food} %>
-  <% end %>
+  <div class="col-md-9">
+    <%= render partial: "shop_detail", locals: {shop: @shop} %>
+
+    <div class="foods">
+      <div class="area-title">本店美食共<%= @shop.foods.count %>道</div>
+      <% @shop.foods.each do |food| %>
+        <%= render partial: "foods/food_strip", locals: {food: food} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-3 food-remarks">
+	<% if user_signed_in? %>
+      <%= render partial: 'remarks/form', locals: {shop: @shop} %>
+	<% else %>
+	  <%= link_to '登录点评店铺', new_session_path %>
+	<% end %>
+    <%= render @shop.remarks.all %>
+  </div>
+
 </div>
+

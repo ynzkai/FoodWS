@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225083310) do
+ActiveRecord::Schema.define(version: 20160302064237) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20160225083310) do
   create_table "foods", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.integer  "state",       limit: 4,                    default: 0
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.integer  "shop_id",     limit: 4
     t.integer  "user_id",     limit: 4
     t.string   "unit",        limit: 255
@@ -84,14 +84,25 @@ ActiveRecord::Schema.define(version: 20160225083310) do
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "remarks", force: :cascade do |t|
+    t.text     "content",         limit: 65535
+    t.integer  "user_id",         limit: 4
+    t.integer  "remarkable_id",   limit: 4
+    t.string   "remarkable_type", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "remarks", ["user_id"], name: "index_remarks_on_user_id", using: :btree
+
   create_table "shops", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
+    t.integer  "state",       limit: 4,     default: 0
     t.integer  "area_id",     limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "telephone",   limit: 255
     t.string   "contact",     limit: 255
     t.integer  "user_id",     limit: 4
@@ -138,6 +149,7 @@ ActiveRecord::Schema.define(version: 20160225083310) do
   add_foreign_key "foods", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
+  add_foreign_key "remarks", "users"
   add_foreign_key "shops", "areas"
   add_foreign_key "shops", "categories"
   add_foreign_key "shops", "users"

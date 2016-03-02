@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'remarks/create'
+
+  get 'remarks/delete'
+
   root 'portal_page#home'
 
   devise_for :users
@@ -22,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :foods, shallow: true
+    resources :remarks, shallow: true
     member do
       get "uppics" => "shops#uppics"
       post "uppics" => "shops#upload_picture"
