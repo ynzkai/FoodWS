@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :foods, shallow: true
-    resources :remarks, shallow: true
     member do
       get "uppics" => "shops#uppics"
       post "uppics" => "shops#upload_picture"
@@ -37,10 +36,12 @@ Rails.application.routes.draw do
     end
   end
 
+  get "foods" => "foods#index_all"
+  resources :remarks
+
   get "category/:category_id/shops" => "shops#index", as: :category_shops
 
 
-  get "foods" => "foods#index_all"
 
   resources :pictures, only: [:destroy]
 

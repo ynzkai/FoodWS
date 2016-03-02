@@ -13,11 +13,11 @@
     </div>
   </div>
 
-  <div class="col-md-3 food-remarks">
+  <div class="col-md-3 shop-remarks">
 	<% if user_signed_in? %>
-      <%= render partial: 'remarks/form', locals: {shop: @shop} %>
+      <%= render partial: 'remarks/form', locals: {resource: @shop} %>
 	<% else %>
-	  <%= link_to '登录点评店铺', new_session_path %>
+	  <%= link_to '登录点评店铺', new_user_session_path %>
 	<% end %>
     <%= render @shop.remarks.all %>
   </div>

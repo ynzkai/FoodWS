@@ -1,11 +1,13 @@
-<%= simple_form_for([shop, shop.remarks.build]) do |f| %>
+<%= simple_form_for(resource.remarks.build) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :content, label: "内容", autofocus: true, required: false %>
+    <%= f.input :content, label: "评论", autofocus: true, required: false %>
+	<%= f.input :remarkable_id, as: :hidden, value: resource.id %>
+	<%= f.input :remarkable_type, as: :hidden, value: resource.class %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "评论" %>
+    <%= f.button :submit, "提交" %>
   </div>
 <% end %>

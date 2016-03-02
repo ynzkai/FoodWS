@@ -1,7 +1,7 @@
 <%= render "shared/goback" %>
 
-<div class="row">
-  <div class="col-md-6 food-show">
+<div class="row food-show">
+  <div class="col-md-6">
 	<div class="food-picture">
 	  <%= image_tag @food.picture.image.url(:large) %>
 	</div>
@@ -10,7 +10,7 @@
   <div class="col-md-3">
     <ul class="food-info">
 	  <li class="food-name"><%= @food.name %></li>
-	  <li class="food-info-item"><span class="item-name">所属店铺:</span><%= @food.shop.category.name %></li>
+	  <li class="food-info-item"><span class="item-name">所属店铺:</span><%= link_to @food.shop.name, shop_path(@food.shop) %></li>
 	  <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
 	  <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
 	  <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>
@@ -24,8 +24,13 @@
 	</ul>
   </div>
 
-  <div class="col-md-3 food-comments">
-	comments here...
+  <div class="col-md-3 food-remarks">
+	<% if user_signed_in? %>
+      <%= render partial: 'remarks/form', locals: {resource: @food} %>
+	<% else %>
+	  <%= link_to '登录点评店铺', new_user_session_path %>
+	<% end %>
+    <%= render @food.remarks.all %>
   </div>
 </div>
 
