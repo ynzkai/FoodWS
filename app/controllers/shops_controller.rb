@@ -2,6 +2,9 @@ class ShopsController < ApplicationController
   before_action :set_shop, only: [:face, :upload_picture, :uppics, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  # cancancan
+  load_and_authorize_resource
+
   layout "shops_layout"
 
   # GET /shops

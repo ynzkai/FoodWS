@@ -28,6 +28,7 @@
 
         <ul class="nav navbar-nav navbar-right login">
 		  <% if user_signed_in? %>
+		    <li><%= link_to '新建店铺', new_shop_path %></li>
 			<li>
 		      <% if current_user.shops.any? %>
 				<%= link_to '我的店铺', owner_shops_path %>

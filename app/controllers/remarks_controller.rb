@@ -1,4 +1,7 @@
 class RemarksController < ApplicationController
+  # cancancan
+  load_and_authorize_resource
+
   def create
     @remark = Remark.new remark_params.merge(user_id: current_user.id)
     if @remark.save
@@ -12,7 +15,9 @@ class RemarksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    Remark.find(params[:id]).destroy
+    redirect_to :back
   end
 
   protected

@@ -3,9 +3,9 @@
     <div class="row">
   
   	<div class="col-md-3 picture">
-    	  <%= link_to food_path(food) do %>
-    	    <%= image_tag food.picture.image.url(:small) %>
-    	  <% end %>
+	  <%= link_to food_path(food), "data-no-turbolink" => true do %>
+        <%= image_tag food.picture.image.url(:small) %>
+      <% end %>
   	</div>
   
   	<div class="col-md-9 info">

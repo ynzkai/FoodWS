@@ -2,6 +2,11 @@
   <div class="head-info">
 	<%= remark.user.username %>评论于
 	<time class="timeago" datetime="<%= remark.created_at.to_formatted_s(:iso8601) %>"></time></span>
+    <% if can? :delete, remark %>
+	  <%= link_to remark_path(remark), method: :delete do %>
+	    <span class="glyphicon glyphicon-trash"></span>
+	  <% end %>
+	<% end %>
   </div>
 
   <div class="content">

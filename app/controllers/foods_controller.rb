@@ -1,6 +1,10 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
   before_action :set_shop, only: [:index, :new]
+  before_action :authenticate_user!, except: [:index_all, :show]
+
+  # cancancan
+  load_and_authorize_resource
 
   layout "foods_layout"
 

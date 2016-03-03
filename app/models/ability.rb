@@ -14,6 +14,8 @@ class Ability
     if user.supper_admin?
       can :manage, :all
     elsif user.bbs_admin?
+      can :read, :all
+      can :index_all, Food
       can :crud, [Post, Comment]
     elsif user.common_user?
       can :read, :all
@@ -26,8 +28,29 @@ class Ability
         !post.user_id.nil? and post.user_id == user.id
       end
 
+      can :create, Remark
+      can :destroy, Remark do |remark|
+        !remark.user_id.nil? and remark.user_id == user.id
+      end
+
+      can :create, Shop
+      can [:update, :destroy, :upload_picture, :face], Shop do |shop|
+        !shop.user_id.nil? and shop.user_id == user.id
+      end
+
+      can :index_all, Food
+      can [:update, :destroy], Food do |food|
+        !food.user_id.nil? and food.user_id == user.id
+      end
+
+      can :create, Picture
+      can [:update, :destroy], Picture do |pic|
+        !pic.user_id.nil? and pic.user_id == user.id
+      end
+
     else
       can :read, :all
+      can :index_all, Food
     end
 
     # The first argument to `can` is the action you are giving the user

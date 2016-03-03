@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:destroy]
 
+  # cancancan
+  load_and_authorize_resource
+
   def create
     # picture = current_user.pictures.build image: params[:image_file]
     # if picture.save

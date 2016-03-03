@@ -19,7 +19,7 @@
 	<% else %>
 	  <%= link_to '登录点评店铺', new_user_session_path %>
 	<% end %>
-    <%= render @shop.remarks.all %>
+    <%= render @shop.remarks.order(created_at: :desc).limit(30) %>
   </div>
 
 </div>
