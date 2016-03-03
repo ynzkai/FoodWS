@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
   end
 
   def index_all
-    @foods = Food.all
+    @foods = Food.paginate(:page => params[:page])
   end
 
   # GET /foods/1
@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params.merge shop_id: params[:shop_id], state: 0)
+    @food = Food.new(food_params.merge shop_id: params[:shop_id], user_id: current_user.id, state: 0)
 
     respond_to do |format|
       if @food.save
@@ -84,6 +84,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:shop_id, :name, :description, :state, :unit, :price, picture_attributes: [:image])
+      params.require(:food).permit(:user_id, :shop_id, :name, :description, :state, :unit, :price, picture_attributes: [:image])
     end
 end

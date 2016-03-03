@@ -11,4 +11,9 @@ class Shop < ActiveRecord::Base
   has_many :remarks, as: :remarkable, dependent: :destroy
 
   accepts_nested_attributes_for :address
+
+  default_scope -> { order created_at: :desc }
+
+  # will_paginate
+  self.per_page = 100
 end

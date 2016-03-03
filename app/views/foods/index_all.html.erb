@@ -3,5 +3,9 @@
   placeholder ....
 </div>
 
-<%= render @foods %>
+<div class="row">
+  <%= render @foods %>
+</div>
+
+<%= will_paginate @foods, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
 

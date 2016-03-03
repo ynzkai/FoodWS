@@ -12,10 +12,10 @@ class ShopsController < ApplicationController
   def index
     @categories = Category.shop_categories
     if params[:category_id].nil?
-      @shops = Shop.where "state != 0"
+      @shops = Shop.where("state != 0").paginate(:page => params[:page])
     else
       @category = Category.find params[:category_id]
-      @shops = @category.shops
+      @shops = @category.shops.paginate(:page => params[:page])
     end
   end
 

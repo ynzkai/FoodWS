@@ -15,14 +15,16 @@
 		margin-bottom: $grid-gutter-width/2;
 	}
 	.food {
+		position: relative;
+		@include transition(all, 1s);
+		&:hover {
+			top: -10px;
+		}
 		@include box-shadow(0, 0, 5px, 0, #ccc); 
 		background-color: #f2f2f2;
 		.picture {
 			img {
 				width: 100%;
-				&:hover {
-					opacity: .5;
-				}
 			}
 		}
 		.info {
@@ -47,6 +49,7 @@
 		}
 
 	}
+
 	.food-strip {
 		margin: 0 -$grid-gutter-width/2;
 		padding: 30px 0;
@@ -60,8 +63,12 @@
 			.name {
 				color: $brand-secondary;
 			}
+			.description {
+				height: 3em;
+				overflow: hidden;
+			}
 			.foot-info {
-				color: #ccc;
+				color: #999;
 				span {
 					margin-right: 10px;
 				}
@@ -82,7 +89,7 @@
 	.food-info {
 		li {
 			padding: 5px 0;
-			border-bottom: 1px solid $gray-lighter;
+			border-bottom: 1px solid #ddd;
 			min-height: 2em;
 		}
 		.food-info-item {

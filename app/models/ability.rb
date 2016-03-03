@@ -34,11 +34,11 @@ class Ability
       end
 
       can :create, Shop
-      can [:update, :destroy, :upload_picture, :face], Shop do |shop|
+      can [:owner, :update, :destroy, :upload_picture, :face], Shop do |shop|
         !shop.user_id.nil? and shop.user_id == user.id
       end
 
-      can :index_all, Food
+      can [:create, :index_all], Food
       can [:update, :destroy], Food do |food|
         !food.user_id.nil? and food.user_id == user.id
       end

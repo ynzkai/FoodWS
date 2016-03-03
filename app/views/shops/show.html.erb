@@ -6,7 +6,7 @@
     <%= render partial: "shop_detail", locals: {shop: @shop} %>
 
     <div class="foods">
-      <div class="area-title">本店美食共<%= @shop.foods.count %>道</div>
+      <div class="area-title">本店有<%= @shop.foods.count %>道美食</div>
       <% @shop.foods.each do |food| %>
         <%= render partial: "foods/food_strip", locals: {food: food} %>
       <% end %>

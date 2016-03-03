@@ -85,6 +85,14 @@ $pagination-active-border: #ddd;
           box-shadow: $h $v $b $s $color;
 }
 
+@mixin transition($attr, $dur) {
+	transition: $attr $dur;
+	-webkit-transition: $attr $dur;
+	-moz-transition: $attr $dur;
+	-ms-transition: $attr $dur;
+	-o-transition: $attr $dur;
+}
+
 $brand-secondary: #a65900;
 
 @import "posts";
