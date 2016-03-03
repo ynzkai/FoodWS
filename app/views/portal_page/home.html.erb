@@ -1,2 +1,58 @@
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 big-banner">
+	  <h1>
+		吃货们集合啦！哪里有什么好吃的，都来这里分享分享。
+	  </h1>
+	  <% if user_signed_in? %>
+		<%= link_to '新建店铺', new_shop_path, class: "btn btn-success btn-lg sign-in" %>
+	  <% else %>
+	    <%= link_to '现在免费注册', new_user_registration_path, class: "btn btn-success btn-lg sign-in" %>
+	  <% end %>
+	</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row shops">
+    <p class="head-title">好店推荐
+	  <span class="pull-right"><%= link_to "更多", shops_path %></span>
+	</p>
+    <%= render @shops %>
+  </div>
+  
+  <div class="row foods">
+    <p class="head-title">美食推荐
+	  <span class="pull-right"><%= link_to "更多", foods_path %></span>
+    </p>
+    <%= render @foods %>
+  </div>
+
+  <div class="separate-line">
+    <span class="glyphicon glyphicon-leaf"></span>
+  </div>
+  
+  <div class="row posts">
+	<div class="col-md-4">
+      <div class="panel panel-default">
+    	<div class="panel-heading">
+		  美食分享
+		</div>
+    	<div class="panel-body">
+	      <%= render partial: "posts/post_list", collection: @food_posts, as: :post %>
+	    </div>
+	  </div>
+	</div>
+	<div class="col-md-4">
+      <div class="panel panel-default">
+    	<div class="panel-heading">
+		  文山新鲜事
+		</div>
+    	<div class="panel-body">
+	      <%= render partial: "posts/post_list", collection: @ws_posts, as: :post %>
+		</div>
+	  </div>
+	</div>
+  </div>
 </div>

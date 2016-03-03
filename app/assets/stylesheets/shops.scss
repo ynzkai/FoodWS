@@ -10,13 +10,13 @@
 		margin-bottom: $grid-gutter-width/2;
 	}
 	.shop {
-		@include box-shadow(0, 0, 10px, 0, #ccc); 
+		@include box-shadow(0, 0, 5px, 0, #ccc); 
 		background-color: #f2f2f2;
 		.face {
 			img {
 				width: 100%;
 				&:hover {
-					opacity: .8;
+					opacity: .5;
 				}
 			}
 		}
@@ -31,7 +31,7 @@
 			text-align: center;
 			font-size: .8em;
 			padding: 10px 0 5px;
-			color: #c2c2c2;
+			color: #999;
 			span {
 				margin: 0 5px;
 			}
@@ -154,41 +154,44 @@
 	}
 
 	.shop-categories {
-		background-color: #f8f8f8;
-		margin: 30px auto 40px;
-		padding: 20px $grid-gutter-width/2;
-		@include border-radius(3px);
-		list-style: none;
-		display: block;
-		position: relative;
-		.category-label {
-			position: absolute;
+		padding: $grid-gutter-width/2;
+		ul {
+			padding: 20px;
+			background-color: #f8f8f8;
+			margin: 30px auto 40px;
+			@include border-radius(3px);
+			list-style: none;
 			display: block;
-			top: -15px;
-			left: 10px;
-			padding: 5px 10px;
-			text-align: center;
-			background-color: lighten($brand-secondary, 30%);
-			color: #fff;
-			@include border-radius(5px);
-		}
-		.shop-category {
-			display: inline;
-			margin: 10px auto;
-			.shop-count {
-				padding-left: 3px;
-				font-size: .8em;
+			position: relative;
+			.category-label {
+				position: absolute;
+				display: block;
+				top: -15px;
+				left: 10px;
+				padding: 5px 10px;
+				text-align: center;
+				background-color: lighten($brand-secondary, 30%);
+				color: #fff;
+				@include border-radius(5px);
 			}
-			a {
-				display: inline-block;
-				width: 100px;
-				&:hover {
-					text-decoration: none;
+			.shop-category {
+				display: inline;
+				margin: 10px auto;
+				.shop-count {
+					padding-left: 3px;
+					font-size: .8em;
+				}
+				a {
+					display: inline-block;
+					width: 100px;
+					&:hover {
+						text-decoration: none;
+					}
 				}
 			}
-		}
-		.active {
-			color: lighten($brand-secondary, 30%);
+			.active {
+				color: lighten($brand-secondary, 30%);
+			}
 		}
 	}
 

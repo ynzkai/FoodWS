@@ -50,7 +50,7 @@ $dropdown-link-color: $brand-primary;
 //$navbar-default-toggle-border-color
 //$container-large-desktop: (1000px + $grid-gutter-width);
 //$container-md
-$panel-default-heading-bg: #e8e8e8;
+$panel-default-heading-bg: #f2f2f2;
 $panel-default-border: $panel-default-heading-bg;
 $panel-default-text: #999;//lighten($panel-default-heading-bg, 20%);
 $list-group-border: $panel-default-border;
@@ -91,6 +91,7 @@ $brand-secondary: #a65900;
 @import "shops";
 @import "foods";
 @import "remarks";
+@import "portal_page";
 
 body {
 	font-family: 'Microsoft YaHei';
@@ -133,22 +134,18 @@ body {
 }
 
 .panel {
-	@include box-shadow(0, 5px, 3px, -3px, #999); 
+	@include border-radius(3px);
+	@include box-shadow(0, 3px, 3px, -3px, #ccc); 
 }
 
 .logo {
 	height: 50px;
 }
 
-.big-banner {
-	height: 300px;
-	background-color: #f2f2f2;
-}
-
 .simditor {
 	overflow: hidden;
 	border-color: $panel-default-border !important;
-	@include box-shadow(0, 5px, 3px, -3px, #999); 
+	@include box-shadow(0, 3px, 3px, -3px, #ccc); 
 	img {
 		max-width: 100% !important;
 	}
@@ -170,3 +167,34 @@ body {
 	@include border-radius(4px);
 }
 
+.separate-line {
+	border-top: 1px solid #eee;
+	text-align: center;
+	margin-top: 3em;
+	span {
+		position: relative;
+		font-size: 2em;
+		top: -0.5em;
+		color: lighten($brand-primary, 30%);
+	}
+}
+
+.foot {
+	min-height: 100px;
+	background-color: #333;
+	color: #777;
+	text-align: center;
+	font-size: .8em;
+	ul {
+		margin: 20px 0;
+		list-style: none;
+		padding: 0;
+		li {
+			display: inline;
+			padding: 0 10px;
+		}
+	}
+	.copy-right {
+		padding: 20px 0;
+	}
+}

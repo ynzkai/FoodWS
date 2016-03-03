@@ -1,3 +1,28 @@
 // Place all the styles related to the PortalPage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.head-title {
+	font-size: 1.2em;
+	color: $brand-primary;
+	margin-top: 30px;
+	padding: 0 $grid-gutter-width/2;
+}
+
+.big-banner {
+	overflow: hidden;
+	height: 300px;
+	background-color: lighten($brand-primary, 53%);
+	h1 {
+		text-align: center;
+		margin-top: 2em;
+		color: $brand-primary;
+		text-shadow: 0 0 10px #fff;
+	}
+	.sign-in {
+		margin: 30px auto;
+		width: 200px;
+		display: block;
+	}
+}
+
