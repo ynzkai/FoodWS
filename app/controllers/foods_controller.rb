@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params.merge shop_id: params[:shop_id], user_id: current_user.id, state: 0)
+    @food = Food.new(food_params.merge shop_id: params[:shop_id], user_id: current_user.id, state: 1) # 1 means valid
 
     respond_to do |format|
       if @food.save
@@ -52,7 +52,7 @@ class FoodsController < ApplicationController
   # PATCH/PUT /foods/1.json
   def update
     respond_to do |format|
-      if @food.update(food_params)
+      if @food.update(food_params.merge state: 1) # 1 means valid
         format.html { redirect_to @food, notice: 'Food was successfully updated.' }
         format.json { render :show, status: :ok, location: @food }
       else

@@ -4,7 +4,7 @@ class Shop < ActiveRecord::Base
 
   belongs_to :area
   belongs_to :category, -> { where kind: Category::CATEGORY_KIND[:shop] }
-  has_many :foods, dependent: :nullify
+  has_many :foods, -> { where.not state: 0 }, dependent: :nullify
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
   belongs_to :face, class_name: "Picture", foreign_key: :face_id, dependent: :destroy
