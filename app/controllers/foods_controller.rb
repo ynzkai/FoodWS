@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
   end
 
   def index_all
-    @foods = Food.paginate(:page => params[:page])
+    @foods = Food.where.not(state: 0).paginate(:page => params[:page])
   end
 
   # GET /foods/1
