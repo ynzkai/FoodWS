@@ -91,8 +91,6 @@ class ShopsController < ApplicationController
         @shop.face = @shop.pictures.first
         @shop.save
       end
-      # state 1 means shop is avaliable now
-      @shop.update_attributes state: 1
       render "upload_picture"
       # render json: {pic_path: @picture.image.url(:small), message: "upload success"}
     else

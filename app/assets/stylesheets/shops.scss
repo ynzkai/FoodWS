@@ -43,6 +43,16 @@
 				color: $brand-secondary;
 				font-weight: bold;
 			}
+			.name, .address {
+				line-height: 1.5em;
+				height: 1.5em;
+				overflow: hidden;
+			}
+			.description {
+				line-height: 1.5em;
+				height: 3em;
+				overflow: hidden;
+			}
 		}
 		.foot-info {
 			text-align: center;
@@ -143,9 +153,9 @@
 					display: block;
 					width: 70px;
 					float: left;
-					.description {
-						line-height: 1.5em;
-					}
+				}
+				.description {
+					line-height: 1.5em;
 				}
 			}
 			.shop-name {
