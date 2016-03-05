@@ -40,7 +40,7 @@
 		  美食分享
 		</div>
     	<div class="panel-body">
-	      <%= render partial: "posts/post_list", collection: @food_posts.all, as: :post %>
+	      <%= render partial: "posts/post_list", collection: @food_posts, as: :post %>
 	    </div>
 	  </div>
 	</div>
@@ -50,7 +50,7 @@
 		  文山新鲜事
 		</div>
     	<div class="panel-body">
-	      <%= render partial: "posts/post_list", collection: @ws_posts.all, as: :post %>
+	      <%= render partial: "posts/post_list", collection: @ws_posts, as: :post %>
 		</div>
 	  </div>
 	</div>
