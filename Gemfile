@@ -12,6 +12,10 @@ gem 'simditor'
 gem "paperclip", "~> 4.3"
 gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 
+group :development do
+  gem "capistrano", "~> 3.4"
+end
+
 gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.20'
 # Use Uglifier as compressor for JavaScript assets
