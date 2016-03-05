@@ -34,6 +34,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# rails
+# Defaults to nil (no asset cleanup is performed)
+# If you use Rails 4+ and you'd like to clean up old assets after each deploy,
+# set this to the number of versions to keep
+set :keep_assets, 2
+
+# rails
+# Defaults to false
+# Skip migration if files in db/migrate were not modified
+set :conditionally_migrate, true
+
 namespace :deploy do
 
   after :restart, :clear_cache do

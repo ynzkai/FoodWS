@@ -14,10 +14,12 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 
 group :development do
   gem "capistrano", "~> 3.4"
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.1'
 end
 
 gem 'rails', '4.2.4'
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2', '~> 0.3.18'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
