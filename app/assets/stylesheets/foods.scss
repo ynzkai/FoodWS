@@ -20,8 +20,8 @@
 		&:hover {
 			top: -10px;
 		}
-		@include box-shadow(0, 0, 5px, 0, #ccc); 
-		background-color: #f2f2f2;
+		@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
+		background-color: $gray-back;
 		.picture {
 			img {
 				width: 100%;
@@ -49,37 +49,40 @@
 		}
 
 	}
+}
 
-	.food-strip {
-		margin: 0 -$grid-gutter-width/2;
-		padding: 30px 0;
-		.picture {
-			img {
-				width: 100%;
-				height: 100%;
-			}
+.food-strip {
+	margin: 0 -$grid-gutter-width/2;
+	padding: 30px 0;
+	.picture {
+		img {
+			width: 100%;
+			height: 100%;
 		}
-		.info {
-			.name {
-				color: $brand-secondary;
-			}
-			.description {
-				height: 3em;
-				overflow: hidden;
-			}
-			.foot-info {
-				color: #999;
-				span {
-					margin-right: 10px;
-				}
-			}
-
+	}
+	.info {
+		.name {
+			color: $brand-secondary;
+		}
+		.description {
+			height: 3em;
+			overflow: hidden;
+		}
+		.foot-info {
+			font-size: .8em;
+			color: #999;
+			span { margin-right: 5px; }
+			span + span { margin-left: 5px; }
 		}
 
 	}
+
 }
 
-.food-show {
+.food-detail {
+	background-color: $gray-back;
+	@include border-radius(3px);
+	@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
 	.food-picture {
 		img {
 			width: 100%;
@@ -89,12 +92,12 @@
 	.food-info {
 		li {
 			padding: 5px 0;
-			border-bottom: 1px solid #ddd;
+			border-bottom: 1px solid darken($gray-back, 3%);
 			min-height: 2em;
 		}
 		.food-info-item {
 			.item-name {
-				color: lighten($text-color, 30%);
+				color: $brand-primary;
 				display: block;
 				width: 70px;
 				float: left;
@@ -107,12 +110,19 @@
 			font-size: 1.1em;
 			color: $brand-secondary;
 		}
+		.note {
+			color: #ccc;
+			font-size: .8em;
+		}
 		.buttons {
-			span {
-				font-size: 1.2em;
-				color: #f34;
-				margin: 0 10px;
+			.button {
+				color: $brand-primary;
+				padding: 0 10px;
 			}
+		}
+		.share {
+			color: #ccc;
+			font-size: .8em;
 		}
 
 		margin: 0;
@@ -123,3 +133,9 @@
 	}
 }
 
+//以下是临时性CSS
+.head-banner {
+	height: 100px;
+	margin: 20px 0 30px;
+	background-color: $gray-back;
+}

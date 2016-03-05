@@ -1,27 +1,40 @@
 <%= render "shared/goback" %>
 
-<div class="row food-show">
-  <div class="col-md-6">
-	<div class="food-picture">
-	  <%= image_tag @food.picture.image.url(:large) %>
-	</div>
-  </div>
+<div class="row">
 
-  <div class="col-md-3">
-    <ul class="food-info">
-	  <li class="food-name"><%= @food.name %></li>
-	  <li class="food-info-item"><span class="item-name">所属店铺:</span><%= link_to @food.shop.name, shop_path(@food.shop) %></li>
-	  <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
-	  <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
-	  <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>
+  <div class="col-md-9">
+	<div class="food-detail">
+	  <div class="row">
+        <div class="col-md-8">
+          <div class="food-picture">
+            <%= image_tag @food.picture.image.url(:large) %>
+          </div>
+        </div>
 
-	  <li class="buttons">
-  	    <span class="glyphicon glyphicon-heart" title="喜欢"></span>30
-  	    <span class="glyphicon glyphicon-star" title="收藏"></span>20
-      </li>
+        <div class="col-md-4">
+          <ul class="food-info">
+            <li class="food-name"><%= @food.name %></li>
+			<li class="note">此信息由<%= @food.user.username %>上传</li>
+            <li class="food-info-item"><span class="item-name">所属店铺:</span><%= link_to @food.shop.name, shop_path(@food.shop) %></li>
+            <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
+            <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
+            <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>
 
-	  <li class="shop-info-item"><span class="item-name description">美食介绍:</span><%= @food.description %></li>
-	</ul>
+            <li class="food-info-item buttons">
+				<span class="item-name">喜欢:</span>30
+        	    <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
+            </li>
+            <li class="food-info-item buttons">
+				<span class="item-name">收藏:</span>20
+        	    <span class="button glyphicon glyphicon-star" title="收藏"></span>
+            </li>
+			<li class="food-info-item share">分享链接</li>
+
+            <li class="food-info-item"><span class="item-name description">美食介绍:</span><%= @food.description %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="col-md-3 food-remarks">

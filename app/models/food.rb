@@ -3,6 +3,7 @@ class Food < ActiveRecord::Base
   validates :price, numericality: true
 
   belongs_to :shop
+  belongs_to :user
   has_one :picture, as: :imageable, dependent: :destroy
   has_many :remarks, as: :remarkable, dependent: :destroy
 

@@ -10,8 +10,8 @@
 		margin-bottom: $grid-gutter-width/2;
 	}
 	.shop {
-		@include box-shadow(0, 0, 5px, 0, #ccc); 
-		background-color: #f2f2f2;
+		@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
+		background-color: $gray-back;
 		.face {
 			position: relative;
 			img {
@@ -25,7 +25,7 @@
 				height: 100%;
 				padding-top: 45%;
 				font-size: 1.5em;
-				color: lighten($brand-secondary,50%);
+				color: #fff;
 				text-align: center;
 				background-color: rgba(0,0,0,.5);
 				position: absolute;
@@ -67,9 +67,9 @@
 	}
 
 	.shop-detail {
-		background-color: #f2f2f2;
+		background-color: $gray-back;
 		@include border-radius(3px);
-		@include box-shadow(0, 0, 3px, 0, #ccc); 
+		@include box-shadow(0, 0, 3px, 0, darken($gray-back,20%)); 
 
 		// start owl here
 		.owl-carousel {
@@ -101,7 +101,7 @@
 							width: 10px;
 							height: 10px;
 							background-color: #fff;
-							opacity: .5;
+							opacity: .8;
 							@include border-radius(999px);
 						}
 						&.active span {
@@ -144,12 +144,12 @@
 		.shop-info {
 			li {
 				padding: 5px 0;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 1px solid darken($gray-back, 3%);
 				min-height: 2em;
 			}
 			.shop-info-item {
 				.item-name {
-					color: lighten($text-color, 30%);
+					color: $brand-primary;
 					display: block;
 					width: 70px;
 					float: left;
@@ -162,12 +162,19 @@
 				font-size: 1.1em;
 				color: $brand-secondary;
 			}
+			.note {
+				color: #ccc;
+				font-size: .8em;
+			}
 			.buttons {
-				span {
-					font-size: 1.2em;
-					color: #f34;
-					margin: 0 10px;
+				.button {
+					color: $brand-primary;
+					padding: 0 10px;
 				}
+			}
+			.share {
+				color: #ccc;
+				font-size: .8em;
 			}
 
 			margin: 0;
@@ -184,7 +191,7 @@
 		padding: $grid-gutter-width/2;
 		ul {
 			padding: 20px;
-			background-color: #f8f8f8;
+			background-color: $gray-back;
 			margin: 30px auto 40px;
 			@include border-radius(3px);
 			list-style: none;

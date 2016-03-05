@@ -12,7 +12,7 @@
 .big-banner {
 	overflow: hidden;
 	height: 300px;
-	background-color: lighten($brand-primary, 53%);
+	background-color: $gray-back;
 	h1 {
 		text-align: center;
 		margin-top: 2em;

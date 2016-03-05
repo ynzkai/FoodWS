@@ -11,10 +11,10 @@
 		padding: 3px 0;
 		.head-info {
 			font-size: .8em;
-			color: #ccc;
+			color: #999;
 		}
 		.content {
-			background-color: #f9f9f9;
+			background-color: $gray-back;
 			padding: 3px;
 			@include border-radius(3px);
 		}

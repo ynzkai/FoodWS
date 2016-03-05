@@ -11,16 +11,23 @@
     <div class="col-md-5">
       <ul class="shop-info">
         <li class="shop-name"><%= shop.name %></li>
+		<li class="note">此信息由<%= shop.user.username %>上传</li>
 		<li class="shop-info-item"><span class="item-name">市县:</span><%= shop.area.name %></li>
         <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= shop.category.name %></li>
         <li class="shop-info-item"><span class="item-name">地址:</span><%= shop.address.name %></li>
         <li class="shop-info-item"><span class="item-name">联系电话:</span><%= shop.telephone %></li>
         <li class="shop-info-item"><span class="item-name">其他:</span><%= shop.contact %></li>
 
-        <li class="buttons">
-          <span class="glyphicon glyphicon-heart" title="喜欢"></span>30
-          <span class="glyphicon glyphicon-star" title="收藏"></span>20
+
+        <li class="shop-info-item buttons">
+			<span class="item-name">喜欢:</span>30
+            <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
         </li>
+        <li class="shop-info-item buttons">
+			<span class="item-name">收藏:</span>20
+            <span class="button glyphicon glyphicon-star" title="收藏"></span>
+        </li>
+		<li class="shop-info-item share">分享链接</li>
 
         <li class="shop-info-item"><span class="item-name description">本店介绍:</span><%= shop.description %></li>
       </ul>
