@@ -22,9 +22,10 @@ end
 Topic.delete_all
 topics = %w(文山新鲜事 美食分享 本地问答 站务管理)
 topics.each do |topic|
-  topics.create name: topic
+  Topic.create name: topic
 end
 
-User.find(username: 'admin').delete
+admin = User.find_by(username: 'admin')
+admin.delete unless admin.nil?
 User.create username: 'admin', email: 'admin@foodws.com', role: 5, password: 'zk11z35', password_confirmation: 'zk11z35'
 
