@@ -14,6 +14,7 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 
 group :development do
   gem "capistrano", "~> 3.4"
+  gem 'capistrano-rvm'
   gem 'capistrano-passenger'
   gem 'capistrano-rails', '~> 1.1'
 end
