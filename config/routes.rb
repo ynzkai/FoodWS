@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'remarks/create'
-
-  get 'remarks/delete'
-
   root 'portal_page#home'
 
   devise_for :users
@@ -40,8 +36,6 @@ Rails.application.routes.draw do
   resources :remarks
 
   get "category/:category_id/shops" => "shops#index", as: :category_shops
-
-
 
   resources :pictures, only: [:destroy]
 
