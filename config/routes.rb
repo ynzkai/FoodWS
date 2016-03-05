@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get "uppics" => "shops#uppics"
       post "uppics" => "shops#upload_picture"
       post "face" => "shops#face"
+      post "check" => "shops#check"
     end
     collection do
       get "owner" => "shops#owner"
@@ -33,11 +34,16 @@ Rails.application.routes.draw do
   end
 
   get "foods" => "foods#index_all"
+  post "foods/:id/check" => "foods#check", as: :check_food
   resources :remarks
 
   get "category/:category_id/shops" => "shops#index", as: :category_shops
 
   resources :pictures, only: [:destroy]
+
+  namespace :admin do
+    get 'manage/check'
+  end
 
 
 

@@ -1,0 +1,38 @@
+// Place all the styles related to the admin/manage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.check .shops {
+	.shop {
+		padding: 15px;
+		margin-top: 20px;
+		.name {
+			color: $brand-secondary;
+			font-size: 1.2em;
+		}
+		.pictures {
+			img {
+				width: 100px;
+				height: 100px;
+				float: left;
+				padding: 5px;
+			}
+		}
+	}
+}
+
+.check .foods {
+	margin-top: 50px;
+	.food {
+		margin-top: 20px;
+		&:hover {
+			top: 0;
+		}
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+}

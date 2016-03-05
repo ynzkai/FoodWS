@@ -1,0 +1,11 @@
+<div class="container check">
+  <div class="row shops">
+    <p class="col-md-12 head-title">待审核店铺: <%= @shops.count %> 个</p>
+	<%= render partial: "shops/shop_check", collection: @shops, as: :shop %>
+  </div>
+
+  <div class="row foods">
+    <p class="col-md-12 head-title">待审核美食: <%= @foods.count %> 个</p>
+	<%= render partial: "foods/food_check", collection: @foods, as: :food %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="col-md-12 food" id="food_<%= food.id %>">
+  <table class="table">
+	<tr>
+	  <th>图片</th>
+	  <th>名称</th>
+	  <th>介绍</th>
+	  <th>价格</th>
+	  <th>审核</th>
+	</tr>
+	<tr>
+      <td class="pictures">
+        <% if food.picture.nil? %>
+          <%= "无图片" %>
+        <% else %>
+          <%= image_tag food.picture.image.url(:small) %>
+        <% end %>
+      </td>
+      <td><%= food.name %></td>
+	  <td><%= "#{food.price}元/#{food.unit}" %></td>
+      <td><%= truncate food.description, length: 35 %></td>
+	  <td><%= link_to '通过', check_food_path(food), method: :post, remote: true, class: "btn btn-primary btn-sm" %></td>
+	</tr>
+  </table>
+
+</div>

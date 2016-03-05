@@ -34,6 +34,9 @@
 				<%= link_to '我的店铺', owner_shops_path %>
 			  <% end %>
 			</li>
+			<% if current_user.supper_admin? %>
+			  <li><%= link_to '审核', admin_manage_check_path %></li>
+			<% end %>
 		    <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
