@@ -66,6 +66,12 @@
 
 	}
 
+	form {
+		textarea {
+			height: 100px;
+		}
+	}
+
 	.shop-detail {
 		background-color: $gray-back;
 		@include border-radius(3px);
@@ -235,5 +241,22 @@
 
 	.owner-shop {
 		margin-top: 30px;
+	}
+}
+
+
+.shop-flow {
+	padding: 0 50px;
+	margin-bottom: -2em;
+	border-top: 2px solid #ddd;
+	.box {
+		@include border-radius(10px);
+		background-color: $gray-back;
+		color: #ccc;
+		padding: 30px;
+		position: relative;
+		text-align: center;
+		top: -3em;
+		font-size: 1.2em;
 	}
 }
