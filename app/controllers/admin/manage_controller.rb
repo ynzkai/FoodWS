@@ -7,6 +7,10 @@ class Admin::ManageController < ApplicationController
     @foods = Food.where state: 0
   end
 
+  def shops
+    @shops = Shop.all
+  end
+
   protected
   
   def can_visit_check_page?

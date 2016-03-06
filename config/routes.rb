@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'manage/check'
+    get 'manage/shops'
   end
 
 

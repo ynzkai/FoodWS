@@ -144,7 +144,11 @@
 		}// end owl here
 
 		.shop-pictures {
-			max-width: 500px;
+			//max-width: 500px;
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
 		
 		.shop-info {
@@ -157,7 +161,7 @@
 				.item-name {
 					color: $brand-primary;
 					display: block;
-					width: 70px;
+					min-width: 100px;
 					float: left;
 				}
 				.description {
@@ -239,7 +243,7 @@
 		position: absolute;
 	}
 
-	.owner-shop {
+	.shop-buttons {
 		margin-top: 30px;
 	}
 }

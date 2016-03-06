@@ -99,7 +99,7 @@
 			.item-name {
 				color: $brand-primary;
 				display: block;
-				width: 70px;
+				min-width: 100px;
 				float: left;
 				.description {
 					line-height: 1.5em;
