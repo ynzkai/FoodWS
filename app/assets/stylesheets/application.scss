@@ -25,6 +25,9 @@ $gray-lighter: lighten($gray-base, 75.5%);
 $grid-gutter-width: 30px;
 $brand-primary: #36ab55;//darken(#ff8bba, 10.5%); //link color
 $link-color: $brand-primary;
+//screen
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
 // navbar
 $navbar-height: 50px;
 $navbar-default-color: #222;
@@ -207,5 +210,15 @@ body {
 	}
 	.copy-right {
 		padding: 20px 0;
+	}
+}
+
+
+@media (max-width: $screen-md-min) {
+	body {
+		font-size: 20px;
+	}
+	.container {
+		width: 100%;
 	}
 }

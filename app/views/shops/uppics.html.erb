@@ -1,7 +1,5 @@
 <%= render "shared/goback" %>
 
-<%= render 'shop_flow' %>
-
 <div class="row images">
   <%= render partial: "shop_pic", collection: @shop.pictures, as: :pic, locals: {face_id: @shop.face_id} %> 
 </div>
