@@ -13,11 +13,14 @@
 	overflow: hidden;
 	height: 300px;
 	background-color: $gray-back;
+	text-align: center;
 	h1 {
-		text-align: center;
 		margin-top: 2em;
 		color: $brand-primary;
 		text-shadow: 0 0 10px #fff;
+	}
+	h5 {
+		color: #999;
 	}
 	.sign-in {
 		margin: 30px auto;
