@@ -36,7 +36,11 @@ class PostsController < ApplicationController
     @floor = page * Comment.per_page
 
     respond_to do |format|
-      format.html { render :show }
+      unless params[:show_as_article].nil?
+        format.html { render :show_as_article }
+      else
+        format.html { render :show }
+      end
       format.js
     end
   end

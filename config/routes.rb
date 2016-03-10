@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, shallow: true
   end
+
+  post "posts/post_pictures" => "posts#pictures"
+  post "posts/:id/post_pictures" => "posts#pictures"
+  post "post_pictures" => "posts#pictures"
+
   get "topic/:topic_id/posts" => "posts#index"
 
   resources :users, only: [:index, :show]
   get "avatar" => "users#avatar"
   patch "avatar" => "users#update"
-
-  post "posts/post_pictures" => "posts#pictures"
-  post "posts/:id/post_pictures" => "posts#pictures"
-  post "post_pictures" => "posts#pictures"
 
   resources :shops do
     resources :foods, shallow: true

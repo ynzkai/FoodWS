@@ -1,2 +1,2 @@
 <p class="post-list-info"><%= post.created_at.to_s(:db) %></p>
-<p class="post-list-title"><%= link_to post.title, post, 'data-no-turbolink' => true %></p>
+<p class="post-list-title"><%= link_to post.title, post_path(post, show_as_article: true), 'data-no-turbolink' => true %></p>
