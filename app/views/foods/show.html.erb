@@ -16,6 +16,11 @@
             <li class="food-name"><%= @food.name %></li>
 			<li class="note">此信息由<%= @food.user.username %>上传</li>
             <li class="food-info-item"><span class="item-name">所属店铺:</span><%= link_to @food.shop.name, shop_path(@food.shop) %></li>
+
+			<li class="food-info-item"><span class="item-name">价格:</span>
+			  <%= render partial: "food_price", locals: {food: @food} %>
+		    </li>
+
             <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
             <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
             <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>

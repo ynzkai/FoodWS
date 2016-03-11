@@ -37,6 +37,11 @@
 				height: 3em;
 				overflow: hidden;
 			}
+			.discounted {
+				text-decoration: line-through;
+				color: #999;
+				padding-right: 5px;
+			}
 		}
 		.foot-info {
 			text-align: center;
@@ -67,6 +72,11 @@
 		.description {
 			height: 3em;
 			overflow: hidden;
+		}
+		.discounted {
+			text-decoration: line-through;
+			color: #999;
+			padding-right: 5px;
 		}
 		.foot-info {
 			font-size: .8em;
@@ -109,6 +119,11 @@
 		.food-name {
 			font-size: 1.1em;
 			color: $brand-secondary;
+		}
+		.discounted {
+			text-decoration: line-through;
+			color: #999;
+			padding-right: 5px;
 		}
 		.note {
 			color: #ccc;

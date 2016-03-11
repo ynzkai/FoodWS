@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302064237) do
+ActiveRecord::Schema.define(version: 20160311031038) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -45,15 +45,16 @@ ActiveRecord::Schema.define(version: 20160302064237) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "foods", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "shop_id",     limit: 4
-    t.integer  "user_id",     limit: 4
-    t.string   "unit",        limit: 255
-    t.decimal  "price",                     precision: 10
+    t.string   "name",           limit: 255
+    t.text     "description",    limit: 65535
+    t.integer  "state",          limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "shop_id",        limit: 4
+    t.integer  "user_id",        limit: 4
+    t.string   "unit",           limit: 255
+    t.decimal  "price",                        precision: 10
+    t.decimal  "discount_price",               precision: 10
   end
 
   add_index "foods", ["shop_id"], name: "index_foods_on_shop_id", using: :btree

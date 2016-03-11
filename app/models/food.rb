@@ -1,6 +1,6 @@
 class Food < ActiveRecord::Base
-  validates :name, :description, :unit, :price, :state, presence: true
-  validates :price, numericality: true
+  validates :name, :description, :unit, :price, :discount_price, :state, presence: true
+  validates :price, :discount_price, numericality: true
 
   belongs_to :shop
   belongs_to :user
