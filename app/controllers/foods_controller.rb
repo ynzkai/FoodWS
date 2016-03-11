@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
-  before_action :set_shop, only: [:index, :new]
+  before_action :set_shop, only: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index_all, :show]
 
   # cancancan
@@ -11,11 +11,11 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = @shop.foods
+    @foods = Food.where(shop_id: @shop.id).order created_at: :desc
   end
 
   def index_all
-    @foods = Food.where.not(state: 0).paginate(:page => params[:page])
+    @foods = Food.where(state: 1).paginate(:page => params[:page])
   end
 
   # GET /foods/1
@@ -35,11 +35,11 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params.merge shop_id: params[:shop_id], user_id: current_user.id, state: 1) # 1 means valid
+    @food = Food.new(food_params.merge shop_id: params[:shop_id], user_id: current_user.id, state: 0) # 0 means invalid
 
     respond_to do |format|
       if @food.save
-        format.html { redirect_to @food, notice: 'Food was successfully created.' }
+        format.html { redirect_to shop_foods_path(@shop), notice: 'Food was successfully created.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new }
@@ -73,7 +73,11 @@ class FoodsController < ApplicationController
   end
 
   def check
-    @food.update state: 1
+    if params[:check].nil?
+      @food.update state: 1
+    elsif params[:check] == "no"
+      @food.update state: 2
+    end
     respond_to do |format|
       format.js
     end

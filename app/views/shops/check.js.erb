@@ -1,1 +1,2 @@
 $("#shop_<%= @shop.id %>").remove();
+$("#shop-count").text("<%= Shop.where(state: 0).count %>");

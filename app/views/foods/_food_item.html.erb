@@ -1,15 +1,18 @@
 <div class="food-item">
 <div class="media">
   <div class="media-left">
-    <%= image_tag food.picture.image.url(:small) %>
+    <%= image_tag food.picture.image.url(:small) unless food.picture.nil? %>
   </div>
   <div class="media-body">
-    <%= food.name %>
-    <%= food.description %>
-    <%= food.state %>
-    <%= link_to '显示', food %>
-    <%= link_to '编辑', edit_food_path(food) %>
-    <%= link_to '删除', food, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<ul>
+	  <li>名称: <%= food.name %></li>
+      <li>介绍: <%= food.description %></li>
+	  <li>状态: <%= Food::STATE[food.state] %></li>
+	  <li>时间: <%= food.created_at.to_s :db %></li>
+      <li><%= link_to '显示', food %></li>
+      <li><%= link_to '编辑', edit_food_path(food) %></li>
+      <li><%= link_to '删除', food, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+	</ul>
   </div>
 
 </div>

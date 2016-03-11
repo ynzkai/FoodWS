@@ -16,7 +16,10 @@
       <td><%= shop.address.name %></td>
       <td><%= shop.telephone %></td>
       <td><%= shop.contact %></td>
-	  <td><%= link_to '通过', check_shop_path(shop), method: :post, remote: true, class: "btn btn-primary btn-sm" %></td>
+	  <td>
+	    <%= link_to '通过', check_shop_path(shop), method: :post, remote: true, class: "btn btn-primary btn-sm" %>
+        <%= link_to '不通过', check_shop_path(shop, check: "no"), method: :post, remote: true, class: "btn btn-primary btn-sm" %>
+      </td>
 	</tr>
   </table>
 

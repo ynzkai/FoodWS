@@ -5,7 +5,7 @@
     <%= f.input :name, label: "名称" %>
 	<%= f.input :unit, label: "单位(如:盘、个、份等)" %>
 	<%= f.input :price, label: "价格(数字， 如100.5)" %>
-    <%= f.input :discount_price, label: "优惠价" %>
+    <%= f.input :discount_price, label: "优惠价(可选)" %>
     <%= f.input :description, label: "美食介绍" %>
 
 	<%= f.simple_fields_for :picture_attributes, @food.picture do |fd| %>

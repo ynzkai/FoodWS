@@ -12,7 +12,7 @@
         <p class="name"><%= food.name %></p>
         <p class="description"><%= truncate food.description, length: 35 %></p>
 		<p class="price">
-		  <%= render partial: "food_price", locals: {food: food} %>
+		  <%= render partial: "/foods/food_price", locals: {food: food} %>
 		</p>
   
         <div class="foot-info">

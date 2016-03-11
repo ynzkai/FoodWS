@@ -6,7 +6,7 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   belongs_to :category, -> { where kind: Category::CATEGORY_KIND[:shop] }
   belongs_to :face, class_name: "Picture", foreign_key: :face_id, dependent: :destroy
-  has_many :foods, -> { where.not state: 0 }, dependent: :destroy
+  has_many :foods, -> { where state: 1 }, dependent: :destroy
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :remarks, as: :remarkable, dependent: :destroy

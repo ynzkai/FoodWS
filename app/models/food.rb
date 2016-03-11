@@ -1,6 +1,6 @@
 class Food < ActiveRecord::Base
-  validates :name, :description, :unit, :price, :discount_price, :state, presence: true
-  validates :price, :discount_price, numericality: true
+  validates :name, :description, :unit, :price, :state, presence: true
+  validates :price, numericality: true
 
   belongs_to :shop
   belongs_to :user
@@ -10,6 +10,8 @@ class Food < ActiveRecord::Base
   accepts_nested_attributes_for :picture
 
   default_scope -> { order created_at: :desc }
+
+  STATE = ["待审核", "通过", "不通过"]
 
   # will_paginate
   self.per_page = 100

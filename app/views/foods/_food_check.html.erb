@@ -18,7 +18,10 @@
       <td><%= food.name %></td>
 	  <td><%= "#{food.price}元/#{food.unit}" %></td>
       <td><%= truncate food.description, length: 35 %></td>
-	  <td><%= link_to '通过', check_food_path(food), method: :post, remote: true, class: "btn btn-primary btn-sm" %></td>
+	  <td>
+	    <%= link_to '通过', check_food_path(food), method: :post, remote: true, class: "btn btn-primary btn-sm" %>
+        <%= link_to '不通过', check_food_path(food, check: "no"), method: :post, remote: true, class: "btn btn-primary btn-sm" %>
+      </td>
 	</tr>
   </table>
 

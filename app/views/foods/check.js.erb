@@ -1,1 +1,2 @@
 $("#food_<%= @food.id %>").remove();
+$("#food-count").text("<%= Food.where(state: 0).count %>");
