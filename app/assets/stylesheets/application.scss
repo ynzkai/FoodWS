@@ -117,6 +117,10 @@ body {
 	background-repeat: no-repeat;
 }
 
+.hold-bar {
+	height: 30px;
+}
+
 .goback {
 	padding: 20px 0;
 }
@@ -216,7 +220,7 @@ body {
 
 @media (max-width: $screen-md-min) {
 	body {
-		font-size: 20px;
+		font-size: 25px;
 	}
 	.container {
 		width: 100%;

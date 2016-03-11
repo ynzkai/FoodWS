@@ -1,4 +1,5 @@
 
+<div class="hold-bar"></div>
 <div class="panel panel-default article">
   <div class="panel-heading">
     <div class="media">
@@ -33,4 +34,19 @@
 <script type="text/javascript">
   jQuery("time.timeago").timeago();
 </script>
+
+<% content_for :sidebar do %>
+<div class="hold-bar"></div>
+<div class="panel panel-default">
+  <div class="panel-heading">小常识</div>
+  <div class="panel-body">
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">广告</div>
+  <div class="panel-body">
+  </div>
+</div>
+<% end %>
 
