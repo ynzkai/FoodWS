@@ -21,7 +21,7 @@ end
 
 Post.destroy_all
 Topic.destroy_all
-topics = %w(文山新鲜事 美食分享 营养食谱 本地问答 站务管理)
+topics = %w(文山新鲜事 美食分享 我是大厨 本地问答 站务管理)
 topics.each do |topic|
   Topic.create name: topic
 end
