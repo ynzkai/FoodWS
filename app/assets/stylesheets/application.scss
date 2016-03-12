@@ -107,7 +107,7 @@ $gray-back: #f8f8f8;
 @import "admin/manage";
 
 body {
-	font-family: 'Microsoft YaHei';
+	font-family: 'Microsoft YaHei','微软雅黑';
 	padding-top: 70px;
 }
 
@@ -157,6 +157,10 @@ body {
 
 .logo {
 	height: 50px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #fcc !important;
+	text-shadow: 2px 2px 5px #ddd;
 }
 
 .simditor {
