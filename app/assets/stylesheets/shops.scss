@@ -10,7 +10,7 @@
 		margin-bottom: $grid-gutter-width/2;
 	}
 	.shop {
-		@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
+		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
 		background-color: $gray-back;
 		.face {
 			position: relative;
@@ -75,7 +75,7 @@
 	.shop-detail {
 		background-color: $gray-back;
 		@include border-radius(3px);
-		@include box-shadow(0, 0, 3px, 0, darken($gray-back,20%)); 
+		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
 
 		// start owl here
 		.owl-carousel {
@@ -234,7 +234,8 @@
 				}
 			}
 			.active {
-				color: lighten($brand-secondary, 30%);
+				//color: lighten($brand-secondary, 30%);
+				color: #fa9;
 			}
 		}
 	}

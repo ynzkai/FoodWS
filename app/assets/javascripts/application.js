@@ -23,3 +23,18 @@
 jQuery(document).ready(function() {
   jQuery("time.timeago").timeago();
 });
+
+
+// hide/show headline when scroll document
+;(function($) {
+  var initTop = 0;
+  $(document).scroll(function() {
+	var scrollTop = $(document).scrollTop();
+	if(scrollTop > initTop) {
+	  $(".headline").hide();
+	} else {
+	  $(".headline").show();
+	}
+	initTop = scrollTop;
+  });
+})(jQuery);

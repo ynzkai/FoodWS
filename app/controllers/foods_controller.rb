@@ -52,7 +52,14 @@ class FoodsController < ApplicationController
   # PATCH/PUT /foods/1.json
   def update
     respond_to do |format|
-      if @food.update(food_params.merge state: 1) # 1 means valid
+      # if food is passed, won't check it again.
+      if @food.state == 1
+        state = 1 
+      else
+        state = 0
+      end
+
+      if @food.update(food_params.merge state: state) # 1 means valid
         format.html { redirect_to @food, notice: 'Food was successfully updated.' }
         format.json { render :show, status: :ok, location: @food }
       else

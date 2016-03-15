@@ -20,7 +20,7 @@
 		&:hover {
 			top: -10px;
 		}
-		@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
+		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
 		background-color: $gray-back;
 		.picture {
 			img {
@@ -92,7 +92,7 @@
 .food-detail {
 	background-color: $gray-back;
 	@include border-radius(3px);
-	@include box-shadow(0, 0, 5px, 0, darken($gray-back,20%)); 
+	@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
 	.food-picture {
 		img {
 			width: 100%;
