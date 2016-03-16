@@ -118,6 +118,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # posts/1/top
+  def top
+    @post.update top: (@post.top? ? 0 : 1)
+  end
+
+  # posts/1/elite
+  def elite
+    @post.update elite: (@post.elite? ? 0 : 1)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

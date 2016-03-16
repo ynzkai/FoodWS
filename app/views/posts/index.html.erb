@@ -37,8 +37,14 @@
   		  <% end %>
           </div>
           <div class="media-body">
-  		  <p class="media-heading post-list-head">
+		  <p class="media-heading post-list-head" id="post_<%= post.id %>">
   			<%= link_to post.title, post, 'data-no-turbolink' => true %>
+			<% if post.top? %>
+			  <span class="glyphicon glyphicon-pushpin"></span>
+			<% end %>
+			<% if post.elite? %>
+		      <span class="glyphicon glyphicon-thumbs-up"></span>
+			<% end %>
   		  </p>
   		  <p class="post-list-info">
   		    <%= render partial: 'post_info', locals: {post: post} %>

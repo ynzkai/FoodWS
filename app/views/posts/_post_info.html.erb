@@ -9,3 +9,12 @@
  • <%= link_to('编辑', edit_post_path(post)) if can? :update, post %>
  <%= link_to('删除', post, method: :delete, data: { confirm: '你确定要删除?' }) if can? :destroy, post %>
 
+ <% if can? [:top, :elite], post %>
+   • <%= link_to top_post_path(post), {method: :post, remote: true}, title: "置顶" do %>
+     <span class="glyphicon glyphicon-pushpin"></span>
+   <% end %>
+   <%= link_to elite_post_path(post), {method: :post, remote: true}, title: "精华" do %>
+     <span class="glyphicon glyphicon-thumbs-up"></span>
+   <% end %>
+ <% end %>
+

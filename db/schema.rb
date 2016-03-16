@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311031038) do
+ActiveRecord::Schema.define(version: 20160316082357) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20160311031038) do
     t.datetime "updated_at",                               null: false
     t.integer  "comments_count", limit: 4,     default: 0, null: false
     t.integer  "display_count",  limit: 4,     default: 0
+    t.boolean  "elite"
+    t.boolean  "top"
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree

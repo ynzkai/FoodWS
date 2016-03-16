@@ -16,6 +16,10 @@
 			//color: $text-color;
 			font-size: 1.2em;
 		}
+		span {
+			padding-left: 10px;
+			color: #ccc;
+		}
 	}
 	.post-list-info {
 		margin: 0;
@@ -31,6 +35,10 @@
 	}
 	.post-show-title {
 		color: $link-color;
+		span {
+			padding-left: 10px;
+			color: #ccc;
+		}
 	}
 	.comment-show-title, .post-show-info {
 		@extend .post-list-info;

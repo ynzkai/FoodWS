@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   validates :title, :content, :topic, :user_id, presence: true
   validates :title, length: {maximum: 50}
 
-  default_scope { order("created_at desc") }
+  default_scope { order(top: :desc, created_at: :desc) }
 
   # will_paginate
   self.per_page = 30

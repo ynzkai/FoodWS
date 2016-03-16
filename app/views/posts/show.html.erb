@@ -15,7 +15,15 @@
   <div class="panel-heading">
     <div class="media">
 	  <div class="media-body">
-        <h4 class="post-show-title"><%= @post.title %></h4>
+	    <h4 class="post-show-title" id="post_<%= @post.id %>">
+		  <%= @post.title %>
+		  <% if @post.top? %>
+		    <span class="glyphicon glyphicon-pushpin"></span>
+		  <% end %>
+		  <% if @post.elite? %>
+	        <span class="glyphicon glyphicon-thumbs-up"></span>
+		  <% end %>
+	    </h4>
         <p class="post-show-info">
           <%= render partial: 'post_info', locals: {post: @post} %>
 	    </p>

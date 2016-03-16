@@ -17,6 +17,7 @@ class Ability
       can :read, :all
       can :index_all, Food
       can :crud, [Post, Comment]
+      can [:top, :elite], [Post]
     elsif user.common_user?
       can :read, :all
       can [:create, :pictures], [Post, Comment]

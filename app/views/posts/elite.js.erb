@@ -1,0 +1,11 @@
+
+var link = "<%= escape_javascript(link_to @post.title, @post, 'data-no-turbolink' => true) %>";
+<% if @post.top? %>
+  link += "<span class='glyphicon glyphicon-pushpin'></span>";
+<% end %>
+<% if @post.elite? %>
+  link += "<span class='glyphicon glyphicon-thumbs-up'></span>";
+<% end %>
+
+$("#post_<%= @post.id %>").empty().append(link);
+
