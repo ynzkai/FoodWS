@@ -13,13 +13,16 @@ Rails.application.routes.draw do
       post 'top' => "posts#top"
       post 'elite' => "posts#elite"
     end
+    collection do
+      get 'elite' => "posts#elite_posts"
+    end
   end
 
   post "posts/post_pictures" => "posts#pictures"
   post "posts/:id/post_pictures" => "posts#pictures"
   post "post_pictures" => "posts#pictures"
 
-  get "topic/:topic_id/posts" => "posts#index"
+  # get "topic/:topic_id/posts" => "posts#index"
 
   resources :users, only: [:index, :show]
   get "avatar" => "users#avatar"

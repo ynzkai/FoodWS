@@ -12,12 +12,15 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <ul class="nav nav-pills">
-	  <li role="presentation" class="<%= "active" if @active_topic.nil? %>" >
+	  <li role="presentation" class="<%= "active" if @active_topic.nil? and action_name == "index" %>" >
 		<%= link_to "全部话题", posts_path %>
+	  </li>
+	  <li role="presentation" class="<%= "active" if @active_topic.nil? and action_name == "elite_posts" %>" >
+	    <%= link_to "精华", elite_posts_path %>
 	  </li>
       <% @topics.each do |topic| %>
 		<li role="presentation" class="<%= "active" if ! @active_topic.nil? and @active_topic.id == topic.id %>">
-		<%= link_to topic.name, "/topic/#{topic.id}/posts" %>
+		  <%= link_to topic.name, topic_posts_path(topic.id) %>
 		</li>
       <% end %>
     </ul>

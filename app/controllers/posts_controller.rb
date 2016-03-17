@@ -23,6 +23,13 @@ class PostsController < ApplicationController
     end
   end
 
+  # get /posts/elite
+  def elite_posts
+    @topics = Topic.all
+    @posts = Post.where(elite: true).paginate(:page => params[:page])
+    render :index
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
