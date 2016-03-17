@@ -3,7 +3,7 @@
 	<li><%= link_to "首页", root_path %></li>
     <li><%= link_to "社区", posts_path %></li>
 	<% unless @post.topic.nil? %>
-      <li><%= link_to @post.topic.name, "/topic/#{@post.topic.id}/posts" %></li>
+      <li><%= link_to @post.topic.name, topic_posts_path(@post.topic.id) %></li>
 	<% end %>
     <li class="active">浏览帖子</li>
   </ol>
