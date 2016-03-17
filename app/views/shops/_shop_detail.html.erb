@@ -12,9 +12,8 @@
       <ul class="shop-info">
         <li class="shop-name"><%= shop.name %></li>
 		<li class="note">此信息由<%= shop.user.username unless shop.user.nil? %>上传</li>
-		<li class="shop-info-item"><span class="item-name">市县:</span><%= shop.area.name %></li>
         <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= shop.category.name %></li>
-        <li class="shop-info-item"><span class="item-name">地址:</span><%= shop.address.name %></li>
+		<li class="shop-info-item"><span class="item-name">地址:</span><%= "#{shop.area.name} | #{shop.address.name}" %></li>
         <li class="shop-info-item"><span class="item-name">联系电话:</span><%= shop.telephone %></li>
         <li class="shop-info-item"><span class="item-name">其他:</span><%= shop.contact %></li>
 

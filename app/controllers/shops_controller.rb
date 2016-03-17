@@ -59,7 +59,7 @@ class ShopsController < ApplicationController
   # PATCH/PUT /shops/1.json
   def update
     respond_to do |format|
-      if @shop.update(shop_params.merge state: 0)
+      if @shop.update(shop_params)
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
         format.json { render :show, status: :ok, location: @shop }
       else
