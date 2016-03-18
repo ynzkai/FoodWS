@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 20160316082357) do
     t.text     "content",        limit: 65535
     t.integer  "topic_id",       limit: 4
     t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "comments_count", limit: 4,     default: 0, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.integer  "comments_count", limit: 4,     default: 0,     null: false
     t.integer  "display_count",  limit: 4,     default: 0
-    t.boolean  "elite"
-    t.boolean  "top"
+    t.boolean  "elite",                        default: false
+    t.boolean  "top",                          default: false
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
