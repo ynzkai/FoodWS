@@ -1,0 +1,29 @@
+
+<div class="shop-remark">
+  <div class="head-info">
+	<%= shop_remark.user.username %>评论于
+	<time class="timeago" datetime="<%= shop_remark.created_at.to_formatted_s(:iso8601) %>"></time></span>
+    <% if can? :delete, shop_remark %>
+	  <%= link_to shop_remark_path(shop_remark), method: :delete do %>
+	    <span class="glyphicon glyphicon-trash"></span>
+	  <% end %>
+	<% end %>
+  </div>
+
+  <div class="stars">
+	<% shop_remark.star.times do %>
+	  <span class="star-button glyphicon glyphicon-star"></span>
+	<% end %>
+  </div>
+
+  <div class="score">
+	<span>味道</span><%= shop_remark.taste %>
+	<span>服务</span><%= shop_remark.serve %>
+	<span>环境</span><%= shop_remark.environment %>
+	<span>人均</span><%= shop_remark.price %>
+  </div>
+
+  <div class="remark">
+	<%= shop_remark.remark %>
+  </div>
+</div>

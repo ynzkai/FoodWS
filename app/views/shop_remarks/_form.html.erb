@@ -1,0 +1,61 @@
+<%= simple_form_for [shop, shop.shop_remarks.build] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+	<ul class="remark-buttons">
+	  <li><span class="button-title">星级</span>
+	    <div class="buttons star-buttons clearfix">
+	      <span class="star-button glyphicon glyphicon-star"></span>
+	      <span class="star-button glyphicon glyphicon-star"></span>
+	      <span class="star-button glyphicon glyphicon-star"></span>
+	      <span class="star-button glyphicon glyphicon-star"></span>
+	      <span class="star-button glyphicon glyphicon-star"></span>
+	    </div>
+	  </li>
+	  <li><span class="button-title">味道</span>
+	    <div class="buttons taste-buttons clearfix">
+	    <span class="taste-button">1</span>
+	    <span class="taste-button">2</span>
+	    <span class="taste-button">3</span>
+	    <span class="taste-button">4</span>
+	    <span class="taste-button">5</span>
+	    </div>
+	  </li>
+	  <li><span class="button-title">服务</span>
+	    <div class="buttons serve-buttons clearfix">
+	    <span class="serve-button">1</span>
+	    <span class="serve-button">2</span>
+	    <span class="serve-button">3</span>
+	    <span class="serve-button">4</span>
+	    <span class="serve-button">5</span>
+	    </div>
+	  </li>
+	  <li><span class="button-title">环境</span>
+	    <div class="buttons env-buttons clearfix">
+	    <span class="env-button">1</span>
+	    <span class="env-button">2</span>
+	    <span class="env-button">3</span>
+	    <span class="env-button">4</span>
+	    <span class="env-button">5</span>
+	    </div>
+	  </li>
+	  <li><span class="button-title">人均</span>
+	    <div class="buttons clearfix">
+		  <span class="price"><%= f.input :price, label: false %></span>
+		</div>
+	  </li>
+	</ul>
+
+	<%= f.input :remark, label: "评论" %>
+
+    <%= f.input :star, as: :hidden, value: 0 %>
+	<%= f.input :taste, as: :hidden, value: 0 %>
+	<%= f.input :serve, as: :hidden, value: 0 %>
+	<%= f.input :environment, as: :hidden, value: 0 %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "提交" %>
+  </div>
+<% end %>
+

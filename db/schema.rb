@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316082357) do
+ActiveRecord::Schema.define(version: 20160320153015) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20160316082357) do
   create_table "foods", force: :cascade do |t|
     t.string   "name",           limit: 255
     t.text     "description",    limit: 65535
-    t.integer  "state",          limit: 4,                    default: 0
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.integer  "state",          limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "shop_id",        limit: 4
     t.integer  "user_id",        limit: 4
     t.string   "unit",           limit: 255
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 20160316082357) do
     t.text     "content",        limit: 65535
     t.integer  "topic_id",       limit: 4
     t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.integer  "comments_count", limit: 4,     default: 0,     null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "comments_count", limit: 4,     default: 0, null: false
     t.integer  "display_count",  limit: 4,     default: 0
-    t.boolean  "elite",                        default: false
-    t.boolean  "top",                          default: false
+    t.boolean  "elite"
+    t.boolean  "top"
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
@@ -98,14 +98,30 @@ ActiveRecord::Schema.define(version: 20160316082357) do
 
   add_index "remarks", ["user_id"], name: "index_remarks_on_user_id", using: :btree
 
+  create_table "shop_remarks", force: :cascade do |t|
+    t.integer  "star",        limit: 4,                    default: 0
+    t.integer  "taste",       limit: 4,                    default: 0
+    t.integer  "serve",       limit: 4,                    default: 0
+    t.integer  "environment", limit: 4,                    default: 0
+    t.decimal  "price",                     precision: 10, default: 0
+    t.text     "remark",      limit: 65535
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.integer  "shop_id",     limit: 4
+    t.integer  "user_id",     limit: 4
+  end
+
+  add_index "shop_remarks", ["shop_id"], name: "index_shop_remarks_on_shop_id", using: :btree
+  add_index "shop_remarks", ["user_id"], name: "index_shop_remarks_on_user_id", using: :btree
+
   create_table "shops", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4,     default: 0
+    t.integer  "state",       limit: 4
     t.integer  "area_id",     limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "telephone",   limit: 255
     t.string   "contact",     limit: 255
     t.integer  "user_id",     limit: 4
@@ -153,6 +169,8 @@ ActiveRecord::Schema.define(version: 20160316082357) do
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "remarks", "users"
+  add_foreign_key "shop_remarks", "shops"
+  add_foreign_key "shop_remarks", "users"
   add_foreign_key "shops", "areas"
   add_foreign_key "shops", "categories"
   add_foreign_key "shops", "users"

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  star: 1
+  teste: 1
+  serve: 1
+  environment: 1
+  price: 9.99
+  remark: MyText
+
+two:
+  star: 1
+  teste: 1
+  serve: 1
+  environment: 1
+  price: 9.99
+  remark: MyText

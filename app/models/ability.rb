@@ -29,8 +29,8 @@ class Ability
         !post.user_id.nil? and post.user_id == user.id
       end
 
-      can :create, Remark
-      can :destroy, Remark do |remark|
+      can :create, ShopRemark
+      can :destroy, ShopRemark do |remark|
         !remark.user_id.nil? and remark.user_id == user.id
       end
 

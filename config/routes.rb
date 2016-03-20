@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   resources :shops do
     resources :foods, shallow: true
+    resources :shop_remarks, shallow: true
     member do
       get "uppics" => "shops#uppics"
       post "uppics" => "shops#upload_picture"

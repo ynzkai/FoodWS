@@ -9,7 +9,7 @@ class Shop < ActiveRecord::Base
   has_many :foods, -> { where state: 1 }, dependent: :destroy
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
-  has_many :remarks, as: :remarkable, dependent: :destroy
+  has_many :shop_remarks, dependent: :destroy
 
   accepts_nested_attributes_for :address
 
