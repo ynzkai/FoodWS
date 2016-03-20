@@ -24,6 +24,33 @@ jQuery(document).ready(function() {
   jQuery("time.timeago").timeago();
 });
 
+$(document).ready(function() {
+	init_owlCarousel(".owl-shop-pic");
+});
+$(document).on("page:change", function() {
+	init_owlCarousel(".owl-shop-pic");
+});
+
+function init_owlCarousel(sel) {
+  $(sel).owlCarousel({
+    navigation: true, // Show next and prev buttons
+    slideSpeed: 300,
+    paginationSpeed: 400,
+	goToFirstSpeed: 2000,
+    autoPlay: 3000,
+    stopOnHover: true,
+    navigationText: ['<span class="glyphicon glyphicon-chevron-left"></span>', '<span class="glyphicon glyphicon-chevron-right"></span>'],
+	//autoHeight: true,
+  
+    singleItem: true
+    // "singleItem:true" is a shortcut for:
+    // items : 1, 
+    // itemsDesktop : false,
+    // itemsDesktopSmall : false,
+    // itemsTablet: false,
+    // itemsMobile : false
+  });
+}
 
 // hide/show headline when scroll document
 ;(function($) {

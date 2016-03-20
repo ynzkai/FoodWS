@@ -73,126 +73,6 @@
 	}
 
 	.shop-detail {
-		background-color: $gray-back;
-		@include border-radius(3px);
-		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
-
-		// start owl here
-		.owl-carousel {
-			position: relative;
-			margin: 0;
-			padding: 0;
-			.owl-wrapper-outer {
-				.owl-wrapper {
-					.owl-item {
-					}
-				}
-			}
-			.owl-controls {
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				text-align: center;
-				.owl-pagination {
-					position: relative;
-					top: 460px; // 设置page按钮的垂直坐标
-					display: inline-block;
-					.owl-page {
-						margin: 0 5px;
-						float: left;
-						span {
-							display: block;
-							width: 10px;
-							height: 10px;
-							background-color: #fff;
-							opacity: .8;
-							@include border-radius(999px);
-						}
-						&.active span {
-							background-color: #999;
-						}
-					}
-				}
-
-				.owl-buttons {
-					position: absolute;
-					width: 100%;
-					top: 20px;//225px; // 设置button按钮的垂直坐标
-					.owl-prev, .owl-next {
-						width: 30px;
-						height: 50px;
-						line-height: 50px;
-						background-color: #ccc;
-						color: #fff;
-						opacity: .8;
-						display: block;// none
-					}
-					.owl-prev {
-						float: left;
-					}
-					.owl-next {
-						float: right;
-					}
-				}
-				&:hover .owl-buttons .owl-prev,
-				&:hover .owl-buttons .owl-next {
-					display: block;
-				}
-			}
-		}// end owl here
-
-		.shop-pictures {
-			//max-width: 500px;
-			img {
-				width: 100%;
-				height: auto;
-			}
-		}
-		
-		.shop-info {
-			li {
-				padding: 5px 0;
-				border-bottom: 1px solid darken($gray-back, 3%);
-				min-height: 2em;
-			}
-			.shop-info-item {
-				.item-name {
-					color: $brand-primary;
-					display: block;
-					min-width: 100px;
-					float: left;
-				}
-				.description {
-					line-height: 1.5em;
-				}
-			}
-			.shop-name {
-				font-size: 1.1em;
-				color: $brand-secondary;
-			}
-			.note {
-				color: #ccc;
-				font-size: .8em;
-			}
-			.buttons {
-				.button {
-					color: $brand-primary;
-					padding: 0 10px;
-				}
-			}
-			.share {
-				color: #ccc;
-				font-size: .8em;
-			}
-
-			margin: 0;
-			padding: 15px;
-			list-style: none;
-			//border: 1px solid $gray-lighter;
-			//@include border-radius(5px);
-		}
 		
 
 	}
@@ -246,6 +126,68 @@
 
 	.shop-buttons {
 		margin-top: 30px;
+	}
+
+
+	.shop-show {
+		//background-color: $gray-back;
+		//@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
+
+		.shop-detail {
+			@include border-radius(3px);
+			border: 1px solid #eee;
+			.shop-pictures {
+				margin-top: 15px;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			
+			.shop-info {
+				li {
+					padding: 5px 0;
+					border-bottom: 1px solid darken($gray-back, 3%);
+					min-height: 2em;
+				}
+				.shop-info-item {
+					.item-name {
+						color: $brand-primary;
+						display: block;
+						min-width: 100px;
+						float: left;
+					}
+					.description {
+						line-height: 1.5em;
+					}
+				}
+				.shop-name {
+					font-size: 1.1em;
+					color: $brand-secondary;
+				}
+				.note {
+					color: #ccc;
+					font-size: .8em;
+				}
+				.buttons {
+					.button {
+						color: $brand-primary;
+						padding: 0 10px;
+					}
+				}
+				.share {
+					color: #ccc;
+					font-size: .8em;
+				}
+
+				margin: 0;
+				padding: 15px;
+				list-style: none;
+				//border: 1px solid $gray-lighter;
+				//@include border-radius(5px);
+			}
+		}
+
 	}
 }
 

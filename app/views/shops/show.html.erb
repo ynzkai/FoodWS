@@ -1,25 +1,76 @@
-<%= render "shared/goback" %>
 
 <div class="row">
+	<%= render "shared/goback" %>
 
-  <div class="col-md-9">
-    <%= render partial: "shop_detail", locals: {shop: @shop} %>
+  <div class="col-md-9 shop-show">
+
+	<div class="row shop-detail">
+      <div class="col-md-6">
+        <div class="shop-pictures owl-carousel owl-shop-pic">
+          <% @shop.pictures.each do |pic| %>
+            <%= image_tag pic.image.url(:medium) %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="shop-info">
+          <li class="shop-name"><%= @shop.name %></li>
+	  	<li class="note">此信息由<%= @shop.user.username unless @shop.user.nil? %>上传</li>
+          <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= @shop.category.name %></li>
+	  	<li class="shop-info-item"><span class="item-name">地址:</span><%= "#{@shop.area.name} | #{@shop.address.name}" %></li>
+          <li class="shop-info-item"><span class="item-name">联系电话:</span><%= @shop.telephone %></li>
+          <li class="shop-info-item"><span class="item-name">其他:</span><%= @shop.contact %></li>
+          <li class="shop-info-item buttons">
+            <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
+			30 喜欢
+            <span class="button glyphicon glyphicon-star" title="收藏"></span>
+			30 收藏
+          </li>
+		  <li class="shop-info-item">
+		    星星....
+		  </li>
+		  <li class="shop-info-item">
+		    <span>味道:</span>
+		    <span>服务:</span>
+		    <span>环境:</span>
+		    <span>人均:</span>
+		  </li>
+	  	<li class="shop-info-item share">分享链接</li>
+          <li class="shop-info-item shop-remarks">
+	  	  <span><%= @shop.remarks.count %>条评论</span>
+            <%= link_to '去评论', "#remarks", class: "btn btn-success btn-sm" %>
+          </li>
+        </ul>
+      </div>
+
+	  <div class="col-md-12">
+        <p><span class="shop-description">本店介绍:</span><%= @shop.description %></p>
+	  </div>
+    </div><!-- end shop-detail div -->
+
 
     <div class="foods">
       <div class="area-title">本店有<%= @shop.foods.count %>道美食</div>
       <% @shop.foods.each do |food| %>
         <%= render partial: "foods/food_strip", locals: {food: food} %>
       <% end %>
+	  <div class="remarks" id="remarks">
+        <% if user_signed_in? %>
+          <%= render partial: 'remarks/form', locals: {resource: @shop} %>
+        <% else %>
+          <%= link_to '登录评论', new_user_session_path %>
+		<% end %>
+        <%= render @shop.remarks.order(created_at: :desc).limit(30) %>
+	  </div>
     </div>
-  </div>
 
-  <div class="col-md-3 shop-remarks">
-	<% if user_signed_in? %>
-      <%= render partial: 'remarks/form', locals: {resource: @shop} %>
-	<% else %>
-	  <%= link_to '登录点评店铺', new_user_session_path %>
-	<% end %>
-    <%= render @shop.remarks.order(created_at: :desc).limit(30) %>
+  </div><!-- end shop div -->
+
+  <div class="col-md-3 sidebar">
+    <div class="shop-map">
+  	  shop's map here.
+    </div>
   </div>
 
 </div>
