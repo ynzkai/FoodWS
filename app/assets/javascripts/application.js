@@ -69,8 +69,8 @@ function init_owlCarousel(sel) {
 
 // rank
 jQuery(document).ready(function() {
-  Rank.init_rank(".star-buttons");
-  Rank.init_rank(".taste-buttons");
-  Rank.init_rank(".serve-buttons");
-  Rank.init_rank(".environment-buttons");
+  Rank().init_rank(".star-buttons", {pos: 3});
+  Rank().init_rank(".taste-buttons");
+  Rank().init_rank(".serve-buttons");
+  Rank().init_rank(".env-buttons");
 });
