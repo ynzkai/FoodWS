@@ -322,10 +322,10 @@ body {
 			width: 2em;
 			height: 2em;
 			background-color: $gray-back;
-			&:hover {
-				cursor: pointer;
-				color: $brand-primary;
-			}
+			//&:hover {
+			//	cursor: pointer;
+			//	color: $brand-primary;
+			//}
 		}
 		.price {
 			width: 100px;

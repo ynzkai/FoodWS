@@ -65,3 +65,12 @@ function init_owlCarousel(sel) {
 	initTop = scrollTop;
   });
 })(jQuery);
+
+
+// rank
+jQuery(document).ready(function() {
+  Rank.init_rank(".star-buttons");
+  Rank.init_rank(".taste-buttons");
+  Rank.init_rank(".serve-buttons");
+  Rank.init_rank(".environment-buttons");
+});
