@@ -28,13 +28,16 @@
 			30 收藏
           </li>
 		  <li class="shop-info-item">
-		    星星....
+		    星级:
+			<% @shop.shop_remarks.average(:star).to_i.downto 1 do %>
+              <span class="button glyphicon glyphicon-star"></span>
+			<% end %>
 		  </li>
 		  <li class="shop-info-item">
-		    <span>味道:</span>
-		    <span>服务:</span>
-		    <span>环境:</span>
-		    <span>人均:</span>
+		    <span>味道:</span><span><%= @shop.shop_remarks.average(:taste) %></span>
+		    <span>服务:</span><span><%= @shop.shop_remarks.average(:serve) %></span>
+		    <span>环境:</span><span><%= @shop.shop_remarks.average(:environment) %></span>
+		    <span>人均:</span><span><%= @shop.shop_remarks.average(:price) %></span>
 		  </li>
 	  	<li class="shop-info-item share">分享链接</li>
           <li class="shop-info-item shop-remarks">
