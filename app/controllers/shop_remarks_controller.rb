@@ -1,4 +1,5 @@
 class ShopRemarksController < ApplicationController
+  before_action :set_remark, only: [:destroy]
   before_action :set_shop, only: [:create]
 
   def create
@@ -8,7 +9,17 @@ class ShopRemarksController < ApplicationController
     end
   end
 
+  def destroy
+    if @remark.destroy
+      redirect_to :back
+    end
+  end
+
   protected
+
+  def set_remark
+    @remark = ShopRemark.find params[:id]
+  end
 
   def set_shop
     @shop = Shop.find params[:shop_id]

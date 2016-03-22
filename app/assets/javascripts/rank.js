@@ -32,7 +32,7 @@ var Rank = function(){
   }
 
   return {
-	init_rank: function(container, opts) {
+	init_rank: function(container, opts, after_func) {
 	  for(var o in opts) {
 		  options[o] = opts[o];
 	  }
@@ -52,6 +52,9 @@ var Rank = function(){
 		});
         $(buttons[i]).click(function(){
 		  set_pos($(this).data("pos")-1);
+		  if(after_func) {
+			  after_func.call(this);
+		  }
 		});
 	  }
 	}

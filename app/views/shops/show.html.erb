@@ -24,7 +24,7 @@
           <li class="shop-info-item buttons">
             <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
 			30 喜欢
-            <span class="button glyphicon glyphicon-star" title="收藏"></span>
+            <span class="button glyphicon glyphicon-briefcase" title="收藏"></span>
 			30 收藏
           </li>
 		  <li class="shop-info-item">
@@ -34,10 +34,10 @@
 			<% end %>
 		  </li>
 		  <li class="shop-info-item">
-		    <span>味道:</span><span><%= @shop.shop_remarks.average(:taste) %></span>
-		    <span>服务:</span><span><%= @shop.shop_remarks.average(:serve) %></span>
-		    <span>环境:</span><span><%= @shop.shop_remarks.average(:environment) %></span>
-		    <span>人均:</span><span><%= @shop.shop_remarks.average(:price) %></span>
+		    <span>味道:</span><span><%= number_to_rounded @shop.shop_remarks.average(:taste), precision: 1 %></span>
+		    <span>服务:</span><span><%= number_to_rounded @shop.shop_remarks.average(:serve), precision: 1 %></span>
+		    <span>环境:</span><span><%= number_to_rounded @shop.shop_remarks.average(:environment), precision: 1 %></span>
+		    <span>人均:</span><span><%= number_to_rounded @shop.shop_remarks.average(:price), precision: 1 %></span>
 		  </li>
 	  	<li class="shop-info-item share">分享链接</li>
           <li class="shop-info-item shop-remarks">
@@ -59,12 +59,13 @@
         <%= render partial: "foods/food_strip", locals: {food: food} %>
       <% end %>
 	  <div class="remarks" id="remarks">
+        <%= render @shop.shop_remarks.order(created_at: :desc) %>
+
         <% if user_signed_in? %>
           <%= render partial: 'shop_remarks/form', locals: {shop: @shop} %>
         <% else %>
           <%= link_to '登录评论', new_user_session_path %>
 		<% end %>
-        <%= render @shop.shop_remarks.order(created_at: :desc) %>
 	  </div>
     </div>
 

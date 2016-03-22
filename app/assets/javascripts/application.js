@@ -69,8 +69,16 @@ function init_owlCarousel(sel) {
 
 // rank
 jQuery(document).ready(function() {
-  Rank().init_rank(".star-buttons", {pos: 3});
-  Rank().init_rank(".taste-buttons");
-  Rank().init_rank(".serve-buttons");
-  Rank().init_rank(".env-buttons");
+  Rank().init_rank(".star-buttons",{}, function() {
+	$("#shop_remark_star").val($(this).data("pos"));
+  });
+  Rank().init_rank(".taste-buttons",{}, function() {
+	$("#shop_remark_taste").val($(this).data("pos"));
+  });
+  Rank().init_rank(".serve-buttons",{}, function() {
+	$("#shop_remark_serve").val($(this).data("pos"));
+  });
+  Rank().init_rank(".env-buttons",{}, function() {
+	$("#shop_remark_environment").val($(this).data("pos"));
+  });
 });
