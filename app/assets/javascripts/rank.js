@@ -2,7 +2,7 @@
 var Rank = function(){
   var options = {
 	bgcolor1: "#f8f8f8",
-	color1: "#333",
+	color1: "#ccc",
 	bgcolor2: "#f9a",
 	color2: "#fff",
     pos: 0

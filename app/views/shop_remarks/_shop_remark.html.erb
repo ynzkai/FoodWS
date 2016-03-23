@@ -10,9 +10,12 @@
 	<% end %>
   </div>
 
-  <div class="stars">
+  <div class="star">
 	<% shop_remark.star.times do %>
-	  <span class="star-button glyphicon glyphicon-star"></span>
+	  <span class="star glyphicon glyphicon-star"></span>
+	<% end %>
+	<% (5-shop_remark.star).downto 1 do %>
+	  <span class="star-empty glyphicon glyphicon-star-empty"></span>
 	<% end %>
   </div>
 

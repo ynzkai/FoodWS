@@ -269,11 +269,11 @@ body {
 					width: 10px;
 					height: 10px;
 					background-color: #fff;
-					opacity: .8;
+					opacity: .5;
 					@include border-radius(999px);
 				}
 				&.active span {
-					background-color: #999;
+					background-color: $brand-primary;
 				}
 			}
 		}

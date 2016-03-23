@@ -50,8 +50,8 @@ $(document).ready(function() {
 	  dataType: 'json',
 	  data: {"picture_id": $(this).data("picid")},
 	  success: function(data, status, xhr) {
-		$(".face-flag").remove();
-		_this.parent().parent().children(".thumbnail").before($('<span class="face-flag">封面</span>'));
+		$(".shop-face-label").remove();
+		_this.parent().parent().children(".thumbnail").before($('<span class="shop-face-label">封面</span>'));
 	  },
 	  error: function(xhr, status, err) {
 		alert(status + ' 出现错误\n' + err);

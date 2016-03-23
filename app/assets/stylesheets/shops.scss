@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .shops {
+	padding-top: 30px;
 	// shop panel bottom margin
 	.col-md-3, .col-md-4,
 	.col-sm-3, .col-sm-4,
@@ -148,32 +149,34 @@
 			.shop-info {
 				li {
 					padding: 5px 0;
-					border-bottom: 1px solid darken($gray-back, 3%);
+					border-bottom: 1px solid $gray-back;
 					min-height: 2em;
 				}
-				.shop-info-item {
-					.item-name {
-						color: $brand-primary;
-						display: block;
-						min-width: 100px;
-						float: left;
-					}
-					.description {
-						line-height: 1.5em;
-					}
+				.name {
+					color: #ccc;
+					margin-right: 1em;
 				}
 				.shop-name {
 					font-size: 1.1em;
-					color: $brand-secondary;
+					color: $brand-primary;
 				}
 				.note {
 					color: #ccc;
 					font-size: .8em;
 				}
-				.buttons {
-					.button {
-						color: $brand-primary;
-						padding: 0 10px;
+				.star {
+					color: #fa9;
+				}
+				.star-empty {
+					color: #ccc;
+				}
+				.score {
+					span {
+						color: #ccc;
+						margin-right: 10px;
+					}
+					span + span {
+						margin-left: 10px;
 					}
 				}
 				.share {
@@ -186,6 +189,11 @@
 				list-style: none;
 				//border: 1px solid $gray-lighter;
 				//@include border-radius(5px);
+			}
+
+			.description {
+				margin-top: 1em;
+				line-height: 1.5;
 			}
 		}
 
@@ -205,6 +213,16 @@
 		}
 
 	}
+}
+
+.shop-face-label {
+	color: $brand-primary;
+	font-size: 1.5em;
+	background-color: #fff;
+	opacity: .8;
+	position: absolute;
+	top: 5px;
+	left: 20px;
 }
 
 

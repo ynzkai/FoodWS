@@ -50,10 +50,10 @@
 	  <%= f.input :remark, label: "评论" %>
 	</div>
 
-    <%= f.input :star, as: :hidden, value: 0 %>
-	<%= f.input :taste, as: :hidden, value: 0 %>
-	<%= f.input :serve, as: :hidden, value: 0 %>
-	<%= f.input :environment, as: :hidden, value: 0 %>
+	<%= f.input :star, as: :hidden, input_html: {value: 5} %>
+	<%= f.input :taste, as: :hidden, input_html: {value: 5} %>
+	<%= f.input :serve, as: :hidden, input_html: {value: 5} %>
+	<%= f.input :environment, as: :hidden, input_html: {value: 5} %>
   </div>
 
   <div class="form-actions">

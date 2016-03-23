@@ -1,6 +1,5 @@
 
 <div class="row">
-	<%= render "shared/goback" %>
 
   <div class="col-md-9 shop-show">
 
@@ -15,38 +14,44 @@
 
       <div class="col-md-6">
         <ul class="shop-info">
-          <li class="shop-name">店名: <%= @shop.name %></li>
-	  	<li class="note">此信息由<%= @shop.user.username unless @shop.user.nil? %>上传</li>
-          <li class="shop-info-item">店铺类型: <%= @shop.category.name %></li>
-	  	<li class="shop-info-item">地址: <%= "#{@shop.area.name} | #{@shop.address.name}" %></li>
-          <li class="shop-info-item">联系电话: <%= @shop.telephone %></li>
-          <li class="shop-info-item">其他: <%= @shop.contact %></li>
-          <li class="shop-info-item buttons">
-            <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
-			30 喜欢
-          </li>
-		  <li class="shop-info-item">
-		    星级: 
+		  <li class="shop-name"><span class="name">店名:</span><%= @shop.name %></li>
+	  	  <li class="note">此信息由<%= @shop.user.username unless @shop.user.nil? %>上传</li>
+          <li><span class="name">店铺类型:</span><%= @shop.category.name %></li>
+	  	  <li><span class="name">地址:</span><%= "#{@shop.area.name} | #{@shop.address.name}" %></li>
+          <li><span class="name">联系电话:</span><%= @shop.telephone %></li>
+          <li><span class="name">其他:</span><%= @shop.contact %></li>
+		  <li><span class="name">星级:</span> 
 			<% @shop.shop_remarks.average(:star).to_i.downto 1 do %>
               <span class="button star glyphicon glyphicon-star"></span>
 			<% end %>
+			<% @shop.shop_remarks.average(:star).to_i.upto 4 do %>
+              <span class="button star-empty glyphicon glyphicon-star-empty"></span>
+			<% end %>
 		  </li>
-		  <li class="shop-info-item score">
-		    <span>味道:</span><span><%= number_to_rounded @shop.shop_remarks.average(:taste), precision: 1 %></span>
-		    <span>服务:</span><span><%= number_to_rounded @shop.shop_remarks.average(:serve), precision: 1 %></span>
-		    <span>环境:</span><span><%= number_to_rounded @shop.shop_remarks.average(:environment), precision: 1 %></span>
-		    <span>人均:</span><span><%= number_to_rounded @shop.shop_remarks.average(:price), precision: 1 %></span>
+		  <li class="score">
+		    <span>味道:</span><%= number_to_rounded @shop.shop_remarks.average(:taste), precision: 1 %>
+		    <span>服务:</span><%= number_to_rounded @shop.shop_remarks.average(:serve), precision: 1 %>
+		    <span>环境:</span><%= number_to_rounded @shop.shop_remarks.average(:environment), precision: 1 %>
+		    <span>人均:</span><%= number_to_rounded @shop.shop_remarks.average(:price), precision: 1 %>元
 		  </li>
-	  	<li class="shop-info-item share">分享链接</li>
-          <li class="shop-info-item shop-remarks">
-	  	  <span><%= @shop.shop_remarks.count %>条评论</span>
-            <%= link_to '去评论', "#remarkzone", class: "btn btn-success btn-sm" %>
+          <li class="shop-remarks">
+            <%= link_to "#remarkzone", class: "btn btn-success btn-sm" do %>
+			  <span class="glyphicon glyphicon-comment"></span>
+			<% end %>
+	  	    <span><%= @shop.shop_remarks.count %>评论</span>
+
+            <%= link_to "#", class: "btn btn-success btn-sm" do %>
+			  <span class="glyphicon glyphicon-heart-empty"></span>
+			<% end %>
+			<span>30 喜欢</span>
           </li>
+
+	  	  <li class="share">分享链接</li>
         </ul>
       </div>
 
 	  <div class="col-md-12">
-        <p><span class="shop-description">本店介绍:</span><%= @shop.description %></p>
+        <p class="description"><%= @shop.description %></p>
 	  </div>
     </div><!-- end shop-detail div -->
 

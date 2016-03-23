@@ -11,8 +11,11 @@
 		font-size: .8em;
 		padding: 5px 0;
 	}
-	.stars {
+	.star {
 		color: #fa9;
+	}
+	.star-empty {
+		color: #ccc;
 	}
 	.score {
 		margin: 5px auto;
@@ -63,6 +66,9 @@
 				&:hover {
 					cursor: pointer;
 				}
+			}
+			span + span {
+				border-left: 1px solid #fff;
 			}
 			.price {
 				width: 100px;

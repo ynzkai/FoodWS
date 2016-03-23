@@ -1,6 +1,6 @@
 <div class="col-md-3 image">
   <% if face_id == pic.id %>
-    <span class="face-flag">封面</span>
+    <span class="shop-face-label">封面</span>
   <% end %>
   <div class="thumbnail">
 	<%= image_tag pic.image.url(:small) unless pic.image.nil? %>
