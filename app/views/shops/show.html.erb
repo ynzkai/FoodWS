@@ -15,25 +15,23 @@
 
       <div class="col-md-6">
         <ul class="shop-info">
-          <li class="shop-name"><%= @shop.name %></li>
+          <li class="shop-name">店名: <%= @shop.name %></li>
 	  	<li class="note">此信息由<%= @shop.user.username unless @shop.user.nil? %>上传</li>
-          <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= @shop.category.name %></li>
-	  	<li class="shop-info-item"><span class="item-name">地址:</span><%= "#{@shop.area.name} | #{@shop.address.name}" %></li>
-          <li class="shop-info-item"><span class="item-name">联系电话:</span><%= @shop.telephone %></li>
-          <li class="shop-info-item"><span class="item-name">其他:</span><%= @shop.contact %></li>
+          <li class="shop-info-item">店铺类型: <%= @shop.category.name %></li>
+	  	<li class="shop-info-item">地址: <%= "#{@shop.area.name} | #{@shop.address.name}" %></li>
+          <li class="shop-info-item">联系电话: <%= @shop.telephone %></li>
+          <li class="shop-info-item">其他: <%= @shop.contact %></li>
           <li class="shop-info-item buttons">
             <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
 			30 喜欢
-            <span class="button glyphicon glyphicon-briefcase" title="收藏"></span>
-			30 收藏
           </li>
 		  <li class="shop-info-item">
-		    星级:
+		    星级: 
 			<% @shop.shop_remarks.average(:star).to_i.downto 1 do %>
-              <span class="button glyphicon glyphicon-star"></span>
+              <span class="button star glyphicon glyphicon-star"></span>
 			<% end %>
 		  </li>
-		  <li class="shop-info-item">
+		  <li class="shop-info-item score">
 		    <span>味道:</span><span><%= number_to_rounded @shop.shop_remarks.average(:taste), precision: 1 %></span>
 		    <span>服务:</span><span><%= number_to_rounded @shop.shop_remarks.average(:serve), precision: 1 %></span>
 		    <span>环境:</span><span><%= number_to_rounded @shop.shop_remarks.average(:environment), precision: 1 %></span>
@@ -42,7 +40,7 @@
 	  	<li class="shop-info-item share">分享链接</li>
           <li class="shop-info-item shop-remarks">
 	  	  <span><%= @shop.shop_remarks.count %>条评论</span>
-            <%= link_to '去评论', "#remarks", class: "btn btn-success btn-sm" %>
+            <%= link_to '去评论', "#remarkzone", class: "btn btn-success btn-sm" %>
           </li>
         </ul>
       </div>
@@ -53,21 +51,27 @@
     </div><!-- end shop-detail div -->
 
 
-    <div class="foods">
+    <div class="foods clearfix">
       <div class="area-title">本店有<%= @shop.foods.count %>道美食</div>
       <% @shop.foods.each do |food| %>
         <%= render partial: "foods/food_strip", locals: {food: food} %>
       <% end %>
-	  <div class="remarks" id="remarks">
-        <%= render @shop.shop_remarks.order(created_at: :desc) %>
+    </div>
 
+	<div class="remarks">
+      <div class="area-title">共有<%= @shop.shop_remarks.count %>条评论</div>
+
+      <%= render @shop.shop_remarks.order(created_at: :desc) %>
+
+	  <div class="remark-zone" id="remarkzone">
         <% if user_signed_in? %>
+          <div class="area-title">为本店打分</div>
           <%= render partial: 'shop_remarks/form', locals: {shop: @shop} %>
         <% else %>
           <%= link_to '登录评论', new_user_session_path %>
-		<% end %>
+	    <% end %>
 	  </div>
-    </div>
+	</div>
 
   </div><!-- end shop div -->
 

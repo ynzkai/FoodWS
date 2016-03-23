@@ -1,3 +1,76 @@
 // Place all the styles related to the ShopRemarks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.shop-remark {
+	padding: 15px 0;
+
+	border-bottom: 1px solid #eee;
+	.head-info {
+		color: #ccc;
+		font-size: .8em;
+		padding: 5px 0;
+	}
+	.stars {
+		color: #fa9;
+	}
+	.score {
+		margin: 5px auto;
+		span {
+			background-color: $gray-back;
+			@include border-radius(3px);
+			padding-right: 5px;
+			color: #999;
+		}
+		span + span {
+			padding-left: 10px;
+		}
+	}
+	.remark-text {
+		margin-top: .5em;
+	}
+
+}
+
+//remark buttons
+.shop-remark-form {
+	.remark-buttons {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		.button-title {
+			width: 3em;
+		}
+		li {
+			margin: 10px auto;
+			padding: 0;
+			&>span:first-child {
+				text-align: left;
+			}
+			span {
+				float: left;
+				text-align: center;
+				line-height: 2em;
+			}
+		}
+		.buttons {
+			span {
+				display: block;
+				width: 2em;
+				height: 2em;
+				background-color: $gray-back;
+				float: left;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			.price {
+				width: 100px;
+			}
+		}
+	}
+
+	.remark-input {
+		margin-top: 30px;
+	}
+}

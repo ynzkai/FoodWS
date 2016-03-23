@@ -3,12 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .shops {
+	// shop panel bottom margin
 	.col-md-3, .col-md-4,
 	.col-sm-3, .col-sm-4,
 	.col-xs-3, .col-xs-4
 	{
 		margin-bottom: $grid-gutter-width/2;
 	}
+
+	// shop panel
 	.shop {
 		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
 		background-color: $gray-back;
@@ -72,11 +75,8 @@
 		}
 	}
 
-	.shop-detail {
-		
 
-	}
-
+	// shop categories
 	.shop-categories {
 		padding: $grid-gutter-width/2;
 		ul {
@@ -120,15 +120,16 @@
 		}
 	}
 
-	.face-flag {
-		position: absolute;
-	}
+	//.face-flag {
+	//	position: absolute;
+	//}
 
-	.shop-buttons {
-		margin-top: 30px;
-	}
+	//.shop-buttons {
+	//	margin-top: 30px;
+	//}
 
 
+	// shop-show page
 	.shop-show {
 		//background-color: $gray-back;
 		//@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
@@ -186,6 +187,21 @@
 				//border: 1px solid $gray-lighter;
 				//@include border-radius(5px);
 			}
+		}
+
+
+		.foods {
+			margin: 50px auto;
+		}
+
+		.remarks {
+			border-top: 3px solid $gray-back;
+			margin: 50px auto;
+			padding: 30px auto;
+		}
+		
+		.remark-zone {
+			margin-top: 50px;
 		}
 
 	}

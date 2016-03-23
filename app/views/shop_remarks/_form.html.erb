@@ -1,7 +1,7 @@
 <%= simple_form_for [shop, shop.shop_remarks.build] do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="shop-remark-form">
 	<ul class="remark-buttons">
 	  <li><span class="button-title">星级</span>
 	    <div class="buttons star-buttons clearfix">
@@ -46,7 +46,9 @@
 	  </li>
 	</ul>
 
-	<%= f.input :remark, label: "评论" %>
+	<div class="remark-input">
+	  <%= f.input :remark, label: "评论" %>
+	</div>
 
     <%= f.input :star, as: :hidden, value: 0 %>
 	<%= f.input :taste, as: :hidden, value: 0 %>
