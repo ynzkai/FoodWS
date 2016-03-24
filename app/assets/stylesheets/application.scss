@@ -15,7 +15,6 @@
  */
 
 
-$brand-secondary: #a65900;
 $gray-back: #f8f8f8;
 
 // bootstrap variables
@@ -28,6 +27,7 @@ $text-color: #333;
 $gray-lighter: lighten($gray-base, 75.5%); 
 $grid-gutter-width: 30px;
 $brand-primary: #333;//#36ab55;//darken(#ff8bba, 10.5%); //link color
+$brand-secondary: #36ab55;
 $link-color: $brand-primary;
 //screen
 $screen-sm-min: 768px;
@@ -110,7 +110,7 @@ $pagination-active-border: #ddd;
 
 body {
 	font-family: 'Microsoft YaHei','微软雅黑';
-	padding-top: 70px;
+	padding-top: 100px;
 }
 
 .hold-bar {
@@ -247,7 +247,7 @@ body {
 
 
 // start owl here
-.owl-carousel {
+.shops .owl-carousel {
 	position: relative;
 	margin: 0;
 	padding: 0;
@@ -313,3 +313,10 @@ body {
 	}
 }// end owl here
 
+
+//以下是临时性CSS
+.head-banner {
+	height: 100px;
+	margin-bottom: 30px;
+	background-color: $gray-back;
+}

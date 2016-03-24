@@ -9,6 +9,8 @@
 	{
 		margin-bottom: $grid-gutter-width/2;
 	}
+
+	// foods******************************************
 	.food {
 		position: relative;
 		@include transition(all, 1s);
@@ -48,6 +50,30 @@
 			}
 		}
 
+	}
+
+	// shop name ******************************************
+	.shop-name {
+		color: $brand-secondary;
+		font-size: 1.2em;
+		border: 2px solid $gray-back;
+		padding: 10px;
+	}
+	.shop-foods {
+		margin: 15px auto;
+		background-color: $gray-back;
+		.foods {
+			height: 100px;
+			.food-picture {
+				height: 100%;
+				float: left;
+				& + .food-picture  { padding-left: 10px; }
+				img {
+					height: 100%;
+					width: auto;
+				}
+			}
+		}
 	}
 }
 
@@ -148,11 +174,4 @@
 		//border: 1px solid $gray-lighter;
 		//@include border-radius(5px);
 	}
-}
-
-//以下是临时性CSS
-.head-banner {
-	height: 100px;
-	margin: 20px 0 30px;
-	background-color: $gray-back;
 }

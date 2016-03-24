@@ -1,8 +1,20 @@
-<%= render "shared/goback" %>
 
 <div class="row">
 
   <div class="col-md-9">
+	<div class="shop-name">
+	  商家: <%= @food.shop.name %>
+	</div>
+	<div class="pic-slider shop-foods" id="shopfoods">
+	  <div class="pic-slider-inner foods">
+	    <% 10.downto 1 do %>
+          <div class="pic food-picture">
+            <%= image_tag @food.picture.image.url(:small) %>
+          </div>
+	    <% end %>
+	  </div>
+	</div>
+
 	<div class="food-detail">
 	  <div class="row">
         <div class="col-md-8">
