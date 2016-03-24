@@ -15,7 +15,7 @@
 		&:hover {
 			top: -10px;
 		}
-		@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
+		@include box-shadow(0, 0, 1px, 0, darken($gray-back,40%)); 
 		background-color: $gray-back;
 		.picture {
 			img {
@@ -63,14 +63,21 @@
 	.info {
 		.name {
 			color: $brand-secondary;
-		}
-		.description {
-			height: 3em;
+			height: 1.5em;
 			overflow: hidden;
+		}
+		.stars {
+			height: 1.5em;
+			overflow: hidden;
+			span {
+				float: left;
+			}
+			.star { color: #fa9; }
+			.star-empty { color: #ccc; }
 		}
 		.discounted {
 			text-decoration: line-through;
-			color: #999;
+			color: #ccc;
 			margin-right: 5px;
 		}
 		.foot-info {

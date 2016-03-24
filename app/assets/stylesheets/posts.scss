@@ -9,6 +9,10 @@
 			height: auto;
 		}
 	}
+	.list-group-item {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
 	.post-list-head {
 		margin: 0;
 		padding-bottom: 10px;
@@ -80,5 +84,8 @@
 	//background: image-url("back.jpeg") no-repeat;
 	//background-size: 100%;
 	background-color: darken($gray-back, 5%);
+	.posts a {
+		color: #333;
+	}
 }
 

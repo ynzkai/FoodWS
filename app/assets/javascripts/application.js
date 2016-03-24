@@ -68,7 +68,7 @@ function init_owlCarousel(sel) {
 
 
 // rank
-jQuery(document).ready(function() {
+function init_rank() {
   Rank().init_rank(".star-buttons",{pos: 5}, function() {
 	$("#shop_remark_star").val($(this).data("pos"));
   });
@@ -81,4 +81,10 @@ jQuery(document).ready(function() {
   Rank().init_rank(".env-buttons",{pos: 5}, function() {
 	$("#shop_remark_environment").val($(this).data("pos"));
   });
+}
+jQuery(document).ready(function() {
+  init_rank();
+});
+jQuery(document).on("page:change", function() {
+  init_rank();
 });

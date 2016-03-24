@@ -27,7 +27,7 @@ $gray-base: #000;
 $text-color: #333;
 $gray-lighter: lighten($gray-base, 75.5%); 
 $grid-gutter-width: 30px;
-$brand-primary: #36ab55;//darken(#ff8bba, 10.5%); //link color
+$brand-primary: #333;//#36ab55;//darken(#ff8bba, 10.5%); //link color
 $link-color: $brand-primary;
 //screen
 $screen-sm-min: 768px;
@@ -150,6 +150,12 @@ body {
 		font-size: 0.833em;
 	}
 	border-bottom: 1px solid darken($navbar-default-bg, 8%);
+	.nav a {
+		border-bottom: 3px solid rgba(33,33,33,0);
+		&:hover {
+			border-color: $brand-primary;
+		}
+	}
 }
 
 .panel {
@@ -211,6 +217,7 @@ body {
 	color: #777;
 	text-align: center;
 	font-size: .8em;
+	a { color: #777; }
 	ul {
 		margin: 20px 0;
 		list-style: none;

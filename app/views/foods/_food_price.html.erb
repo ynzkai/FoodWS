@@ -1,6 +1,6 @@
 <% unless food.discount_price.nil? %>
-	<span class="discounted"><%= "#{food.price}元/#{food.unit} " %></span>
 	<span class="discount-price"><%= "#{food.discount_price}元/#{food.unit}" %></span>
+	<span class="discounted"><%= "#{food.price}元/#{food.unit} " %></span>
 <% else %>
 	<%= "#{food.price}元/#{food.unit} " %>
 <% end %>
