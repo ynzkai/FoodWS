@@ -6,13 +6,11 @@
 	  商家: <%= @food.shop.name %>
 	</div>
 	<div class="pic-slider shop-foods" id="shopfoods">
-	  <div class="pic-slider-inner foods">
-	    <% 10.downto 1 do %>
-          <div class="pic food-picture">
-            <%= image_tag @food.picture.image.url(:small) %>
-          </div>
-	    <% end %>
-	  </div>
+	  <% 10.downto 1 do %>
+        <div class="pic food-picture">
+          <%= image_tag @food.picture.image.url(:small) %>
+        </div>
+	  <% end %>
 	</div>
 
 	<div class="food-detail">

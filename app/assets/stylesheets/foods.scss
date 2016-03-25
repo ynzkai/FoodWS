@@ -67,7 +67,8 @@
 			.food-picture {
 				height: 100%;
 				float: left;
-				& + .food-picture  { padding-left: 10px; }
+				padding-right: 10px;
+				//& + .food-picture  { padding-left: 10px; }
 				img {
 					height: 100%;
 					width: auto;
@@ -78,8 +79,6 @@
 }
 
 .food-strip {
-	margin: 0 -$grid-gutter-width/2;
-	padding: 30px 0;
 	.picture {
 		img {
 			width: 100%;

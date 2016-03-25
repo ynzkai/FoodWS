@@ -16,10 +16,12 @@ class Ability
     elsif user.bbs_admin?
       can :read, :all
       can :index_all, Food
+      can :elite_posts, Post
       can :crud, [Post, Comment]
       can [:top, :elite], [Post]
     elsif user.common_user?
       can :read, :all
+      can :elite_posts, Post
       can [:create, :pictures], [Post, Comment]
 
       can [:update], Post do |post|
@@ -52,6 +54,7 @@ class Ability
     else
       can :read, :all
       can :index_all, Food
+      can :elite_posts, Post
     end
 
     # The first argument to `can` is the action you are giving the user

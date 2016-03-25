@@ -1,6 +1,5 @@
-<div class="col-md-6">
-  <div class="food-strip">
-    <div class="row">
+<div class="col-sm-6">
+    <div class="row food-strip">
   
   	  <div class="col-md-4 picture">
 	    <%= link_to food_path(food), "data-no-turbolink" => true do %>
@@ -10,18 +9,18 @@
   
   	  <div class="col-md-8 info">
         <p class="name"><%= food.name %></p>
-		<p class="stars">
-		  <% 3.downto 1 do %>
+	    <p class="stars">
+	      <% 3.downto 1 do %>
             <span class="button star glyphicon glyphicon-star"></span>
-		  <% end %>
-		  <% 3.upto 4 do %>
+	      <% end %>
+	      <% 3.upto 4 do %>
             <span class="button star-empty glyphicon glyphicon-star"></span>
-		  <% end %>
-		</p>
+	      <% end %>
+	    </p>
 
-		<p class="price">
-		  <%= render partial: "/foods/food_price", locals: {food: food} %>
-		</p>
+	    <p class="price">
+	      <%= render partial: "/foods/food_price", locals: {food: food} %>
+	    </p>
   
         <div class="foot-info">
           <span class="glyphicon glyphicon-heart"></span>10 喜欢 
@@ -29,6 +28,5 @@
         </div>
       </div>
   
-    </div>
   </div>
 </div>
