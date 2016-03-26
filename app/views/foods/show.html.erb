@@ -1,64 +1,65 @@
 
-<div class="row">
+<div class="row food-show">
 
   <div class="col-md-9">
-	<div class="shop-name">
-	  商家: <%= @food.shop.name %>
-	</div>
-	<div class="pic-slider shop-foods" id="shopfoods">
-	  <% 10.downto 1 do %>
-        <div class="pic food-picture">
-          <%= image_tag @food.picture.image.url(:small) %>
-        </div>
-	  <% end %>
-	</div>
 
-	<div class="food-detail">
-	  <div class="row">
-        <div class="col-md-8">
-          <div class="food-picture">
-            <%= image_tag @food.picture.image.url(:large) %>
-          </div>
-        </div>
 
-        <div class="col-md-4">
-          <ul class="food-info">
-            <li class="food-name"><%= @food.name %></li>
-			<li class="note">此信息由<%= @food.user.username %>上传</li>
-            <li class="food-info-item"><span class="item-name">所属店铺:</span><%= link_to @food.shop.name, shop_path(@food.shop) %></li>
+	<div class="food-info">
+      <div class="food-name"><%= @food.name %></div>
+	  <div class="spec star">
+		<span class="spec name">星级:</span> 
+		<% @food.food_remarks.average(:star).to_i.downto 1 do %>
+          <span class="button star glyphicon glyphicon-star"></span>
+		<% end %>
+		<% @food.food_remarks.average(:star).to_i.upto 4 do %>
+          <span class="button star-empty glyphicon glyphicon-star"></span>
+		<% end %>
+	  </div>
+	  <div class="spec"><span class="spec-name">价格:</span>
+	    <span class="item"><%= render partial: "food_price", locals: {food: @food} %></span>
 
-			<li class="food-info-item"><span class="item-name">价格:</span>
-			  <%= render partial: "food_price", locals: {food: @food} %>
-		    </li>
+        <span class="spec-name">喜欢:</span>
+        <%= link_to "#", class: "like" do %>
+          <span class="glyphicon glyphicon-heart-empty"></span>
+        <% end %>
+	  </div>
 
-            <li class="food-info-item"><span class="item-name">地址:</span><%= @food.shop.address.name %></li>
-            <li class="food-info-item"><span class="item-name">联系电话:</span><%= @food.shop.telephone %></li>
-            <li class="food-info-item"><span class="item-name">其他:</span><%= @food.shop.contact %></li>
+      <div class="shop-info">
+	    <div class="shop-name">
+		  <span>商家:</span><%= link_to @food.shop.name, shop_path(@food.shop) %>
+	    </div>
+	    <div class="relation">
+	    	<span>地址:</span><%= @food.shop.address.name %>
+          <span>联系电话:</span><%= @food.shop.telephone %>
+          <span>其他:</span><%= @food.shop.contact %>
+	    </div>
+	  </div>
 
-            <li class="food-info-item buttons">
-				<span class="item-name">喜欢:</span>30
-        	    <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
-            </li>
-            <li class="food-info-item buttons">
-			  <span class="item-name">收藏:</span>20
-		      <span class="glyphicon glyphicon-star"></span>
-            </li>
-			<li class="food-info-item share">分享链接</li>
-
-            <li class="food-info-item"><span class="item-name description">美食介绍:</span><%= @food.description %></li>
-          </ul>
-        </div>
+      <div class="food-picture">
+        <%= image_tag @food.picture.image.url(:large) %>
       </div>
+
+	  <div class="food-description">
+	    <p class="introduce">美食介绍:</p>
+	    <%= @food.description %>
+	  </div>
+
+	  <div class="food-info-item share">分享链接</div>
+	</div>
+
+    <div class="food-remarks">
+      <% if user_signed_in? %>
+        <%= render partial: 'food_remarks/form', locals: {food: @food} %>
+      <% else %>
+        <%= link_to '登录点评店铺', new_user_session_path %>
+      <% end %>
+      <%= render @food.food_remarks.order(created_at: :desc) %>
     </div>
+
   </div>
 
-  <div class="col-md-3 food-remarks">
-	<% if user_signed_in? %>
-      <%= render partial: 'remarks/form', locals: {resource: @food} %>
-	<% else %>
-	  <%= link_to '登录点评店铺', new_user_session_path %>
-	<% end %>
-    <%= render @food.remarks.order(created_at: :desc).limit(30) %>
+  <div class="col-md-3">
+    placeholder...
   </div>
 </div>
 

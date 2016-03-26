@@ -1,0 +1,29 @@
+<%= simple_form_for [food, food.food_remarks.build] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="food-remark-form">
+	<ul class="remark-buttons">
+	  <li><span class="button-title">星级</span>
+	    <div class="buttons food-star-buttons clearfix">
+	      <span data-pos="1" class="star-button glyphicon glyphicon-star"></span>
+	      <span data-pos="2" class="star-button glyphicon glyphicon-star"></span>
+	      <span data-pos="3" class="star-button glyphicon glyphicon-star"></span>
+	      <span data-pos="4" class="star-button glyphicon glyphicon-star"></span>
+	      <span data-pos="5" class="star-button glyphicon glyphicon-star"></span>
+	    </div>
+	  </li>
+	</ul>
+
+	<div class="remark-input">
+	  <%= f.input :remark, label: "评论" %>
+	</div>
+
+	<%= f.input :star, as: :hidden, input_html: {value: 5} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "提交" %>
+  </div>
+<% end %>
+
+

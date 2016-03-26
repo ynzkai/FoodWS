@@ -1,0 +1,25 @@
+<div class="food-remark">
+  <div class="head-info">
+	<%= food_remark.user.username %>评论于
+	<time class="timeago" datetime="<%= food_remark.created_at.to_formatted_s(:iso8601) %>"></time></span>
+    <% if can? :delete, food_remark %>
+	  <%= link_to food_remark_path(food_remark), method: :delete do %>
+	    <span class="glyphicon glyphicon-trash"></span>
+	  <% end %>
+	<% end %>
+  </div>
+
+  <div class="star">
+	<% food_remark.star.times do %>
+	  <span class="star glyphicon glyphicon-star"></span>
+	<% end %>
+	<% (5-food_remark.star).downto 1 do %>
+	  <span class="star-empty glyphicon glyphicon-star-empty"></span>
+	<% end %>
+  </div>
+
+  <div class="remark-text">
+	<%= food_remark.remark %>
+  </div>
+</div>
+

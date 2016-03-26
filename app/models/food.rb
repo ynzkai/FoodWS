@@ -5,7 +5,7 @@ class Food < ActiveRecord::Base
   belongs_to :shop
   belongs_to :user
   has_one :picture, as: :imageable, dependent: :destroy
-  has_many :remarks, as: :remarkable, dependent: :destroy
+  has_many :food_remarks, dependent: :destroy
 
   accepts_nested_attributes_for :picture
 

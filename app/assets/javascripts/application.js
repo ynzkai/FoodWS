@@ -67,24 +67,38 @@ function init_owlCarousel(sel) {
 })(jQuery);
 
 
-// rank
-function init_rank() {
-  Rank().init_rank(".star-buttons",{pos: 5}, function() {
+// shop remark
+function init_shop_rank() {
+  Rank().init_rank(".shop-star-buttons",{pos: 5}, function() {
 	$("#shop_remark_star").val($(this).data("pos"));
   });
-  Rank().init_rank(".taste-buttons",{pos: 5}, function() {
+  Rank().init_rank(".shop-taste-buttons",{pos: 5}, function() {
 	$("#shop_remark_taste").val($(this).data("pos"));
   });
-  Rank().init_rank(".serve-buttons",{pos: 5}, function() {
+  Rank().init_rank(".shop-serve-buttons",{pos: 5}, function() {
 	$("#shop_remark_serve").val($(this).data("pos"));
   });
-  Rank().init_rank(".env-buttons",{pos: 5}, function() {
+  Rank().init_rank(".shop-env-buttons",{pos: 5}, function() {
 	$("#shop_remark_environment").val($(this).data("pos"));
   });
 }
 jQuery(document).ready(function() {
-  init_rank();
+  init_shop_rank();
 });
 jQuery(document).on("page:change", function() {
-  init_rank();
+  init_shop_rank();
+});
+
+
+// food remark
+function init_food_rank() {
+  Rank().init_rank(".food-star-buttons",{pos: 5}, function() {
+	$("#food_remark_star").val($(this).data("pos"));
+  });
+}
+jQuery(document).ready(function() {
+  init_food_rank();
+});
+jQuery(document).on("page:change", function() {
+  init_food_rank();
 });

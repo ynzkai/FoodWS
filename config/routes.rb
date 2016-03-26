@@ -44,6 +44,11 @@ Rails.application.routes.draw do
 
   get "foods" => "foods#index_all"
   post "foods/:id/check" => "foods#check", as: :check_food
+  post "foods/:food_id/food_remarks" => "food_remarks#create", as: :food_food_remarks
+  delete "food_remarks/:id" => "food_remarks#destroy", as: :food_remark
+  # resources :foods do
+  #   resources :food_remarks
+  # end
   resources :remarks
 
   get "category/:category_id/shops" => "shops#index", as: :category_shops

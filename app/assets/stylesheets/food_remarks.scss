@@ -1,0 +1,68 @@
+// Place all the styles related to the food_remarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.food-remark {
+	padding: 15px 0;
+
+	border-bottom: 1px solid #eee;
+	.head-info {
+		color: #ccc;
+		font-size: .8em;
+		padding: 5px 0;
+	}
+	.star {
+		color: #fa9;
+	}
+	.star-empty {
+		color: #ccc;
+	}
+	.remark-text {
+		margin-top: .5em;
+	}
+
+}
+.food-remark-form {
+	.remark-buttons {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		.button-title {
+			width: 3em;
+		}
+		li {
+			margin: 10px auto;
+			padding: 0;
+			&>span:first-child {
+				text-align: left;
+			}
+			span {
+				float: left;
+				text-align: center;
+				line-height: 2em;
+			}
+		}
+		.buttons {
+			span {
+				display: block;
+				width: 2em;
+				height: 2em;
+				background-color: $gray-back;
+				float: left;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			span + span {
+				border-left: 1px solid #fff;
+			}
+			.price {
+				width: 100px;
+			}
+		}
+	}
+
+	.remark-input {
+		margin-top: 30px;
+	}
+}
