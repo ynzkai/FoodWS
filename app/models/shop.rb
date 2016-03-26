@@ -10,6 +10,7 @@ class Shop < ActiveRecord::Base
   has_one :address,  dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :shop_remarks, dependent: :destroy
+  has_many :likes, as: :likable, dependent: :destroy
 
   accepts_nested_attributes_for :address
 

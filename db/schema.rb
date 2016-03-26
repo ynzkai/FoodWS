@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326123732) do
+ActiveRecord::Schema.define(version: 20160326143108) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(version: 20160326123732) do
 
   add_index "foods", ["shop_id"], name: "index_foods_on_shop_id", using: :btree
   add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "likable_id",   limit: 4
+    t.string   "likable_type", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "likes", ["user_id", "likable_id", "likable_type"], name: "index_likes_on_user_id_and_likable_id_and_likable_type", unique: true, using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.integer  "imageable_id",       limit: 4
@@ -180,6 +191,7 @@ ActiveRecord::Schema.define(version: 20160326123732) do
   add_foreign_key "food_remarks", "users"
   add_foreign_key "foods", "shops"
   add_foreign_key "foods", "users"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "remarks", "users"

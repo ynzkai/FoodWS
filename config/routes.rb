@@ -60,6 +60,9 @@ Rails.application.routes.draw do
     get 'manage/shops'
   end
 
+  post "shops/likes/:likable_id/:likable_type" => "likes#create", as: :shop_likes
+  post "foods/likes/:likable_id/:likable_type" => "likes#create", as: :food_likes
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

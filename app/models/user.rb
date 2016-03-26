@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :shops, dependent: :nullify
   has_many :foods, dependent: :nullify
-  has_many :remarks, dependent: :nullify
   has_many :shop_remarks, dependent: :nullify
+  has_many :food_remarks, dependent: :nullify
+  has_many :likes, dependent: :destroy
 
   # user roles
   ROLES = ["guest", "common_user", "merchant", "bbs_admin", "admin", "supper_admin"]

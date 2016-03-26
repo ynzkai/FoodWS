@@ -17,11 +17,11 @@
 	  </div>
 	  <div class="spec"><span class="spec-name">价格:</span>
 	    <span class="item"><%= render partial: "food_price", locals: {food: @food} %></span>
-
         <span class="spec-name">喜欢:</span>
-        <%= link_to "#", class: "like" do %>
-          <span class="glyphicon glyphicon-heart-empty"></span>
-        <% end %>
+		<span id="Food<%=@food.id %>_likecount"><%= @food.likes.count %></span> 喜欢
+        <%= link_to food_likes_path(@food.id, "Food"), method: :post, remote: true, class: "like" do %>
+		  <span class="glyphicon glyphicon-heart-empty"></span>
+		<% end %>
 	  </div>
 
       <div class="shop-info">

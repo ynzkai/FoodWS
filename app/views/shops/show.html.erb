@@ -25,7 +25,7 @@
               <span class="button star glyphicon glyphicon-star"></span>
 			<% end %>
 			<% @shop.shop_remarks.average(:star).to_i.upto 4 do %>
-              <span class="button star-empty glyphicon glyphicon-star-empty"></span>
+              <span class="button star-empty glyphicon glyphicon-star"></span>
 			<% end %>
 		  </li>
 		  <li class="score">
@@ -40,10 +40,10 @@
 			<% end %>
 	  	    <span><%= @shop.shop_remarks.count %>评论</span>
 
-            <%= link_to "#", class: "btn btn-success btn-sm" do %>
+            <%= link_to shop_likes_path(@shop.id, "Shop"), method: :post, remote: true, class: "btn btn-success btn-sm" do %>
 			  <span class="glyphicon glyphicon-heart-empty"></span>
 			<% end %>
-			<span>30 喜欢</span>
+			<span id="Shop<%=@shop.id %>_likecount"><%= @shop.likes.count %></span> 喜欢
           </li>
 
 	  	  <li class="share">分享链接</li>
