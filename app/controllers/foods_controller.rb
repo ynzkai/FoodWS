@@ -21,6 +21,7 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
+    @remarks = @food.food_remarks.order(created_at: :desc).paginate(:page => params[:page])
   end
 
   # GET /foods/new

@@ -68,7 +68,8 @@
 	<div class="remarks">
       <div class="area-title">共有<%= @shop.shop_remarks.count %>条评论</div>
 
-      <%= render @shop.shop_remarks.order(created_at: :desc) %>
+      <%= render @remarks %>
+	  <%= will_paginate @remarks, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
 
 	  <div class="remark-zone" id="remarkzone">
         <% if user_signed_in? %>

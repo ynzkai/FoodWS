@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
 
 
 <% @shops.each do |shop| %>
-  <%= render partial: "shop_buttons", locals: {shop: shop} %>
   <%= render partial: "shop_detail", locals: {shop: shop} %>
 <% end %>

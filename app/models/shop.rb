@@ -16,6 +16,8 @@ class Shop < ActiveRecord::Base
 
   default_scope -> { order created_at: :desc }
 
+  STATE = ["待审核", "正常"]
+
   # will_paginate
   self.per_page = 100
 end

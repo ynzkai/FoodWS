@@ -1,6 +1,5 @@
 <div class="container shops">
   <% @shops.each do |shop| %>
-    <%= render partial: "shops/shop_buttons", locals: {shop: shop} %>
     <%= render partial: "shops/shop_detail", locals: {shop: shop} %>
   <% end %>
 </div>

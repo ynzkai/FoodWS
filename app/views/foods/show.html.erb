@@ -53,7 +53,8 @@
       <% else %>
         <%= link_to '登录点评店铺', new_user_session_path %>
       <% end %>
-      <%= render @food.food_remarks.order(created_at: :desc) %>
+      <%= render @remarks %>
+	  <%= will_paginate @remarks, previous_label: "&laquo;", next_label: "&raquo;", renderer: BootstrapPagination::Rails %>
     </div>
 
   </div>

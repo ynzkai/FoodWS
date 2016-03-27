@@ -1,16 +1,21 @@
-<%= render "shared/goback" %>
-
-<%= render 'shop_flow' %>
 
 <div class="row">
+  <div class="col-md-12">
+	<div class="row shop-flow">
+	  <div class="col-md-3"><div class="box active"><span class="number">1</span><span>填写店铺信息</span></div></div>
+	  <div class="col-md-3"><div class="box"><span class="number">2</span><span>上传图片</span></div></div>
+	  <div class="col-md-3"><div class="box"><span class="number">3</span><span>管理员审核</span></div></div>
+	  <div class="col-md-3"><div class="box"><span class="number">4</span><span>完成</span></div></div>
+	</div>
+  </div>
+</div>
+
+
+<div class="row shop-new">
+  <div class="col-md-4">
+	<div>something here...</div>
+  </div>
   <div class="col-md-8">
     <%= render 'form' %>
-  </div>
-  <div class="col-md-4">
-	<div class="panel panel-default">
-	  <div class="panel-heading">信息</div>
-	  <div class="panel-body">
-	  </div>
-    </div>
   </div>
 </div>

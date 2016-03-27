@@ -1,37 +1,32 @@
 
 <div class="row shop-detail">
-  <div class="row">
 
-    <div class="col-md-6">
-      <div class="shop-pictures owl-carousel owl-shop-pic">
+    <div class="col-md-4 shop-pictures">
+      <div class="owl-carousel owl-shop-pic">
         <% shop.pictures.each do |pic| %>
-          <%= image_tag pic.image.url(:medium) %>
+          <%= image_tag pic.image.url(:small) %>
         <% end %>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
       <ul class="shop-info">
-        <li class="shop-name"><%= shop.name %></li>
+	    <li class="shop-name"><%= shop.name %></li>
+		<li class="shop-info-item">ID: <%= shop.id %> 状态: <%= Shop::STATE[shop.state] %></li>
 		<li class="note">此信息由<%= shop.user.username unless shop.user.nil? %>上传</li>
         <li class="shop-info-item"><span class="item-name">店铺类型:</span><%= shop.category.name %></li>
 		<li class="shop-info-item"><span class="item-name">地址:</span><%= "#{shop.area.name} | #{shop.address.name}" %></li>
         <li class="shop-info-item"><span class="item-name">联系电话:</span><%= shop.telephone %></li>
         <li class="shop-info-item"><span class="item-name">其他:</span><%= shop.contact %></li>
 
-
-        <li class="shop-info-item buttons">
-			<span class="item-name">喜欢:</span><%= shop.likes.count %>
-            <span class="button glyphicon glyphicon-heart" title="喜欢"></span>
-        </li>
-		<li class="shop-info-item share">分享链接</li>
+        <li class="shop-info-item">
+		  <%= render partial: "shops/shop_buttons", locals: {shop: shop} %>
+	    </li>
+        <li class="shop-info-item">
+          <p><span class="shop-description">本店介绍:</span><%= shop.description %></p>
+	    </li>
 
       </ul>
     </div>
 
-	<div class="col-md-12">
-      <p><span class="shop-description">本店介绍:</span><%= shop.description %></p>
-	</div>
-
-  </div>
 </div>

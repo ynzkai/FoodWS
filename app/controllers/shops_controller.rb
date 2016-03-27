@@ -26,6 +26,7 @@ class ShopsController < ApplicationController
   # GET /shops/1
   # GET /shops/1.json
   def show
+    @remarks = @shop.shop_remarks.order(created_at: :desc).paginate(:page => params[:page])
   end
 
   # GET /shops/new

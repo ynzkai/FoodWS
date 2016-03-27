@@ -31,6 +31,15 @@ $(document).on("page:change", function() {
 	init_owlCarousel(".owl-shop-pic");
 });
 
+// time ago
+$(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});
+$(document).on("page:change", function() {
+  jQuery("time.timeago").timeago();
+});
+
+
 function init_owlCarousel(sel) {
   $(sel).owlCarousel({
     navigation: true, // Show next and prev buttons
