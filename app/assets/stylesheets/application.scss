@@ -166,11 +166,17 @@ body {
 }
 
 .logo {
+	overflow: hidden;
 	height: 50px;
 	font-size: 1.5em;
 	font-weight: bold;
 	color: #fa9 !important;
 	text-shadow: 2px 2px 5px #eee;
+	img {
+		height: 70px;
+		width: auto;
+		margin: -20px 0;
+	}
 }
 
 .simditor {
