@@ -73,7 +73,7 @@
 			span {
 				float: left;
 			}
-			.star { color: #fa9; }
+			.star { color: $star-color; }
 			.star-empty { color: #ccc; }
 		}
 		.discounted {
@@ -102,7 +102,7 @@
 			color: $brand-primary;
 		}
 		.star {
-			color: #fa9;
+			color: $star-color;
 		}
 		.star-empty {
 			color: #ccc;

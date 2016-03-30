@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20160326143108) do
   create_table "foods", force: :cascade do |t|
     t.string   "name",           limit: 255
     t.text     "description",    limit: 65535
-    t.integer  "state",          limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.integer  "state",          limit: 4,                    default: 0
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.integer  "shop_id",        limit: 4
     t.integer  "user_id",        limit: 4
     t.string   "unit",           limit: 255
@@ -99,12 +99,12 @@ ActiveRecord::Schema.define(version: 20160326143108) do
     t.text     "content",        limit: 65535
     t.integer  "topic_id",       limit: 4
     t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "comments_count", limit: 4,     default: 0, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.integer  "comments_count", limit: 4,     default: 0,     null: false
     t.integer  "display_count",  limit: 4,     default: 0
-    t.boolean  "elite"
-    t.boolean  "top"
+    t.boolean  "elite",                        default: false
+    t.boolean  "top",                          default: false
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
@@ -140,11 +140,11 @@ ActiveRecord::Schema.define(version: 20160326143108) do
   create_table "shops", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.integer  "state",       limit: 4
+    t.integer  "state",       limit: 4,     default: 0
     t.integer  "area_id",     limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "telephone",   limit: 255
     t.string   "contact",     limit: 255
     t.integer  "user_id",     limit: 4

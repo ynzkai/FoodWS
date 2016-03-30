@@ -4,8 +4,8 @@
   <div class="col-md-9 shop-show">
 
 	<div class="row shop-detail">
-      <div class="col-md-6">
-        <div class="shop-pictures owl-carousel owl-shop-pic">
+      <div class="col-md-6 shop-pictures">
+        <div class="owl-carousel owl-shop-pic">
           <% @shop.pictures.each do |pic| %>
             <%= image_tag pic.image.url(:medium) %>
           <% end %>

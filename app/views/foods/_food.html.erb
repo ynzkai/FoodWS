@@ -15,6 +15,7 @@
     <div class="foot-info">
   	  <p>
 	  <span class="glyphicon glyphicon-heart"></span><%= food.likes.count %> 喜欢
+	  <span class="glyphicon glyphicon-star"></span><%= food.food_remarks.average(:star).to_i %> 星
   	  <span class="glyphicon glyphicon-comment"></span><%= food.food_remarks.count %> 评论
   	  </p>
     </div>

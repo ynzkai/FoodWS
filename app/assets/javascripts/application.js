@@ -68,7 +68,7 @@ function init_owlCarousel(sel) {
 	var scrollTop = $(document).scrollTop();
 	if(scrollTop > initTop) {
 	  $(".headline").hide();
-	} else {
+	} else if($(window).width() > 992 ) {
 	  $(".headline").show();
 	}
 	initTop = scrollTop;
