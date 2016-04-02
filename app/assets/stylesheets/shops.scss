@@ -13,7 +13,7 @@
 
 	// shop panel
 	.shop {
-		@include box-shadow(0, 0, 1px, 0, darken($gray-back,40%)); 
+		@include box-shadow(0, 2px, 1px, 0, darken(#f5f5f5,10%)); 
 		background-color: $gray-back;
 		.face {
 			position: relative;
@@ -61,7 +61,7 @@
 			text-align: center;
 			font-size: .8em;
 			padding: 10px 0 5px;
-			color: #999;
+			color: #ccc;
 			span {
 				margin: 0 5px;
 			}
@@ -129,27 +129,6 @@
 	//}
 
 
-	// shop-show page
-	.shop-show {
-		//background-color: $gray-back;
-		//@include box-shadow(0, 0, 2px, 1px, darken($gray-back,20%)); 
-
-
-		.foods {
-			margin: 50px auto;
-		}
-
-		.remarks {
-			border-top: 3px solid $gray-back;
-			margin: 50px auto;
-			padding: 30px auto;
-		}
-		
-		.remark-zone {
-			margin-top: 50px;
-		}
-
-	}
 }
 
 .shop-face-label {
@@ -204,10 +183,32 @@
 	padding-top: 30px;
 }
 
+// shop-show page
+.shop-show {
+	background-color: #fff;
+	@include box-shadow(0, 2px, 1px, 0, darken(#f5f5f5,10%)); 
+
+
+	.foods {
+		margin: 50px -15px;
+		padding: 15px;
+		background-color: #FAFAD2;
+	}
+
+	.remarks {
+		border-top: 3px solid $gray-back;
+		margin: 50px auto;
+		padding: 30px auto;
+	}
+	
+	.remark-zone {
+		margin-top: 50px;
+	}
+
+}
 
 .shop-detail {
-	@include border-radius(3px);
-	border: 1px solid #eee;
+	//@include border-radius(3px);
 	.shop-pictures {
 		padding-top: 15px;
 		img {
