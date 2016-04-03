@@ -13,8 +13,8 @@
 
 	// shop panel
 	.shop {
-		@include box-shadow(0, 2px, 1px, 0, darken(#f5f5f5,10%)); 
-		background-color: $gray-back;
+		@include box-shadow(0, 2px, 1px, 0, darken($color-grey,10%));
+		background-color: $color-white;
 		.face {
 			position: relative;
 			img {
@@ -30,7 +30,7 @@
 				font-size: 1.5em;
 				color: #fff;
 				text-align: center;
-				background-color: rgba(0,0,0,.5);
+				background-color: rgba(0,0,0,.7);
 				position: absolute;
 				z-index: 9;
 				@include transition(all, 1s);
@@ -81,7 +81,7 @@
 		padding: $grid-gutter-width/2;
 		ul {
 			padding: 20px;
-			background-color: $gray-back;
+			background-color: $color-lightgrey;
 			margin-bottom: 40px;
 			@include border-radius(3px);
 			list-style: none;
@@ -94,8 +94,8 @@
 				left: 20px;
 				padding: 5px 10px;
 				text-align: center;
-				background-color: #fa9;//lighten($brand-secondary, 30%);
-				color: #fff;
+				background-color: $color-emphasize;
+				color: $color-white;
 				@include border-radius(5px);
 			}
 			.shop-category {
@@ -134,7 +134,7 @@
 .shop-face-label {
 	color: $brand-primary;
 	font-size: 1.5em;
-	background-color: #fff;
+	background-color: $color-white;
 	opacity: .8;
 	position: absolute;
 	top: 5px;
@@ -172,7 +172,7 @@
 				color: $brand-primary;
 			}
 			.number {
-				background-color: #eee;
+				background-color: $color-darkgrey;
 			}
 		}
 	}
@@ -185,18 +185,18 @@
 
 // shop-show page
 .shop-show {
-	background-color: #fff;
-	@include box-shadow(0, 2px, 1px, 0, darken(#f5f5f5,10%)); 
+	background-color: $color-white;
+	@include box-shadow(0, 2px, 1px, 0, darken($color-grey,10%)); 
 
 
 	.foods {
 		margin: 50px -15px;
 		padding: 15px;
-		background-color: #FAFAD2;
+		background-color: $color-contrast;
 	}
 
 	.remarks {
-		border-top: 3px solid $gray-back;
+		border-top: 3px solid $color-grey;
 		margin: 50px auto;
 		padding: 30px auto;
 	}
@@ -220,11 +220,11 @@
 	.shop-info {
 		li {
 			padding: 5px 0;
-			border-bottom: 1px solid $gray-back;
+			border-bottom: 1px solid $color-grey;
 			min-height: 2em;
 		}
 		.name {
-			color: #ccc;
+			//color: $color-darkgrey;
 			margin-right: 1em;
 		}
 		.shop-name {
@@ -232,18 +232,18 @@
 			color: $brand-primary;
 		}
 		.note {
-			color: #ccc;
+			color: $color-darkgrey;
 			font-size: .8em;
 		}
 		.star {
-			color: $star-color;
+			color: $color-emphasize;
 		}
 		.star-empty {
-			color: #ccc;
+			color: $color-grey;
 		}
 		.score {
 			span {
-				color: #ccc;
+				color: $color-darkgrey;
 				margin-right: 10px;
 			}
 			span + span {
@@ -251,7 +251,7 @@
 			}
 		}
 		.share {
-			color: #ccc;
+			color: $color-darkgrey;
 			font-size: .8em;
 		}
 

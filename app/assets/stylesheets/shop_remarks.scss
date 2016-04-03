@@ -12,18 +12,18 @@
 		padding: 5px 0;
 	}
 	.star {
-		color: $star-color;
+		color: $color-emphasize;
 	}
 	.star-empty {
-		color: #ccc;
+		color: $color-grey;
 	}
 	.score {
 		margin: 5px auto;
 		span {
-			background-color: $gray-back;
-			@include border-radius(3px);
+			//background-color: $color-grey;
+			//@include border-radius(3px);
 			padding-right: 5px;
-			color: #999;
+			color: $color-darkgrey;
 		}
 		span + span {
 			padding-left: 10px;
@@ -61,7 +61,7 @@
 				display: block;
 				width: 2em;
 				height: 2em;
-				background-color: $gray-back;
+				background-color: $color-grey;
 				float: left;
 				&:hover {
 					cursor: pointer;

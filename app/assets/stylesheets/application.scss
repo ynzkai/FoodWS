@@ -15,21 +15,30 @@
  */
 
 
-$gray-back: #fff;
-$star-color: #f98;
+$color-primary: #333;
+$color-secondary: #333;
+$color-contrast: #FAFAD2;
+$color-darkgrey: #c0c0c0;
+$color-grey: #f5f5f5;
+$color-lightgrey: #fafafa;
+$color-white: #fff;
+$color-darkblack: #212121;
+$color-black: #303030;
+$color-lightblack: #424242;
+
+$color-emphasize: #F44336;
+$green: #4CAF50;
 
 // bootstrap variables
 // base
+$brand-primary: $color-primary;//#36ab55;//darken(#ff8bba, 10.5%); //link color
+$brand-secondary: #36ab55;
 $border-radius-base: 0px;
 //$border-radius-large: 0px;
 //$border-radius-small: 0px;
-$gray-base: #000;
-$text-color: #333;
-$gray-lighter: lighten($gray-base, 75.5%); 
-$grid-gutter-width: 30px;
-$brand-primary: #333;//#36ab55;//darken(#ff8bba, 10.5%); //link color
-$brand-secondary: #36ab55;
+$text-color: $color-black;
 $link-color: $brand-primary;
+$grid-gutter-width: 30px;
 //screen
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
@@ -58,16 +67,16 @@ $dropdown-link-color: $brand-primary;
 //$navbar-default-toggle-border-color
 //$container-large-desktop: (1000px + $grid-gutter-width);
 //$container-md
-$panel-default-heading-bg: $gray-back;
+$panel-default-heading-bg: $color-lightgrey;
 $panel-default-border: $panel-default-heading-bg;
 $panel-default-text: #999;//lighten($panel-default-heading-bg, 20%);
 $list-group-border: $panel-default-border;
 $list-group-active-bg: $panel-default-heading-bg;
 $list-group-active-border: darken($list-group-border, 8%);
-$list-group-active-color: $gray-lighter;
-$list-group-active-text-color: $gray-lighter;
+$list-group-active-color: $color-lightgrey;
+$list-group-active-text-color: $color-grey;
 $breadcrumb-bg: transparent;
-$breadcrumb-active-color: $gray-lighter;
+$breadcrumb-active-color: $color-darkgrey;
 $pagination-active-bg: $panel-default-border;
 $pagination-hover-bg: $pagination-active-bg;
 $pagination-active-color: $brand-primary;
@@ -165,7 +174,7 @@ body {
 .panel {
 	@include border-radius(3px);
 	//@include box-shadow(0, 3px, 3px, -3px, #ccc); 
-	@include box-shadow(0, 0, 2px, 0, darken($gray-back,20%)); 
+	@include box-shadow(0, 0, 2px, 0, darken($color-grey,20%)); 
 }
 
 .logo {
@@ -209,7 +218,7 @@ body {
 }
 
 .separate-line {
-	border-top: 1px solid #eee;
+	border-top: 1px solid darken($color-grey,10%);
 	text-align: center;
 	margin-top: 3em;
 	margin-bottom: 1em;
@@ -217,7 +226,7 @@ body {
 		position: relative;
 		font-size: 2em;
 		top: -0.5em;
-		color: $brand-secondary;
+		color: lighten($brand-secondary,30%);
 	}
 }
 
@@ -334,5 +343,5 @@ body {
 .head-banner {
 	height: 100px;
 	margin-bottom: 30px;
-	background-color: $gray-back;
+	background-color: $color-grey;
 }

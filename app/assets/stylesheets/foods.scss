@@ -17,8 +17,8 @@
 		&:hover {
 			top: -10px;
 		}
-		@include box-shadow(0, 0, 1px, 0, darken($gray-back,40%)); 
-		background-color: $gray-back;
+		@include box-shadow(0, 2px, 1px, 0, darken($color-grey,10%));
+		background-color: $color-white;
 		.picture {
 			img {
 				width: 100%;
@@ -36,7 +36,7 @@
 			}
 			.discounted {
 				text-decoration: line-through;
-				color: #999;
+				color: $color-darkgrey;
 				margin-right: 5px;
 			}
 		}
@@ -44,7 +44,7 @@
 			text-align: center;
 			font-size: .8em;
 			padding: 10px 0 5px;
-			color: #999;
+			color: $color-darkgrey;
 			span {
 				margin: 0 5px;
 			}
@@ -73,17 +73,17 @@
 			span {
 				float: left;
 			}
-			.star { color: $star-color; }
-			.star-empty { color: #ccc; }
+			.star { color: $color-emphasize; }
+			.star-empty { color: $color-darkgrey }
 		}
 		.discounted {
 			text-decoration: line-through;
-			color: #ccc;
+			color: $color-darkgrey;
 			margin-right: 5px;
 		}
 		.foot-info {
 			font-size: .8em;
-			color: #999;
+			color: $color-darkgrey;
 			span { margin-right: 5px; }
 			span + span { margin-left: 5px; }
 		}
@@ -95,7 +95,7 @@
 .food-show {
 	.food-info {
 		background-color: #fff;
-		@include box-shadow(0, 2px, 1px, 0, darken(#f5f5f5,10%)); 
+		@include box-shadow(0, 2px, 1px, 0, darken($color-grey,10%)); 
 		padding: 15px;
 		margin-bottom: 30px;
 		.food-name {
@@ -103,23 +103,23 @@
 			color: $brand-primary;
 		}
 		.star {
-			color: $star-color;
+			color: $color-emphasize;
 		}
 		.star-empty {
-			color: #ccc;
+			color: $color-grey;
 		}
 		.spec {
 			margin-top: .5em;
 			margin-bottom: 15px;
 			.spec-name {
-				color: #999;
+				color: $color-darkgrey;
 				margin-right: 1em;
 			}
 			.item {
 				margin-right: 1em;
 			}
 			.like {
-				color: #999;
+				color: $color-darkgrey;
 				&:hover {
 					color: $brand-primary;
 				}
@@ -128,10 +128,10 @@
 
 		// shop-info **************************
 		.shop-info {
-			border-top: 1px solid #eee;
+			border-top: 1px solid $color-grey;
 			padding: 15px 0;
 			span {
-				color: #999;
+				color: $color-darkgrey;
 				margin-right: 1em;
 				& + span {
 					margin-left: 1em;
@@ -159,7 +159,7 @@
 		.share {
 			padding: 15px 0;
 			span {
-				color: #999;
+				color: $color-darkgrey;
 			}
 		}
 
