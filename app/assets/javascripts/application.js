@@ -20,23 +20,13 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery(document).ready(function() {
-  jQuery("time.timeago").timeago();
-});
-
+var carsousel;
 $(document).ready(function() {
-	init_owlCarousel(".owl-shop-pic");
+	carsousel = Carousel(jQuery);
+	carsousel.init("#bigBanner", {});
 });
-$(document).on("page:change", function() {
-	init_owlCarousel(".owl-shop-pic");
-});
-
-// time ago
-$(document).ready(function() {
-  jQuery("time.timeago").timeago();
-});
-$(document).on("page:change", function() {
-  jQuery("time.timeago").timeago();
+$(window).resize(function() {
+	carsousel.resize();
 });
 
 
@@ -60,6 +50,27 @@ function init_owlCarousel(sel) {
     // itemsMobile : false
   });
 }
+
+$(document).ready(function() {
+	init_owlCarousel(".owl-shop-pic");
+});
+$(document).on("page:change", function() {
+	init_owlCarousel(".owl-shop-pic");
+});
+
+
+
+
+// time ago
+$(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});
+$(document).on("page:change", function() {
+  jQuery("time.timeago").timeago();
+});
+
+
+
 
 // hide/show headline when scroll document
 ;(function($) {

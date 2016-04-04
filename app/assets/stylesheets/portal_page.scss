@@ -9,16 +9,17 @@
 	padding: 0 $grid-gutter-width/2;
 }
 
+
 .big-banner {
 	margin-top: -30px;
 	overflow: hidden;
 	height: 300px;
-	background-color: $color-contrast;
+	background-color: #e65100;
 	text-align: center;
 	h1 {
 		margin-top: 2em;
-		color: $brand-secondary;
-		text-shadow: 0 0 10px #fff;
+		color: $color-white;
+		//text-shadow: 0 0 10px #fff;
 	}
 	h5 {
 		color: #999;
@@ -30,3 +31,17 @@
 	}
 }
 
+@keyframes downin {
+	from {
+		top: -999px;
+	}
+	to {
+		top: 0;
+	}
+}
+#banner2 h1 {
+	position: relative;
+	animation-name: downin;
+	animation-duration: 1s;
+	animation-delay: 2s;
+}

@@ -1,0 +1,47 @@
+
+#bigBanner {
+	#pre, #next {
+		font-size: 2em;
+		color: #fff;
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		margin-top: -1em;
+		display: none;
+		&:hover {
+			color: #ccc;
+		}
+	}
+	#next {
+		right: 0;
+	}
+	#hints {
+		bottom: 0;
+		position: absolute;
+		text-align: center;
+		display: none;
+		span {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			cursor: pointer;
+			margin: 0 5px;
+			@include border-radius(999px);
+			&:hover {
+				background-color: #ccc;
+			}
+		}
+		span.active {
+			background-color: #ccc;
+		}
+	}
+	&:hover {
+		#pre, #next {
+			display: block;
+		}
+		#hints {
+			display: block;
+		}
+	}
+}
