@@ -12,22 +12,6 @@
 	var panels = [];
 	var panelHints = [];
 
-	/*
-	function slide_panel(pos, speed, dir) {
-		var direction = (dir=="right") ? 1 : -1;
-		if(dir == "right") {
-			direction = 1;
-			panels[pos].css({"left":width+"px"});
-		}
-		panels[currentPos].animate({left: direction*width + "px"}, speed, "swing", function() {
-			panels[pos].animate({left: "0px"});
-			panelHints[currentPos].removeClass("active");
-			panelHints[pos].addClass("active");
-			currentPos = pos;
-		});
-	}
-	*/
-
 	function pre_panel() {
 		var pos = currentPos - 1;
 		if(pos < 0) {
@@ -107,6 +91,11 @@
 			$carousel.append($hints);
 
 
+			if(options["auto_play"]) {
+				intval = setInterval("slide();", 3000);
+			}
+
+
 			if(options["hover_stop"]) {
 				$carousel.mouseenter(function() {
 					clearInterval(intval);
@@ -123,13 +112,8 @@
 				next_panel();
 			});
 			$carousel.find("#hints span").click(function() {
-				at_panel(this.id);
+				at_panel(parseInt(this.id));
 			});
-
-
-			if(options["auto_play"]) {
-				intval = setInterval("slide();", 3000);
-			}
 
 		},
 		resize: function() {

@@ -25,6 +25,10 @@ $(document).ready(function() {
 	carsousel = Carousel(jQuery);
 	carsousel.init("#bigBanner", {});
 });
+$(document).on("page:change", function() {
+	//carsousel = Carousel(jQuery);
+	//carsousel.init("#bigBanner", {});
+});
 $(window).resize(function() {
 	carsousel.resize();
 });
