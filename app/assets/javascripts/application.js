@@ -20,17 +20,16 @@
 //= require turbolinks
 //= require_tree .
 
-var carsousel;
-$(document).ready(function() {
-	carsousel = Carousel(jQuery);
-	carsousel.init("#bigBanner", {});
-});
 $(document).on("page:change", function() {
-	//carsousel = Carousel(jQuery);
-	//carsousel.init("#bigBanner", {});
-});
-$(window).resize(function() {
-	carsousel.resize();
+	var carsousel = Carousel().init("#bigBanner", {});
+	/*
+	if(carsousel == null) {
+		carsousel = Carousel(jQuery);
+		carsousel.init("#bigBanner", {});
+	} else {
+		carsousel.refresh("#bigBanner");
+	}
+	*/
 });
 
 

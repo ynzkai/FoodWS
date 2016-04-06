@@ -30,18 +30,3 @@
 		display: block;
 	}
 }
-
-@keyframes downin {
-	from {
-		top: -999px;
-	}
-	to {
-		top: 0;
-	}
-}
-#banner2 h1 {
-	position: relative;
-	animation-name: downin;
-	animation-duration: 1s;
-	animation-delay: 2s;
-}

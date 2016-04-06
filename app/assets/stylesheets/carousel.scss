@@ -1,7 +1,7 @@
 
 #bigBanner {
 	#pre, #next {
-		font-size: 2em;
+		font-size: 3em;
 		color: #fff;
 		cursor: pointer;
 		position: absolute;
@@ -12,8 +12,11 @@
 			color: #ccc;
 		}
 	}
+	#pre {
+		left: 1em;
+	}
 	#next {
-		right: 0;
+		right: 1em;
 	}
 	#hints {
 		bottom: 0;

@@ -4,7 +4,7 @@
 	<div class="big-banner" id="bigBanner">
       <div class="banner" id="banner1">
         <h1>banner 1</h1>
-        <h4>本站正在努力开发完善中，如您有什么建议欢迎和我们联系</h4>
+        <h4 class="animated fadeInDownBig">本站正在努力开发完善中，如您有什么建议欢迎和我们联系</h4>
         <h5>现在注册帮助我们一起完善美食信息</h5>
         <% if user_signed_in? %>
       	<%= link_to '新建店铺', new_shop_path, class: "btn btn-success btn-lg sign-in" %>
@@ -19,6 +19,10 @@
 
       <div class="banner" id="banner3">
         <h1>banner 3</h1>
+      </div>
+
+      <div class="banner" id="banner4">
+        <h1>banner 4</h1>
       </div>
     </div>
 

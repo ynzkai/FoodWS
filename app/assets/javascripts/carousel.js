@@ -1,9 +1,10 @@
 
-;var Carousel = function($) {
+;var Carousel = function() {
 	var options = {
 		auto_play: true,
 		hover_stop: true
 	};
+
 	var $carousel;
 	var intval;
 	var width;
@@ -12,18 +13,34 @@
 	var panels = [];
 	var panelHints = [];
 
+	function slide(pos, dir) {
+		// dir: 1 right, -1 lieft
+		//
+		$element = panels[pos].children("h1");
+		$element.removeClass("animated rotateIn");
+
+		panels[pos].css({"left":dir*width+"px"});
+		panels[currentPos].animate({left: -dir*width + "px"}, "slow", "swing", function() {
+			panels[pos].animate({left: "0px"}, "slow", "swing", function() {
+				$element.queue(function() {
+					$(this).addClass("animated rotateIn");
+					$(this).dequeue();
+				});
+			});
+
+			panelHints[currentPos].removeClass("active");
+			panelHints[pos].addClass("active");
+			currentPos = pos;
+		});
+	}
+
 	function pre_panel() {
 		var pos = currentPos - 1;
 		if(pos < 0) {
 			pos = panels.length - 1;
 		}
-		panels[pos].css({"left":-1*width+"px"});
-		panels[currentPos].animate({left: width + "px"}, "slow", "swing", function() {
-			panels[pos].animate({left: "0px"});
-			panelHints[currentPos].removeClass("active");
-			panelHints[pos].addClass("active");
-			currentPos = pos;
-		});
+
+		slide(pos, -1);
 	}
 
 	function next_panel() {
@@ -31,13 +48,8 @@
 		if(pos >= panels.length) {
 			pos = 0;
 		}
-		panels[pos].css({"left":width+"px"});
-		panels[currentPos].animate({left: -1*width + "px"}, "slow", "swing", function() {
-			panels[pos].animate({left: "0px"});
-			panelHints[currentPos].removeClass("active");
-			panelHints[pos].addClass("active");
-			currentPos = pos;
-		});
+
+		slide(pos, 1);
 	}
 
 	function at_panel(pos) {
@@ -46,14 +58,16 @@
 			dir = -1;
 		}
 
-		panels[pos].css({"left":dir*width+"px"});
-		panels[currentPos].animate({left: -dir*width + "px"}, "slow", "swing", function() {
-			panels[pos].animate({left: "0px"});
-			panelHints[currentPos].removeClass("active");
-			panelHints[pos].addClass("active");
-			currentPos = pos;
-		});
+		slide(pos, dir);
+	}
 
+	function _resize() {
+		width = $carousel.width();
+		height = $carousel.height();
+		for(var i=0; i<panels.length; i++) {
+			panels[i].css({"left":width+"px"});
+		}
+		panels[currentPos].css({"left":"0px"});
 	}
 
 	//setInterval 回调函数,这里污染了全局命名空间
@@ -63,11 +77,21 @@
 
 	return {
 		init: function(container, opts) {
+
+			$carousel = $(container);
+			// if can't match container do not anything
+			if($carousel.length == 0) {
+				return;
+			}
+
+			// merge options
 			for(var o in opts) {
 				options[o] = opts[o];
 			}
 
-			$carousel = $(container);
+			panels.splice(0, panels.length);
+			panelHints.splice(0, panelHints.length);
+
 			$carousel.css({"position":"relative", "overflow":"hidden"});
 			$carousel.children().css({"position":"absolute", "width":"100%", "height":"100%"});
 			width = $carousel.width();
@@ -90,39 +114,39 @@
 			}
 			$carousel.append($hints);
 
-
+			
+			// set timer
 			if(options["auto_play"]) {
 				intval = setInterval("slide();", 3000);
 			}
 
-
+			// events
 			if(options["hover_stop"]) {
-				$carousel.mouseenter(function() {
+				$carousel.on('mouseenter', function() {
 					clearInterval(intval);
 				});
-				$carousel.mouseleave(function() {
+				$carousel.on('mouseleave', function() {
 					intval = setInterval("slide();", 3000);
 				});
 			}
 
-			$carousel.children("#pre").click(function() {
+			$carousel.children("#pre").on('click', function() {
 				pre_panel();
 			});
-			$carousel.children("#next").click(function() {
+			$carousel.children("#next").on('click', function() {
 				next_panel();
 			});
-			$carousel.find("#hints span").click(function() {
+			$carousel.find("#hints span").on('click', function() {
 				at_panel(parseInt(this.id));
 			});
 
-		},
-		resize: function() {
-			width = $carousel.width();
-			height = $carousel.height();
-			for(var i=0; i<panels.length; i++) {
-				panels[i].css({"left":width+"px"});
-			}
-			panels[currentPos].css({"left":"0px"});
+			$(document).on("page:before-change", function() {
+				clearInterval(intval);
+			});
+
+			$(window).resize(function() {
+				_resize();
+			});
 		}
 	};
 
