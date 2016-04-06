@@ -1,6 +1,7 @@
 
 ;var Carousel = function() {
 	var options = {
+		interval: 3000,
 		auto_play: true,
 		hover_stop: true
 	};
@@ -12,20 +13,37 @@
 	var currentPos = 0;
 	var panels = [];
 	var panelHints = [];
+	var animateElements = {};
 
 	function slide(pos, dir) {
 		// dir: 1 right, -1 lieft
-		//
-		$element = panels[pos].children("h1");
-		$element.removeClass("animated rotateIn");
+
+		for(var k in animateElements) {
+			var $element = panels[pos].children(k);
+			$element.removeClass(animateElements[k]);
+			$element.css("visibility", "hidden");
+		}
 
 		panels[pos].css({"left":dir*width+"px"});
 		panels[currentPos].animate({left: -dir*width + "px"}, "slow", "swing", function() {
 			panels[pos].animate({left: "0px"}, "slow", "swing", function() {
-				$element.queue(function() {
-					$(this).addClass("animated rotateIn");
-					$(this).dequeue();
-				});
+				for(var k in animateElements) {
+					var $element = panels[pos].children(k);
+					$element.css("visibility", "visible");
+					$element.queue(function() {
+						$(this).addClass(animateElements[k]);
+						$(this).dequeue();
+					});
+					/*
+					var eles = $element.toArray();
+					for(var i=0; i< eles.length; i++) {
+						$(eles[i]).queue(function() {
+							$(this).addClass(animateElements[k]);
+							$(this).dequeue();
+						});
+					}
+					*/
+				}
 			});
 
 			panelHints[currentPos].removeClass("active");
@@ -117,7 +135,7 @@
 			
 			// set timer
 			if(options["auto_play"]) {
-				intval = setInterval("slide();", 3000);
+				intval = setInterval("slide();", options["interval"]);
 			}
 
 			// events
@@ -126,7 +144,7 @@
 					clearInterval(intval);
 				});
 				$carousel.on('mouseleave', function() {
-					intval = setInterval("slide();", 3000);
+					intval = setInterval("slide();", options["interval"]);
 				});
 			}
 
@@ -147,6 +165,9 @@
 			$(window).resize(function() {
 				_resize();
 			});
+		},
+		animate_elements: function(eles) {
+			animateElements = eles;
 		}
 	};
 

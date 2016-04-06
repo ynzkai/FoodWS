@@ -21,15 +21,15 @@
 //= require_tree .
 
 $(document).on("page:change", function() {
-	var carsousel = Carousel().init("#bigBanner", {});
-	/*
-	if(carsousel == null) {
-		carsousel = Carousel(jQuery);
-		carsousel.init("#bigBanner", {});
-	} else {
-		carsousel.refresh("#bigBanner");
-	}
-	*/
+	var carsousel = Carousel();
+	carsousel.init("#bigBanner", {interval: 5000});
+	carsousel.animate_elements({
+		"#banner1H1": "animated fadeInUpBig",
+		"#banner2H1": "animated bounceInLeft",
+		"#banner2H2": "animated bounceInRight",
+		"#banner2H3": "animated fadeInUpBig",
+		"#banner3H1": "animated bounceInRight",
+	});
 });
 
 
