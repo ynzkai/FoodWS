@@ -18,6 +18,7 @@
 	function slide(pos, dir) {
 		// dir: 1 right, -1 lieft
 
+		// animate
 		for(var k in animateElements) {
 			var $element = panels[pos].children(k);
 			$element.removeClass(animateElements[k]);
@@ -25,26 +26,17 @@
 		}
 
 		panels[pos].css({"left":dir*width+"px"});
-		panels[currentPos].animate({left: -dir*width + "px"}, "slow", "swing", function() {
-			panels[pos].animate({left: "0px"}, "slow", "swing", function() {
-				for(var k in animateElements) {
-					var $element = panels[pos].children(k);
-					$element.css("visibility", "visible");
-					$element.queue(function() {
-						$(this).addClass(animateElements[k]);
-						$(this).dequeue();
-					});
-					/*
-					var eles = $element.toArray();
-					for(var i=0; i< eles.length; i++) {
-						$(eles[i]).queue(function() {
-							$(this).addClass(animateElements[k]);
-							$(this).dequeue();
-						});
-					}
-					*/
-				}
-			});
+		panels[currentPos].animate({left: -dir*width + "px"}, "slow", "swing");
+		panels[pos].animate({left: "0px"}, "slow", "swing", function() {
+			// animate
+			for(var k in animateElements) {
+				var $element = panels[pos].children(k);
+				$element.css("visibility", "visible");
+				$element.queue(function() {
+					$(this).addClass(animateElements[k]);
+					$(this).dequeue();
+				});
+			}
 
 			panelHints[currentPos].removeClass("active");
 			panelHints[pos].addClass("active");
@@ -168,6 +160,12 @@
 		},
 		animate_elements: function(eles) {
 			animateElements = eles;
+
+			// play first panel's animation
+			for(var k in animateElements) {
+				var $element = panels[currentPos].children(k);
+				$element.addClass(animateElements[k]);
+			}
 		}
 	};
 
