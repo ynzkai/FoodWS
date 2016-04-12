@@ -22,12 +22,14 @@
 		padding-top: 90px;
 	}
 	#banner1 {
-		background-color: #e65100;
+		background-color: #EF6C00;
 		#text1 {
-			font-size: 5em;
+			font-size: 4em;
 			color: $color-white;
 		}
 		.sign-in {
+			background-color: $brand-secondary;
+			color: $color-white;
 			margin: 30px auto;
 			width: 200px;
 			display: block;
@@ -36,14 +38,14 @@
 	#banner2 {
 		background-color: #8BC34A;
 		#text2 {
-			font-size: 5em;
+			font-size: 4em;
 			color: $color-white;
 		}
 	}
 	#banner3 {
 		background-color: #FFEE58;
 		#text3 {
-			font-size: 5em;
+			font-size: 4em;
 			color: $color-white;
 		}
 	}

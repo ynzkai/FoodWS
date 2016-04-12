@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Category.destroy_all
-shops = %w(火锅店 大排档 自助餐 小吃店 快餐店 中餐厅 西餐厅 甜品店 街头店 咖啡厅 酒吧 酒楼 茶楼 农家乐 山庄 水果店 食品店 杂货店 超市 其它)
+shops = %w(火锅店 大排档 自助餐 小吃店 快餐店 中餐厅 西餐厅 烘焙店 街头店 咖啡厅 酒吧 酒楼 茶楼 农家乐 山庄 水果店 食品店 杂货店 超市 其它)
 shops.each do |shop|
   # kind 1 means shop category
   Category.create name: shop, kind: 1
@@ -21,7 +21,7 @@ end
 
 Post.destroy_all
 Topic.destroy_all
-topics = %w(文山新鲜事 美食分享 我是大厨 本地问答 站务管理)
+topics = %w(文山新鲜事 美食分享 厨艺交流 本地问答 站务管理)
 topics.each do |topic|
   Topic.create name: topic
 end

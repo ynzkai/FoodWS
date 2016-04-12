@@ -5,9 +5,9 @@
       <div class="banner" id="banner1">
         <p id="text1">汇聚文山美食</p>
         <% if user_signed_in? %>
-      	<%= link_to '新建店铺', new_shop_path, class: "btn btn-success btn-lg sign-in" %>
+      	<%= link_to '新建店铺', new_shop_path, class: "btn btn-lg sign-in" %>
         <% else %>
-          <%= link_to '现在免费注册', new_user_registration_path, class: "btn btn-success btn-lg sign-in" %>
+          <%= link_to '现在免费注册', new_user_registration_path, class: "btn btn-lg sign-in" %>
         <% end %>
       </div>
 
