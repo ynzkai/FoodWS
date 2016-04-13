@@ -106,7 +106,7 @@
 			$carousel.children().css({"position":"absolute", "width":"100%", "height":"100%"});
 			width = $carousel.width();
 			height = $carousel.height();
-			$carousel.children().each(function(index) {
+			$carousel.children("div.panel").each(function(index) {
 				panels.push($(this));
 				panelHints.push($('<span id="'+index+'"></span>'));
 				$(this).css({"left":width+"px"});
