@@ -24,9 +24,9 @@ $(document).on("page:change", function() {
 	var carsousel = Carousel();
 	carsousel.init("#bigBanner", {interval: 5000});
 	carsousel.animate_elements({
-		"#text1": "animated fadeInDown",
-		"#text2": "animated fadeInDownBig",
-		"#text3": "animated bounceInRight",
+		".wsfadeInDown": "animated fadeInDown",
+		".wsfadeInDownBig": "animated fadeInDownBig",
+		".wsbounceInRight": "animated bounceInRight",
 	});
 });
 
