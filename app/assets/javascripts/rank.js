@@ -3,7 +3,7 @@ var Rank = function(){
   var options = {
 	bgcolor1: "#f8f8f8",
 	color1: "#ccc",
-	bgcolor2: "#f9a",
+	bgcolor2: "#f44336",
 	color2: "#fff",
     pos: 0
   };

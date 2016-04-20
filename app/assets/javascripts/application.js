@@ -121,6 +121,9 @@ function init_food_rank() {
 jQuery(document).ready(function() {
   init_food_rank();
 });
+jQuery(document).on("page:load", function() {
+  init_food_rank();
+});
 jQuery(document).on("page:change", function() {
   init_food_rank();
 });

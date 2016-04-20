@@ -9,14 +9,16 @@
   
   	  <div class="col-md-8 info">
         <p class="name"><%= food.name %></p>
-	    <p class="stars">
-	      <% 3.downto 1 do %>
+
+	    <div class="stars">
+	      <span class="spec name">星级:</span> 
+	      <% food.food_remarks.average(:star).to_i.downto 1 do %>
             <span class="button star glyphicon glyphicon-star"></span>
 	      <% end %>
-	      <% 3.upto 4 do %>
+	      <% food.food_remarks.average(:star).to_i.upto 4 do %>
             <span class="button star-empty glyphicon glyphicon-star"></span>
 	      <% end %>
-	    </p>
+	    </div>
 
 	    <p class="price">
 	      <%= render partial: "/foods/food_price", locals: {food: food} %>
