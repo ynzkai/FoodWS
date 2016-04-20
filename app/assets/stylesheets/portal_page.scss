@@ -22,10 +22,10 @@
 		padding-top: 90px;
 	}
 	#banner1 {
-		background-color: #EF6C00;
+		background-color: #FBE9E7;
 		h1 {
 			font-size: 4em;
-			color: $color-white;
+			color: $brand-primary;
 		}
 		.sign-in {
 			background-color: $brand-secondary;
@@ -36,17 +36,17 @@
 		}
 	}
 	#banner2 {
-		background-color: #8BC34A;
+		background-color: #FFF9C4;
 		h1 {
 			font-size: 4em;
-			color: $color-white;
+			color: $brand-primary;
 		}
 	}
 	#banner3 {
-		background-color: #FFEE58;
+		background-color: #E8F5E9;
 		h1 {
 			font-size: 4em;
-			color: $color-white;
+			color: $brand-primary;
 		}
 	}
 }

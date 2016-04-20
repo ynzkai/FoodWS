@@ -78,7 +78,8 @@ $(document).on("page:change", function() {
   var initTop = 0;
   $(document).scroll(function() {
 	var scrollTop = $(document).scrollTop();
-	if(scrollTop > initTop) {
+	//if(scrollTop > initTop) {
+	if(scrollTop > 99) {
 	  $(".headline").hide();
 	} else if($(window).width() > 992 ) {
 	  $(".headline").show();
